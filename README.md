@@ -30,3 +30,15 @@ Notes:
 ### How to Submit Your Work:
 **You must submit thru UBlearns; I've posted here just for your reference**
 - Provide the 3 links to your repositories before Tuesday's class.
+
+
+---
+
+## Assignment 2
+
+We will be controlling robots with Python. It is good practice to use "virtual environments" when installing Python packages for various projects.
+
+Because everyone's laptop is a little different, I can't provide a one-size-fits-all guide for this; you'll need to do some searching to find out how best to set things up on your machine.
+
+If you encounter any issues, please post them to https://github.com/IE-482-582/spring2026/issues/1
+- Do not email the instructor/TA; post to the issue tracker.
