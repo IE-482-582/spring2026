@@ -1,0 +1,26 @@
+# Ignore .DS_Store files
+*.DS_Store
+
+# Ignore files starting with zzz_
+zzz_*
+
+**/.ipynb_checkpoints
+**/*.pyc
+
+**/__pycache__
+**/log
+**/params/**
+**/sitl/params/parameters_*
+**/parameters_*
+
+**/*.bag
+**/*.mp4
+**/*.avi
+**/*.mov
+
+**/gurobi.log
+
+**/.vscode
+
+**/venvs/**
+
