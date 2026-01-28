@@ -5,6 +5,7 @@ import threading
 import os, platform, sys
 import math
 from collections import deque
+from pathlib import Path
 
 import ub_utils				# A bunch of (somewhat) helpful functions and variables
 
@@ -48,6 +49,10 @@ except Exception as e:
 
 '''
 import ub_camera
+camera = ub_camera.CameraUSB(paramDict={'res_rows':480, 'res_cols':640, 'fps_target':30, 'outputPort':8000})
+camera.startStream(port=8000)
+# Visit https://localhost:8000/stream.mjpg
+
 
 camera = ub_camera.CameraPi(paramDict={'res_rows':480, 'res_cols':640, 'fps_target':30, 'outputPort':8000}, initROSnode=False)
 camera = ub_camera.CameraUSB(paramDict={'res_rows':480, 'res_cols':640, 'fps_target':30, 'outputPort':8000}, initROSnode=False)
@@ -1260,27 +1265,44 @@ class _Ultralytics():
 				'keypoints': [], 'keypoints_conf': [],  
 				'masks_data': [], 'masks_xy': []}
 
+	def _to_np(self, x):
+		'''
+		Converts Cuda tensor to numpy array
+		Tensor -> NumPy on CPU; passthrough for NumPy arrays.
+		'''			
+		if isinstance(x, np.ndarray):
+			return x
+		else:
+			return x.detach().cpu().numpy()
+		
+		# I'm trying to avoid importing torch	
+		# if isinstance(x, torch.Tensor):
+		#	return x.detach().cpu().numpy()
+
+		raise TypeError(f"Unsupported type: {type(x)}")
+		
+		
 	def _processResults(self, results):
 		dequeInfo = self._initDeque()
 
 		np_res  = np.array([self.res_cols, self.res_rows])
 		np_res2 = np.array([self.res_cols, self.res_rows, self.res_cols, self.res_rows])
 		 
-		if results[0].boxes is not None:
+		if results[0].boxes is not None:		
 			bx = results[0].boxes 
-			dequeInfo['xywh'] = (bx.xywhn*(np_res2)).int().tolist()
+			dequeInfo['xywh'] = (self._to_np(bx.xywhn)*(np_res2)).astype(int).tolist()
 			# dequeInfo['xywhn'] = bx.xywhn.tolist()
 			# dequeInfo['xywhr'] = []
-			dequeInfo['xyxy'] = (bx.xyxyn*(np_res2)).int().tolist()
+			dequeInfo['xyxy'] = (self._to_np(bx.xyxyn)*(np_res2)).astype(int).tolist()
 			# dequeInfo['xyxyn'] = bx.xyxyn.tolist()
 			# dequeInfo['xyxyxyxy'] = []
 		elif results[0].obb is not None:
 			bx = results[0].obb
 			# dequeInfo['xywh'] = []
-			dequeInfo['xywhr'] = bx.xywhr.tolist()    # This is the center point of obb, in original resolution
+			dequeInfo['xywhr'] = self._to_np(bx.xywhr).tolist()    # This is the center point of obb, in original resolution
 			# dequeInfo['xywhrn'] = bx.xywhrn.tolist()  # There's no such thing as `xywhrn` 
 			# dequeInfo['xyxy'] = []
-			dequeInfo['xyxyxyxy'] = (bx.xyxyxyxyn*(np_res)).int().tolist()
+			dequeInfo['xyxyxyxy'] = (self._to_np(bx.xyxyxyxyn)*(np_res)).astype(int).tolist()
 			# dequeInfo['xyxyxyxyn'] = bx.xyxyxyxyn.tolist()
 
 		else:
@@ -1295,13 +1317,13 @@ class _Ultralytics():
 			dequeInfo['xyxy'] = []
 			dequeInfo['xyxyxyxy'] = []
 			'''
-			
+						
 		if bx is not None:
 			dequeInfo['class'] = [results[0].names.get(key) for key in bx.cls.tolist()]
 			dequeInfo['class_conf'] = bx.conf.tolist()
 			dequeInfo['is_track'] = bx.is_track 
 			dequeInfo['id'] = bx.id.tolist() if bx.id is not None else []
-
+		
 		if (results[0].keypoints is not None):
 			# dequeInfo['keypoints'] = results[0].keypoints.xyn.tolist() if results[0].keypoints.xyn is not None else []
 			# dequeInfo['keypoints'] = (results[0].keypoints.xyn*np_res).int().tolist() if results[0].keypoints.xyn is not None else []
@@ -1319,7 +1341,7 @@ class _Ultralytics():
 		# else:
 		#	dequeInfo['masks_data'] = [] 
 		#	dequeInfo['masks_xy'] = []
-						
+		
 		return(dequeInfo)
 		
 	def _thread_Ultralytics(self):
