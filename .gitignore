@@ -18,6 +18,8 @@ zzz_*
 **/*.avi
 **/*.mov
 
+**/*.pt
+
 **/gurobi.log
 
 **/.vscode

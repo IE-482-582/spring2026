@@ -5,6 +5,7 @@ import threading
 import os, platform, sys
 import math
 from collections import deque
+from pathlib import Path
 
 import ub_utils				# A bunch of (somewhat) helpful functions and variables
 
@@ -48,6 +49,10 @@ except Exception as e:
 
 '''
 import ub_camera
+camera = ub_camera.CameraUSB(paramDict={'res_rows':480, 'res_cols':640, 'fps_target':30, 'outputPort':8000})
+camera.startStream(port=8000)
+# Visit https://localhost:8000/stream.mjpg
+
 
 camera = ub_camera.CameraPi(paramDict={'res_rows':480, 'res_cols':640, 'fps_target':30, 'outputPort':8000}, initROSnode=False)
 camera = ub_camera.CameraUSB(paramDict={'res_rows':480, 'res_cols':640, 'fps_target':30, 'outputPort':8000}, initROSnode=False)
@@ -973,6 +978,8 @@ class _Timelapse():
 			print('Directory {} does not exist.  Making it now.'.format(self.outputDir))            
 			os.makedirs(self.outputDir, exist_ok=True)
 		
+		startTime = time.time()
+		
 		self.isThreadActive = True
 
 		while self.camObject.camOn:
@@ -1008,9 +1015,14 @@ class _Timelapse():
 			delta = max(0, timeNow + self.threadSleep - time.time())
 			if (delta > 0):
 				time.sleep(delta)
-				
-			# FIXME -- Check for hitting time limit	
-				
+								
+			# Check for hitting time limit	
+			if (self.timeLimitSec is not None):
+				if ((time.time() - startTime) >= self.timeLimitSec):
+					self.stop()
+					self.camObject.logger.log(f'Stopping Timelapse {self.idName} thread; time limit reached', severity=ub_utils.SEVERITY_INFO)
+					break
+			
 		# If while loop stops, shut down timelapse:
 		self.stop()
 		
@@ -1260,27 +1272,44 @@ class _Ultralytics():
 				'keypoints': [], 'keypoints_conf': [],  
 				'masks_data': [], 'masks_xy': []}
 
+	def _to_np(self, x):
+		'''
+		Converts Cuda tensor to numpy array
+		Tensor -> NumPy on CPU; passthrough for NumPy arrays.
+		'''			
+		if isinstance(x, np.ndarray):
+			return x
+		else:
+			return x.detach().cpu().numpy()
+		
+		# I'm trying to avoid importing torch	
+		# if isinstance(x, torch.Tensor):
+		#	return x.detach().cpu().numpy()
+
+		raise TypeError(f"Unsupported type: {type(x)}")
+		
+		
 	def _processResults(self, results):
 		dequeInfo = self._initDeque()
 
 		np_res  = np.array([self.res_cols, self.res_rows])
 		np_res2 = np.array([self.res_cols, self.res_rows, self.res_cols, self.res_rows])
 		 
-		if results[0].boxes is not None:
+		if results[0].boxes is not None:		
 			bx = results[0].boxes 
-			dequeInfo['xywh'] = (bx.xywhn*(np_res2)).int().tolist()
+			dequeInfo['xywh'] = (self._to_np(bx.xywhn)*(np_res2)).astype(int).tolist()
 			# dequeInfo['xywhn'] = bx.xywhn.tolist()
 			# dequeInfo['xywhr'] = []
-			dequeInfo['xyxy'] = (bx.xyxyn*(np_res2)).int().tolist()
+			dequeInfo['xyxy'] = (self._to_np(bx.xyxyn)*(np_res2)).astype(int).tolist()
 			# dequeInfo['xyxyn'] = bx.xyxyn.tolist()
 			# dequeInfo['xyxyxyxy'] = []
 		elif results[0].obb is not None:
 			bx = results[0].obb
 			# dequeInfo['xywh'] = []
-			dequeInfo['xywhr'] = bx.xywhr.tolist()    # This is the center point of obb, in original resolution
+			dequeInfo['xywhr'] = self._to_np(bx.xywhr).tolist()    # This is the center point of obb, in original resolution
 			# dequeInfo['xywhrn'] = bx.xywhrn.tolist()  # There's no such thing as `xywhrn` 
 			# dequeInfo['xyxy'] = []
-			dequeInfo['xyxyxyxy'] = (bx.xyxyxyxyn*(np_res)).int().tolist()
+			dequeInfo['xyxyxyxy'] = (self._to_np(bx.xyxyxyxyn)*(np_res)).astype(int).tolist()
 			# dequeInfo['xyxyxyxyn'] = bx.xyxyxyxyn.tolist()
 
 		else:
@@ -1295,13 +1324,13 @@ class _Ultralytics():
 			dequeInfo['xyxy'] = []
 			dequeInfo['xyxyxyxy'] = []
 			'''
-			
+						
 		if bx is not None:
 			dequeInfo['class'] = [results[0].names.get(key) for key in bx.cls.tolist()]
 			dequeInfo['class_conf'] = bx.conf.tolist()
 			dequeInfo['is_track'] = bx.is_track 
 			dequeInfo['id'] = bx.id.tolist() if bx.id is not None else []
-
+		
 		if (results[0].keypoints is not None):
 			# dequeInfo['keypoints'] = results[0].keypoints.xyn.tolist() if results[0].keypoints.xyn is not None else []
 			# dequeInfo['keypoints'] = (results[0].keypoints.xyn*np_res).int().tolist() if results[0].keypoints.xyn is not None else []
@@ -1319,7 +1348,7 @@ class _Ultralytics():
 		# else:
 		#	dequeInfo['masks_data'] = [] 
 		#	dequeInfo['masks_xy'] = []
-						
+		
 		return(dequeInfo)
 		
 	def _thread_Ultralytics(self):
@@ -1747,7 +1776,12 @@ class Camera():
 				self.logger.log('Error in addTimelapse: outputDir is None', severity=ub_utils.SEVERITY_ERROR)
 				return
 			
-			# self.timelapse is a dictionary.  We'll limit ourselves to just 1 barcode thread. though.
+			if (timeLimitSec is not None):
+				if (timeLimitSec <= 0):
+					self.logger.log('Error in addTimelapse: timeLimitSec must be None or a positive number.', severity=ub_utils.SEVERITY_ERROR)
+					return
+
+			# self.timelapse is a dictionary.  We'll limit ourselves to just 1 timelapse thread, though.
 			idName = 'default'
 			
 			res_rows  = self.defaultFromNone(res_rows,  self.res_rows,   int)
@@ -1757,7 +1791,7 @@ class Camera():
 			self.timelapse[idName].start() 
 
 		except Exception as e:
-			self.logger.log(f'Error in addBarcode: {e}.', severity=ub_utils.SEVERITY_ERROR)
+			self.logger.log(f'Error in addTimelapse: {e}.', severity=ub_utils.SEVERITY_ERROR)
 		
 
 	def addUltralytics(self, idName=None, res_rows=None, res_cols=None, fps_target=None, postFunction=None, postFunctionArgs={}, color=(0,255,255), conf_threshold=0.25, model_name=None, verbose=False, drawBox=None, drawLabel=None, maskOutline=False):
@@ -2263,11 +2297,11 @@ class Camera():
 			if (not os.path.exists(path)):
 				print(f'Directory {path} does not exist.  Making it now.')            
 				os.makedirs(path, exist_ok=True)
-					
-			print(myNumpyArray)
-			print(pathAndFile)
-					
+										
 			cv2.imwrite(f'{pathAndFile}', myNumpyArray)
+
+			# print(myNumpyArray)
+			print(f'Saved image: {pathAndFile}')
 			
 			return (path, filename)
 			
