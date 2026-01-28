@@ -978,6 +978,8 @@ class _Timelapse():
 			print('Directory {} does not exist.  Making it now.'.format(self.outputDir))            
 			os.makedirs(self.outputDir, exist_ok=True)
 		
+		startTime = time.time()
+		
 		self.isThreadActive = True
 
 		while self.camObject.camOn:
@@ -1013,9 +1015,14 @@ class _Timelapse():
 			delta = max(0, timeNow + self.threadSleep - time.time())
 			if (delta > 0):
 				time.sleep(delta)
-				
-			# FIXME -- Check for hitting time limit	
-				
+								
+			# Check for hitting time limit	
+			if (self.timeLimitSec is not None):
+				if ((time.time() - startTime) >= self.timeLimitSec):
+					self.stop()
+					self.camObject.logger.log(f'Stopping Timelapse {self.idName} thread; time limit reached', severity=ub_utils.SEVERITY_INFO)
+					break
+			
 		# If while loop stops, shut down timelapse:
 		self.stop()
 		
@@ -1769,7 +1776,12 @@ class Camera():
 				self.logger.log('Error in addTimelapse: outputDir is None', severity=ub_utils.SEVERITY_ERROR)
 				return
 			
-			# self.timelapse is a dictionary.  We'll limit ourselves to just 1 barcode thread. though.
+			if (timeLimitSec is not None):
+				if (timeLimitSec <= 0):
+					self.logger.log('Error in addTimelapse: timeLimitSec must be None or a positive number.', severity=ub_utils.SEVERITY_ERROR)
+					return
+
+			# self.timelapse is a dictionary.  We'll limit ourselves to just 1 timelapse thread, though.
 			idName = 'default'
 			
 			res_rows  = self.defaultFromNone(res_rows,  self.res_rows,   int)
@@ -1779,7 +1791,7 @@ class Camera():
 			self.timelapse[idName].start() 
 
 		except Exception as e:
-			self.logger.log(f'Error in addBarcode: {e}.', severity=ub_utils.SEVERITY_ERROR)
+			self.logger.log(f'Error in addTimelapse: {e}.', severity=ub_utils.SEVERITY_ERROR)
 		
 
 	def addUltralytics(self, idName=None, res_rows=None, res_cols=None, fps_target=None, postFunction=None, postFunctionArgs={}, color=(0,255,255), conf_threshold=0.25, model_name=None, verbose=False, drawBox=None, drawLabel=None, maskOutline=False):
@@ -2285,11 +2297,11 @@ class Camera():
 			if (not os.path.exists(path)):
 				print(f'Directory {path} does not exist.  Making it now.')            
 				os.makedirs(path, exist_ok=True)
-					
-			print(myNumpyArray)
-			print(pathAndFile)
-					
+										
 			cv2.imwrite(f'{pathAndFile}', myNumpyArray)
+
+			# print(myNumpyArray)
+			print(f'Saved image: {pathAndFile}')
 			
 			return (path, filename)
 			
