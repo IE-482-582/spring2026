@@ -1687,9 +1687,9 @@ class Camera():
 
 			configDict = configDefaults
 			for k,v in configOverrides:
-				configDict[key] = v
+				configDict[k] = v
 				if ('Color' in k):
-					configDict[key] = self.defaultFromNone(v, ub_utils.ARUCO_DICT[idName]['color'], None)
+					configDict[k] = self.defaultFromNone(v, ub_utils.ARUCO_DICT[idName]['color'], None)
 					
 			res_rows  = self.defaultFromNone(res_rows,  self.res_rows,   int)
 			res_cols  = self.defaultFromNone(res_cols,  self.res_cols,   int)
@@ -1917,7 +1917,7 @@ class Camera():
 		with self.condition:
 			self.condition.wait(timeout)
 
-		return getFrameCopy(colorOption=colorOption, resOption=resOption)	
+		return self.getFrameCopy(colorOption=colorOption, resOption=resOption)	
 		 
 				
 	def getFrameCopy(self, colorOption=None, resOption=None):
