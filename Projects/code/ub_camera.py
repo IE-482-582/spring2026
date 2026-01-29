@@ -501,11 +501,12 @@ class _Calibrate():
 		objp *= self.square_size
 		
 		# Initialize return values
-		success    = False
-		mtx        = []
-		dist       = []
-		mean_error = -1
-			
+		success     = False
+		mtx         = []
+		dist        = []
+		total_error = -1
+		mean_error  = -1
+
 		img_x_y  = (self.res_cols, self.res_rows)
 		orig_x_y = (self.camObject.res_cols, self.camObject.res_rows)
 		if (img_x_y == orig_x_y):
