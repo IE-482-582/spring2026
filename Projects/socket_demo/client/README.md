@@ -310,7 +310,7 @@ python server_secure.py --public
 
 ```bash
 cd client/scripts
-python3 client.py
+python client.py --host-ip HOST_IP --host-port HOST_PORT --client-ip CLIENT_IP --client-port CLIENT_PORT
 ```
 
 Then open a browser to `https://localhost:8080` (or the LAN IP shown at startup)

@@ -27,3 +27,6 @@ zzz_*
 **/venvs/**
 
 **/client/html/ssl/ca.*
+
+# Ignore user-specific versions of python client:
+**/client/scripts/client_*.py
