@@ -131,8 +131,12 @@ class Main:
 
 		# Connect to the socket servers
 		try:
-			sio_host.connect(f'https://{self.host_ip}:{self.host_port}?role=user', transports=['websocket'])
-			print('my host sid is', sio_host.get_sid())
+			if ((self.host_ip is None) or (self.host_port is None)):
+				print('Not attempting host connection: No host IP/Port specified.')
+			else:	
+				sio_host.connect(f'https://{self.host_ip}:{self.host_port}?role=user', transports=['websocket'])
+				print('my host sid is', sio_host.get_sid())
+				
 		except Exception as e:
 			print(f'Could not connect to host socket: {e}')
 
@@ -194,26 +198,38 @@ class Main:
 			category = msg[0]
 			data = msg[1]
 			
-			print(f'FIXME data: {data=}')
+			print(f'cam_control data: {data=}')
 			
 			if (category == "arucoStart"):	
 				camID = data['camID']
 				idName = data['tagType']
 				fps_target = data['framerate']
 				
-						
+				# Add a circle at (center_x, center_y) with radius 50
+				center_x = int(self.camera[camID].res_cols/2)
+				center_y = int(self.camera[camID].res_rows/2)
+				self.cid, self.circle_params = self.camera[camID].addCircle(center=(center_x, center_y), radius=50, thickness=3, color=(150, 25, 25))
+		
 				if (data['action'] == 'track'):	
 					postFunction = self.arucoMoveCamera
+
+					if (len(data['trackID']) == 0):
+						self.pubNotice("You must specify an ID to track.")
+						return
+
 					ids_of_interest = [int(data['trackID'])]
 					idToTrack = data['trackID']
 					postFunctionArgs={'camID': camID, 'idName': idName, 'idToTrack': idToTrack}
 				elif (data['action'] == 'id'):
 					# Just show the IDs on the video feed
 					postFunction = self.arucoShowIDs
-					ids_of_interest = None  # None really means all
+
+					if (len(data['trackID']) > 0):
+						ids_of_interest = [int(data['trackID'])]
+					else:
+						ids_of_interest = None  # None really means all
+
 					postFunctionArgs={'camID': camID, 'idName': idName}
-					
-					print(f'FIXME: {camID=}, {idName=}')
 				else:
 					self.pubNotice(f"Unknown aruco action: {data['action']}")
 					return
@@ -236,6 +252,9 @@ class Main:
 
 				self.pubNotice(f'ArUco monitoring stopped on camID {camID} for {idName}')
 				
+				# Turn off the aruco target circle:
+				self.camera[camID].removeDecoration(self.cid)
+
 			elif (category == "barcodeStart"):
 				camID = data['camID']
 				fps_target = data['framerate']
@@ -458,13 +477,46 @@ class Main:
 
 	def arucoShowIDs(self, argsDict):
 		# This function gets called each time an aruco detection is run
+		'''
+		NOTE:
+		There's really nothing to do here, as the "show IDs" functionality
+		is simply to draw the tag outlines on the video feed 
+		(which the ArUco code already does).
+		We're temporarily using this function to test our ability to
+		determine the pixel offsets between our detected tag and the 
+		center of the camera image.
+		'''
 		camID  = argsDict['camID']
 		idName = argsDict['idName']
 
-		# There's really nothing to do here.
-		# print(camID, idName)
-		print(self.camera[camID].aruco[idName].deque[0]['corners'])
-		
+		centers = self.camera[camID].aruco[idName].deque[0]['centers']
+		for i in range(len(centers)):
+			# print(f"id = {self.camera[camID].aruco[idName].deque[0]['ids'][i]}, x = {centers[i][0]}, y = {centers[i][1]}")
+			# Instead of simply printing the info to terminal, 
+			# publish to "notices" topic so it displays on Web page (and the terminal):
+			self.pubNotice(f"id = {self.camera[camID].aruco[idName].deque[0]['ids'][i]}, x = {centers[i][0]}, y = {centers[i][1]}, error_x = ???, error_y = ???")
+							
+			'''
+			TODO
+			1. Calculate the error between the ArUco tag center and the center of 
+			   the image (in both the x and y directions).  
+			   - Display the calculated errors in the `pubNotice` message above.
+			2. Color-code our target circle.  If our ArUco tag is within the 
+			   circle, color the circle green; otherwise, color it red.
+			   `self.circle_params['color'] = (BLUECOLOR, GREENCOLOR, REDCOLOR)`
+			   - See sample code below.
+			   - See http://github.com/optimatorlab/ub_code?tab=readme-ov-file#circle-and-text-overlays for more details.
+			       - How to know the radius of the target circle?
+			'''
+
+			# Incomplete logic to color the target circle based 
+			# solely on x-axis location:
+			if (centers[i][0] > self.camera[camID].res_cols/2):
+				self.circle_params['color'] = (0, 0, 255) 
+			else:
+				self.circle_params['color'] = (0, 255, 0)
+
+			
 	def arucoMoveCamera(self, argsDict):
 		# This function gets called each time an aruco detection is run
 		camID     = argsDict['camID']
@@ -563,10 +615,6 @@ class Main:
 								 device=data['cameraURL'],
 								 sslPath=LOCAL_SSL_PATH,
 								 intrinsics=data['intrinsics'])
-				print(f'FIXME! cam_port: {self.cam_port}')
-
-			for camID in self.camera:
-				print(f'{camID=}')
 
 		except Exception as e:
 			self.pubNotice(f'Error in callback_sessionstart: {e}')
@@ -607,7 +655,9 @@ class Main:
 						 'outputPort': self.camera[camID].outputPort, 
 						 'url': f'https://{self.client_ip}:{self.camera[camID].outputPort}/stream.mjpg', 
 						 'streaming': self.camera[camID].keepStreaming})
-		print(data)
+		if (len(data) > 0):
+			print(data)
+		
 		sio_client.emit('camStatus', data)
 		
 	def startCamera(self, camID, outputPort, apiPref, device, sslPath=None, intrinsics=None, res_cols=640, res_rows=480):
