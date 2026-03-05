@@ -205,8 +205,9 @@ class Main:
 				if (data['action'] == 'track'):	
 					postFunction = self.arucoMoveCamera
 					ids_of_interest = [int(data['trackID'])]
-					idToTrack = data['trackID']
+					idToTrack = int(data['trackID'])
 					postFunctionArgs={'camID': camID, 'idName': idName, 'idToTrack': idToTrack}
+
 				elif (data['action'] == 'id'):
 					# Just show the IDs on the video feed
 					postFunction = self.arucoShowIDs
@@ -486,14 +487,16 @@ class Main:
 
 				error_x = self.camera[camID].res_cols/2 - centers[i][0]  # > 0 --> we want to rotate left 
 				if (abs(error_x) > 5):
-					# Servo moves LEFT as angle INCREASES
-					cmd['arm_shoulder_pan_joint'] = self.joint[robotID]['arm_shoulder_pan_joint']['angle_deg'] + error_x/25
+					# Servo moves LEFT as angle INCREASES # Camera 640*480
+					pan_ang = self.joint[robotID]['arm_shoulder_pan_joint']['angle_deg']
+					cmd['arm_shoulder_pan_joint'] = joint_ang + error_x*(20.7/320) # max error = 320 these pixels map to 20.7degrees
 					cmd['arm_shoulder_pan_joint'] = min(max(cmd['arm_shoulder_pan_joint'], self.joint[robotID]['arm_shoulder_pan_joint']['min_angle']), self.joint[robotID]['arm_shoulder_pan_joint']['max_angle'])
 				
 				error_y = centers[i][1] - self.camera[camID].res_rows/2  # > 0 --> we want to move down
 				if (abs(error_y) > 5):
 					# Servo moves DOWN as angle INCREASES
-					cmd['arm_shoulder_lift_joint'] = self.joint[robotID]['arm_shoulder_lift_joint']['angle_deg'] + error_y/30
+					lift_ang = jointself.joint[robotID]['arm_shoulder_lift_joint']['angle_deg']
+					cmd['arm_shoulder_lift_joint'] = lift_ang + error_y*(15.8/240)
 				
 				if (len(cmd) > 0):
 					# print(cmd)
