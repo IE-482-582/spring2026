@@ -462,10 +462,34 @@ class Main:
 		camID  = argsDict['camID']
 		idName = argsDict['idName']
 
-		# There's really nothing to do here.
-		# print(camID, idName)
-		print(self.camera[camID].aruco[idName].deque[0]['corners'])
-		
+		centers = self.camera[camID].aruco[idName].deque[0]['centers']
+		for i in range(len(centers)):
+			# print(f"id = {self.camera[camID].aruco[idName].deque[0]['ids'][i]}, x = {centers[i][0]}, y = {centers[i][1]}")
+			# Instead of simply printing the info to terminal, 
+			# publish to "notices" topic so it displays on Web page (and the terminal):
+			self.pubNotice(f"id = {self.camera[camID].aruco[idName].deque[0]['ids'][i]}, x = {centers[i][0]}, y = {centers[i][1]}, error_x ={self.camera[camID].res_cols/2 - centers[i][0]}, error_y = {centers[i][1] - self.camera[camID].res_rows/2}")
+							
+			'''
+			TODO
+			1. Calculate the error between the ArUco tag center and the center of 
+			   the image (in both the x and y directions).  
+			   - Display the calculated errors in the `pubNotice` message above.
+			2. Color-code our target circle.  If our ArUco tag is within the 
+			   circle, color the circle green; otherwise, color it red.
+			   `self.circle_params['color'] = (BLUECOLOR, GREENCOLOR, REDCOLOR)`
+			   - See sample code below.
+			   - See http://github.com/optimatorlab/ub_code?tab=readme-ov-file#circle-and-text-overlays for more details.
+			       - How to know the radius of the target circle?
+			'''
+
+			# Incomplete logic to color the target circle based 
+			# solely on x-axis location:
+			if (centers[i][0] > self.camera[camID].res_cols/2):
+				self.circle_params['color'] = (0, 0, 255) 
+			else:
+				self.circle_params['color'] = (0, 255, 0)
+
+			
 	def arucoMoveCamera(self, argsDict):
 		# This function gets called each time an aruco detection is run
 		camID     = argsDict['camID']
