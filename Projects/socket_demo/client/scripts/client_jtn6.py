@@ -131,8 +131,12 @@ class Main:
 
 		# Connect to the socket servers
 		try:
-			sio_host.connect(f'https://{self.host_ip}:{self.host_port}?role=user', transports=['websocket'])
-			print('my host sid is', sio_host.get_sid())
+			if ((self.host_ip is None) or (self.host_port is None)):
+				print('Not attempting host connection: No host IP/Port specified.')
+			else:	
+				sio_host.connect(f'https://{self.host_ip}:{self.host_port}?role=user', transports=['websocket'])
+				print('my host sid is', sio_host.get_sid())
+				
 		except Exception as e:
 			print(f'Could not connect to host socket: {e}')
 
@@ -194,26 +198,38 @@ class Main:
 			category = msg[0]
 			data = msg[1]
 			
-			print(f'FIXME data: {data=}')
+			print(f'cam_control data: {data=}')
 			
 			if (category == "arucoStart"):	
 				camID = data['camID']
 				idName = data['tagType']
 				fps_target = data['framerate']
 				
-						
+				# Add a circle at (center_x, center_y) with radius 50
+				center_x = int(self.camera[camID].res_cols/2)
+				center_y = int(self.camera[camID].res_rows/2)
+				self.cid, self.circle_params = self.camera[camID].addCircle(center=(center_x, center_y), radius=50, thickness=3, color=(150, 25, 25))
+		
 				if (data['action'] == 'track'):	
 					postFunction = self.arucoMoveCamera
+
+					if (len(data['trackID']) == 0):
+						self.pubNotice("You must specify an ID to track.")
+						return
+
 					ids_of_interest = [int(data['trackID'])]
 					idToTrack = data['trackID']
 					postFunctionArgs={'camID': camID, 'idName': idName, 'idToTrack': idToTrack}
 				elif (data['action'] == 'id'):
 					# Just show the IDs on the video feed
 					postFunction = self.arucoShowIDs
-					ids_of_interest = None  # None really means all
+
+					if (len(data['trackID']) > 0):
+						ids_of_interest = [int(data['trackID'])]
+					else:
+						ids_of_interest = None  # None really means all
+
 					postFunctionArgs={'camID': camID, 'idName': idName}
-					
-					print(f'FIXME: {camID=}, {idName=}')
 				else:
 					self.pubNotice(f"Unknown aruco action: {data['action']}")
 					return
@@ -236,6 +252,9 @@ class Main:
 
 				self.pubNotice(f'ArUco monitoring stopped on camID {camID} for {idName}')
 				
+				# Turn off the aruco target circle:
+				self.camera[camID].removeDecoration(self.cid)
+
 			elif (category == "barcodeStart"):
 				camID = data['camID']
 				fps_target = data['framerate']
@@ -461,10 +480,41 @@ class Main:
 		camID  = argsDict['camID']
 		idName = argsDict['idName']
 
-		# There's really nothing to do here.
-		# print(camID, idName)
-		print(self.camera[camID].aruco[idName].deque[0]['corners'])
-		
+		# Camera field of view (degrees)
+		H_FOV_DEG = 41.4   # horizontal
+		V_FOV_DEG = 31.6   # vertical
+
+		# Image center (pixels)
+		center_x = self.camera[camID].res_cols / 2
+		center_y = self.camera[camID].res_rows / 2
+
+		centers = self.camera[camID].aruco[idName].deque[0]['centers']
+		for i in range(len(centers)):
+			# Pixel error: positive = tag is RIGHT of / BELOW center
+			error_x_px = centers[i][0] - center_x
+			error_y_px = centers[i][1] - center_y
+
+			# Convert pixel error to degrees using the camera FOV
+			error_x_deg = (error_x_px / self.camera[camID].res_cols) * H_FOV_DEG
+			error_y_deg = (error_y_px / self.camera[camID].res_rows) * V_FOV_DEG
+
+			self.pubNotice(
+				f"id = {self.camera[camID].aruco[idName].deque[0]['ids'][i]}, "
+				f"x = {centers[i][0]}, y = {centers[i][1]}, "
+				f"error_x = {error_x_px:.1f}px ({error_x_deg:.2f}°), "
+				f"error_y = {error_y_px:.1f}px ({error_y_deg:.2f}°)"
+			)
+
+			# Color-code the target circle:
+			#   GREEN — tag center is inside the circle radius
+			#   RED   — tag center is outside the circle radius
+			dist_to_center = ((error_x_px ** 2) + (error_y_px ** 2)) ** 0.5
+			if dist_to_center <= self.circle_params['radius']:
+				self.circle_params['color'] = (0, 255, 0)   # green: on target
+			else:
+				self.circle_params['color'] = (0, 0, 255)   # red: off target
+
+			
 	def arucoMoveCamera(self, argsDict):
 		# This function gets called each time an aruco detection is run
 		camID     = argsDict['camID']
@@ -563,16 +613,12 @@ class Main:
 								 device=data['cameraURL'],
 								 sslPath=LOCAL_SSL_PATH,
 								 intrinsics=data['intrinsics'])
-				print(f'FIXME! cam_port: {self.cam_port}')
-
-			for camID in self.camera:
-				print(f'{camID=}')
 
 		except Exception as e:
 			self.pubNotice(f'Error in callback_sessionstart: {e}')
 			
 	def callback_status(self, data):
-		# {'arm_shoulder_pan_joint': {'id': 1, 'neutral': 0, 'max_angle': 114, 'min_angle': 0, 'max_speed': 300, 'angle_deg': 88.18359375, 'OK': True, 'torque': False, 'angle_rad': 1.5390940571785934}, 'arm_shoulder_lift_joint': {'id': 2, 'neutral': 0, 'max_angle': 160, 'min_angle': 45, 'max_speed': 400, 'angle_deg': 146.48437500000003, 'OK': True, 'torque': False, 'angle_rad': 2.556634646476069}}
+		# {'arm_shoulder_pan_joint': {'id': 1, 'neutral': 0, 'max_angle': 114, 'min_angle': 0, 'max_speed': 300, 'angle_deg': 88.18359375, 'OK': True, 'torque': False, 'angle_rad': 2.556634646476069}}
 		'''
 		FIXME 1 -- I'm receiving this even when not using robot
 		FIXME 2 -- Need to do something with this data
@@ -607,7 +653,9 @@ class Main:
 						 'outputPort': self.camera[camID].outputPort, 
 						 'url': f'https://{self.client_ip}:{self.camera[camID].outputPort}/stream.mjpg', 
 						 'streaming': self.camera[camID].keepStreaming})
-		print(data)
+		if (len(data) > 0):
+			print(data)
+		
 		sio_client.emit('camStatus', data)
 		
 	def startCamera(self, camID, outputPort, apiPref, device, sslPath=None, intrinsics=None, res_cols=640, res_rows=480):
