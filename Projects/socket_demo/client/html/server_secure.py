@@ -193,26 +193,26 @@ wsgi_app = socketio.WSGIApp(sio, flask_app)
 
 # ── Entry point ───────────────────────────────────────────────────────────────
 if __name__ == '__main__':
-	ap = argparse.ArgumentParser(description='HTTPS + Socket.IO server.')
-	ap.add_argument('--port',   type=int,          default=8080,
-					help='Port to listen on (default: 8080).')
-	ap.add_argument('--public', action='store_true',
-					help='Listen on all interfaces (default: localhost only).')
-	args = ap.parse_args()
+    ap = argparse.ArgumentParser(description='HTTPS + Socket.IO server.')
+    ap.add_argument('--port',   type=int,          default=8080,
+                    help='Port to listen on (default: 8080).')
+    ap.add_argument('--public', action='store_true',
+                    help='Listen on all interfaces (default: localhost only).')
+    args = ap.parse_args()
 
-	lan_ip = _ensure_cert()
-	host   = '0.0.0.0' if args.public else 'localhost'
-	scope  = 'publicly' if args.public else 'locally'
+    lan_ip = _ensure_cert()
+    host   = '0.0.0.0' if args.public else 'localhost'
+    scope  = 'publicly' if args.public else 'locally'
 
-	port = ub_utils.findOpenPort(args.port, options=range(8080,8090))
-	print(f'Dev server running {scope}.  Connect to https://localhost:{port}/')
-	if args.public:
-		print(f'Also reachable at https://{lan_ip}:{port}/')
+    port = ub_utils.findOpenPort(args.port, options=range(8080,8090))
+    print(f'Dev server running {scope}.  Connect to https://localhost:{port}/')
+    if args.public:
+        print(f'Also reachable at https://{lan_ip}:{port}/')
 
-	server = pywsgi.WSGIServer(
-		(host, port), wsgi_app,
-		handler_class=WebSocketHandler,
-		keyfile=SSL_KEY,
-		certfile=SSL_CERT,
-	)
-	server.serve_forever()
+    server = pywsgi.WSGIServer(
+        (host, port), wsgi_app,
+        handler_class=WebSocketHandler,
+        keyfile=SSL_KEY,
+        certfile=SSL_CERT,
+    )
+    server.serve_forever()
