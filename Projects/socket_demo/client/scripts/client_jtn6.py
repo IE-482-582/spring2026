@@ -514,7 +514,7 @@ class Main:
 			else:
 				self.circle_params['color'] = (0, 0, 255)   # red: off target
 
-			
+				
 	def arucoMoveCamera(self, argsDict):
 		# This function gets called each time an aruco detection is run
 		camID     = argsDict['camID']
