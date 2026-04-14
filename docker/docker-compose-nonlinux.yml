@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  gazebo:
+    build: ./docker
+    container_name: gazebo_class
+    volumes:
+      - ./:/workspace
+    ports:
+      - "6080:80"
+    tty: true
+    stdin_open: true
