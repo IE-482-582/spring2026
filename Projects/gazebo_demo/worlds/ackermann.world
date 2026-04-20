@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<sdf version="1.10">
+  <world name="default">
+    <gravity>0 0 -9.8</gravity>
+
+    <scene>
+      <!-- Hide the reference grid overlay in the viewport -->
+      <grid>false</grid>
+
+      <!-- Enable shadow casting (works with directional lights below) -->
+      <shadows>true</shadows>
+
+      <!-- Scene-wide ambient fill light (RGBA, range 0-1).
+           Default is ~0.4; increase toward 1.0 for brighter fill,
+           decrease for a more dramatic, shadowed look. -->
+      <ambient>0.6 0.6 0.6 1</ambient>
+
+      <!-- Viewport background color, used as a fallback if the
+           procedural sky below is not supported by the renderer. -->
+      <background>0.4 0.6 0.9 1</background>
+
+      <!-- Procedural sky (Ogre2 / gz-sim Harmonic+).
+           Add child elements to customize, e.g.:
+             <time>10</time>        solar time of day (hours, 0-24)
+             <sunrise>6</sunrise>   hour of sunrise
+             <sunset>20</sunset>    hour of sunset
+             <clouds>
+               <speed>12</speed>    cloud drift speed (m/s)
+             </clouds>             -->
+      <sky/>
+    </scene>
+
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.9 0.9 0.9 1</diffuse>
+      <specular>0.3 0.3 0.3 1</specular>
+      <direction>-0.4 0.2 -1</direction>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <pose>0 0 -0.05 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>20 20 0.1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0 0 -0.05 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>20 20 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <!-- ambient/diffuse set to white so the PNG texture
+                 is displayed without any color tinting. -->
+            <ambient>1.0 1.0 1.0 1</ambient>
+            <diffuse>1.0 1.0 1.0 1</diffuse>
+            <!-- PBR albedo map: the gz-sim (Ogre2) way to apply a PNG
+                 texture.  The old Ogre1 .material script format is NOT
+                 XML and will cause a parse error if used here. -->
+            <pbr>
+              <metal>
+                <albedo_map>file:///workspace/Projects/gazebo_demo/worlds/course.png</albedo_map>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <include>
+      <uri>model://ackermann_car</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+
+    <plugin filename="gz-sim-physics-system"
+            name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-scene-broadcaster-system"
+            name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-sensors-system"
+            name="gz::sim::systems::Sensors"/>
+    <plugin filename="gz-sim-user-commands-system"
+            name="gz::sim::systems::UserCommands"/>
+  </world>
+</sdf>

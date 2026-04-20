@@ -1,12 +1,48 @@
 <sdf version="1.10">
   <world name="default">
 
+    <!-- Lighting -->
+    <light name="sun" type="directional">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <!-- Ground plane (defined inline; avoids dependency on model://ground_plane) -->
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.4 0.4 0.4 1</ambient>
+            <diffuse>0.4 0.4 0.4 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
     <include>
       <uri>model://pantilt</uri>
     </include>
 
     <include>
-      <uri>model://floating_plane</uri>
+      <uri>model://floating_image</uri>
     </include>
 
     <plugin filename="gz-sim-physics-system"
@@ -15,5 +51,7 @@
             name="gz::sim::systems::SceneBroadcaster"/>
     <plugin filename="gz-sim-sensors-system"
             name="gz::sim::systems::Sensors"/>
+    <plugin filename="gz-sim-user-commands-system"
+            name="gz::sim::systems::UserCommands"/>
   </world>
 </sdf>

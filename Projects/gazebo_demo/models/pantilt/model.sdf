@@ -1,41 +1,351 @@
 <?xml version="1.0" ?>
 <sdf version="1.10">
   <model name="pantilt">
-    <pose>0 0 0.5 0 0 0</pose>
+    <!--
+      Pan-tilt camera mount based on two Robotis Dynamixel AX-12A servos.
+
+      Coordinate system: +X = forward, +Y = right, +Z = up.
+
+      Physical layout (all dimensions in mm unless noted):
+        Base:          100(X) x 100(Y) x 63(Z) solid cube
+        Pan servo:     50(X) x 36(Y) x 35(Z); front face flush with base front (X=+50mm);
+                       horn at X=+35mm (35mm from back face), Y=0, Z=+98mm (top of servo)
+        Washer stack:  3 x Ø40mm x 1.5mm thick discs stacked on pan horn; Z: 98–102.5mm
+        Mount bracket: 35(X) x 36(Y) x 5(Z); Z: 102.5–107.5mm
+        Tilt servo:    35(X) x 36(Y) x 50(Z); Z: 107.5–157.5mm
+                       horn on side face (35x50mm), 35mm from bottom → joint at Z=142.5mm
+        U-bracket:     two 2mm-thick arms, 30mm long; camera centered at arm tips
+        Camera:        10(X depth) x 30(Y width) x 20(Z height) when facing forward
+
+      Kinematic chain:
+        base_link  (base cube + pan servo housing)
+            └── pan_joint  (revolute, Z axis)
+        pan_link   (washers + bracket + tilt servo housing)
+            └── tilt_joint  (revolute, Y axis)
+        tilt_link  (U-bracket + camera)
+
+      Tilt sign convention: positive tilt rotates camera DOWN (-Z direction);
+        negative tilt rotates camera UP (+Z direction). Adjust p_gain signs in
+        control code if needed.
+    -->
+
+    <pose>0 0 0 0 0 0</pose>
     <static>false</static>
 
-    <!-- Base -->
+    <!-- Fix the base to the world so the model doesn't fall under gravity.
+         base_link is anchored; pan_joint and tilt_joint still rotate freely. -->
+    <joint name="world_fixed" type="fixed">
+      <parent>world</parent>
+      <child>base_link</child>
+    </joint>
+
+    <!-- ================================================================
+         BASE LINK — base cube + pan servo housing (both fixed to world)
+         ================================================================ -->
     <link name="base_link">
       <inertial>
-        <mass>1</mass>
+        <mass>0.6</mass>
         <inertia>
-          <ixx>0.01</ixx><iyy>0.01</iyy><izz>0.01</izz>
+          <ixx>0.000582</ixx><ixy>0</ixy><ixz>0</ixz>
+          <iyy>0.000582</iyy><iyz>0</iyz>
+          <izz>0.000833</izz>
         </inertia>
       </inertial>
-      <visual name="visual">
+
+      <!-- Base: 100 x 100 x 63 mm, center at (0, 0, 31.5 mm) -->
+      <visual name="base_visual">
+        <pose>0 0 0.0315 0 0 0</pose>
         <geometry>
-          <box><size>0.1 0.1 0.05</size></box>
+          <box><size>0.100 0.100 0.063</size></box>
         </geometry>
+        <material>
+          <!-- Glossy black -->
+          <ambient>0.02 0.02 0.02 1</ambient>
+          <diffuse>0.02 0.02 0.02 1</diffuse>
+          <specular>0.8 0.8 0.8 1</specular>
+        </material>
       </visual>
+      <collision name="base_collision">
+        <pose>0 0 0.0315 0 0 0</pose>
+        <geometry>
+          <box><size>0.100 0.100 0.063</size></box>
+        </geometry>
+      </collision>
+
+      <!-- Pan servo body: 50(X) x 36(Y) x 35(Z) mm
+           Front face flush with base front at X=+50mm → center at X=+25mm
+           Sits on top of base: Z center = 63 + 35/2 = 80.5 mm -->
+      <visual name="pan_servo_visual">
+        <pose>0.025 0 0.0805 0 0 0</pose>
+        <geometry>
+          <box><size>0.050 0.036 0.035</size></box>
+        </geometry>
+        <material>
+          <!-- Matte black -->
+          <ambient>0.05 0.05 0.05 1</ambient>
+          <diffuse>0.05 0.05 0.05 1</diffuse>
+          <specular>0.08 0.08 0.08 1</specular>
+        </material>
+      </visual>
+      <collision name="pan_servo_collision">
+        <pose>0.025 0 0.0805 0 0 0</pose>
+        <geometry>
+          <box><size>0.050 0.036 0.035</size></box>
+        </geometry>
+      </collision>
     </link>
 
-    <!-- Pan -->
-    <link name="pan_link"/>
+    <!-- ================================================================
+         PAN JOINT — at pan servo horn center
+         X=+35mm (35mm from back face of pan servo), Y=0, Z=+98mm
+         ================================================================ -->
     <joint name="pan_joint" type="revolute">
+      <pose relative_to="base_link">0.035 0 0.098 0 0 0</pose>
       <parent>base_link</parent>
       <child>pan_link</child>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
-          <lower>-3.14</lower>
-          <upper>3.14</upper>
+          <lower>-3.14159</lower>
+          <upper>3.14159</upper>
         </limit>
+        <dynamics>
+          <damping>0.05</damping>
+        </dynamics>
       </axis>
     </joint>
 
-    <!-- Tilt -->
+    <!-- ================================================================
+         PAN LINK — washers + mount bracket + tilt servo housing
+         Link origin at pan_joint frame: world (0.035, 0, 0.098)
+         All child poses are relative to this origin.
+         ================================================================ -->
+    <link name="pan_link">
+      <pose relative_to="pan_joint">0 0 0 0 0 0</pose>
+      <inertial>
+        <mass>0.07</mass>
+        <inertia>
+          <ixx>0.000020</ixx><ixy>0</ixy><ixz>0</ixz>
+          <iyy>0.000020</iyy><iyz>0</iyz>
+          <izz>0.000012</izz>
+        </inertia>
+      </inertial>
+
+      <!-- Washer stack: 3 x Ø40mm x 1.5mm = 4.5mm total height
+           Modeled as one cylinder sitting directly on the pan horn (Z=0 in link frame).
+           Center at Z = +2.25mm -->
+      <visual name="washer_visual">
+        <pose>0 0 0.00225 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.020</radius>
+            <length>0.0045</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <!-- Metallic silver -->
+          <ambient>0.4 0.4 0.4 1</ambient>
+          <diffuse>0.5 0.5 0.5 1</diffuse>
+          <specular>0.7 0.7 0.7 1</specular>
+        </material>
+      </visual>
+      <collision name="washer_collision">
+        <pose>0 0 0.00225 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.020</radius>
+            <length>0.0045</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
+      <!-- Mount bracket: 35(X) x 36(Y) x 5(Z) mm
+           Sits on washer stack top (Z=+4.5mm). Center at Z = 4.5 + 2.5 = 7.0mm -->
+      <visual name="mount_bracket_visual">
+        <pose>0 0 0.0070 0 0 0</pose>
+        <geometry>
+          <box><size>0.035 0.036 0.005</size></box>
+        </geometry>
+        <material>
+          <!-- Matte black -->
+          <ambient>0.05 0.05 0.05 1</ambient>
+          <diffuse>0.05 0.05 0.05 1</diffuse>
+          <specular>0.08 0.08 0.08 1</specular>
+        </material>
+      </visual>
+      <collision name="mount_bracket_collision">
+        <pose>0 0 0.0070 0 0 0</pose>
+        <geometry>
+          <box><size>0.035 0.036 0.005</size></box>
+        </geometry>
+      </collision>
+
+      <!-- Tilt servo body: 35(X) x 36(Y) x 50(Z) mm
+           Sits on bracket top (Z=+9.5mm). Center at Z = 9.5 + 25 = 34.5mm -->
+      <visual name="tilt_servo_visual">
+        <pose>0 0 0.0345 0 0 0</pose>
+        <geometry>
+          <box><size>0.035 0.036 0.050</size></box>
+        </geometry>
+        <material>
+          <!-- Matte black -->
+          <ambient>0.05 0.05 0.05 1</ambient>
+          <diffuse>0.05 0.05 0.05 1</diffuse>
+          <specular>0.08 0.08 0.08 1</specular>
+        </material>
+      </visual>
+      <collision name="tilt_servo_collision">
+        <pose>0 0 0.0345 0 0 0</pose>
+        <geometry>
+          <box><size>0.035 0.036 0.050</size></box>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- ================================================================
+         TILT JOINT — at tilt servo horn center
+         Horn is 35mm from bottom of tilt servo.
+         Tilt servo bottom is 9.5mm above pan_link origin (107.5 - 98 = 9.5mm).
+         Joint Z in pan_link frame: 9.5 + 35 = 44.5mm
+         Joint is on the side face (Y axis of rotation).
+         ================================================================ -->
+    <joint name="tilt_joint" type="revolute">
+      <pose relative_to="pan_link">0 0 0.0445 0 0 0</pose>
+      <parent>pan_link</parent>
+      <child>tilt_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <!-- -90° = camera faces up; +90° = camera faces down -->
+          <lower>-1.5708</lower>
+          <upper>1.5708</upper>
+        </limit>
+        <dynamics>
+          <damping>0.03</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <!-- ================================================================
+         TILT LINK — U-bracket arms + crosspiece + camera
+         Link origin at tilt_joint frame.
+         At tilt=0 all +X offsets point forward in the world.
+         ================================================================ -->
     <link name="tilt_link">
+      <pose relative_to="tilt_joint">0 0 0 0 0 0</pose>
+      <inertial>
+        <mass>0.03</mass>
+        <inertia>
+          <ixx>0.000005</ixx><ixy>0</ixy><ixz>0</ixz>
+          <iyy>0.000008</iyy><iyz>0</iyz>
+          <izz>0.000008</izz>
+        </inertia>
+      </inertial>
+
+      <!-- U-bracket left arm (+Y side, flush with tilt servo left face at Y=+18mm)
+           30mm long (X), 2mm thick (Y), 10mm tall (Z)
+           Outer edge at Y=+20mm, inner edge flush with servo face at Y=+18mm → center Y=+19mm
+           Arm spans X: 0→30mm, center at X=+15mm -->
+      <visual name="u_bracket_arm_left_visual">
+        <pose>0.015 0.019 0 0 0 0</pose>
+        <geometry>
+          <box><size>0.030 0.002 0.010</size></box>
+        </geometry>
+        <material>
+          <!-- Gray bracket -->
+          <ambient>0.35 0.35 0.35 1</ambient>
+          <diffuse>0.35 0.35 0.35 1</diffuse>
+          <specular>0.25 0.25 0.25 1</specular>
+        </material>
+      </visual>
+      <collision name="u_bracket_arm_left_collision">
+        <pose>0.015 0.019 0 0 0 0</pose>
+        <geometry>
+          <box><size>0.030 0.002 0.010</size></box>
+        </geometry>
+      </collision>
+
+      <!-- U-bracket right arm (-Y side, flush with tilt servo right face at Y=-18mm) -->
+      <visual name="u_bracket_arm_right_visual">
+        <pose>0.015 -0.019 0 0 0 0</pose>
+        <geometry>
+          <box><size>0.030 0.002 0.010</size></box>
+        </geometry>
+        <material>
+          <ambient>0.35 0.35 0.35 1</ambient>
+          <diffuse>0.35 0.35 0.35 1</diffuse>
+          <specular>0.25 0.25 0.25 1</specular>
+        </material>
+      </visual>
+      <collision name="u_bracket_arm_right_collision">
+        <pose>0.015 -0.019 0 0 0 0</pose>
+        <geometry>
+          <box><size>0.030 0.002 0.010</size></box>
+        </geometry>
+      </collision>
+
+      <!-- U-bracket crosspiece — connects the two arm tips
+           2mm thick (X), 40mm wide (Y, slightly wider than servo), 10mm tall (Z)
+           Positioned at X = arm_length + half_thickness = 30 + 1 = 31mm -->
+      <visual name="u_bracket_cross_visual">
+        <pose>0.031 0 0 0 0 0</pose>
+        <geometry>
+          <box><size>0.002 0.040 0.010</size></box>
+        </geometry>
+        <material>
+          <ambient>0.35 0.35 0.35 1</ambient>
+          <diffuse>0.35 0.35 0.35 1</diffuse>
+          <specular>0.25 0.25 0.25 1</specular>
+        </material>
+      </visual>
+      <collision name="u_bracket_cross_collision">
+        <pose>0.031 0 0 0 0 0</pose>
+        <geometry>
+          <box><size>0.002 0.040 0.010</size></box>
+        </geometry>
+      </collision>
+
+      <!-- Camera body: 10mm(X depth) x 30mm(Y width) x 20mm(Z height)
+           Mounted on front face of crosspiece.
+           Back face at X = crosspiece_front = 32mm; center at X = 32 + 5 = 37mm -->
+      <visual name="camera_body_visual">
+        <pose>0.037 0 0 0 0 0</pose>
+        <geometry>
+          <box><size>0.010 0.030 0.020</size></box>
+        </geometry>
+        <material>
+          <!-- Dark gray camera -->
+          <ambient>0.12 0.12 0.12 1</ambient>
+          <diffuse>0.12 0.12 0.12 1</diffuse>
+          <specular>0.3 0.3 0.3 1</specular>
+        </material>
+      </visual>
+      <collision name="camera_body_collision">
+        <pose>0.037 0 0 0 0 0</pose>
+        <geometry>
+          <box><size>0.010 0.030 0.020</size></box>
+        </geometry>
+      </collision>
+
+      <!-- Camera lens indicator — small dark cylinder on front face -->
+      <visual name="camera_lens_visual">
+        <pose>0.043 0 0 0 1.5708 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.006</radius>
+            <length>0.004</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.0 0.0 0.0 1</ambient>
+          <diffuse>0.0 0.0 0.0 1</diffuse>
+          <specular>0.6 0.6 0.6 1</specular>
+        </material>
+      </visual>
+
+      <!-- Camera sensor — origin at camera body center, looking in +X -->
       <sensor name="camera" type="camera">
+        <pose>0.037 0 0 0 0 0</pose>
         <camera>
           <horizontal_fov>1.047</horizontal_fov>
           <image>
@@ -43,25 +353,24 @@
             <height>480</height>
             <format>R8G8B8</format>
           </image>
+          <clip>
+            <near>0.01</near>
+            <far>100</far>
+          </clip>
         </camera>
         <always_on>1</always_on>
         <update_rate>30</update_rate>
+        <visualize>true</visualize>
       </sensor>
     </link>
 
-    <joint name="tilt_joint" type="revolute">
-      <parent>pan_link</parent>
-      <child>tilt_link</child>
-      <axis>
-        <xyz>0 1 0</xyz>
-        <limit>
-          <lower>-1.57</lower>
-          <upper>1.57</upper>
-        </limit>
-      </axis>
-    </joint>
-
-    <!-- Position Controllers -->
+    <!-- ================================================================
+         JOINT POSITION CONTROLLERS
+         Topics (Gazebo Harmonic):
+           /model/pantilt/joint/pan_joint/cmd_pos   (gz.msgs.Double)
+           /model/pantilt/joint/tilt_joint/cmd_pos  (gz.msgs.Double)
+         Tilt convention: negative value = camera up, positive = camera down
+         ================================================================ -->
     <plugin filename="gz-sim-joint-position-controller-system"
             name="gz::sim::systems::JointPositionController">
       <joint_name>pan_joint</joint_name>
