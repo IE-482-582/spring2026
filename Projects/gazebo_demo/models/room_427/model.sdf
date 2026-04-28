@@ -1,0 +1,805 @@
+<?xml version="1.0" ?>
+<sdf version="1.9">
+  <model name="room_427">
+    <static>true</static>
+    <link name="walls">
+      <collision name="top_solid_1_collision">
+        <pose>6.0960 6.7818 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>12.1920 0.3048 2.8702</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="top_solid_1_visual">
+        <pose>6.0960 6.7818 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>12.1920 0.3048 2.8702</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="top_door_1_lintel_collision">
+        <pose>13.1064 6.7818 2.7051 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>1.8288 0.3048 0.3302</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="top_door_1_lintel_visual">
+        <pose>13.1064 6.7818 2.7051 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>1.8288 0.3048 0.3302</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="top_solid_2_collision">
+        <pose>16.1036 6.7818 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>4.1656 0.3048 2.8702</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="top_solid_2_visual">
+        <pose>16.1036 6.7818 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>4.1656 0.3048 2.8702</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="top_door_2_lintel_collision">
+        <pose>19.1008 6.7818 2.7051 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>1.8288 0.3048 0.3302</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="top_door_2_lintel_visual">
+        <pose>19.1008 6.7818 2.7051 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>1.8288 0.3048 0.3302</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="top_solid_3_collision">
+        <pose>21.9583 6.7818 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>3.8862 0.3048 2.8702</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="top_solid_3_visual">
+        <pose>21.9583 6.7818 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>3.8862 0.3048 2.8702</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="top_protrusion_1_collision">
+        <pose>6.6294 5.9182 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1524 1.4224 2.8702</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="top_protrusion_1_visual">
+        <pose>6.6294 5.9182 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1524 1.4224 2.8702</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="top_protrusion_2_collision">
+        <pose>8.1026 5.9182 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1524 1.4224 2.8702</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="top_protrusion_2_visual">
+        <pose>8.1026 5.9182 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1524 1.4224 2.8702</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="top_protrusion_3_collision">
+        <pose>9.6266 5.9182 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1524 1.4224 2.8702</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="top_protrusion_3_visual">
+        <pose>9.6266 5.9182 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1524 1.4224 2.8702</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="top_protrusion_4_collision">
+        <pose>11.0744 5.9182 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1524 1.4224 2.8702</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="top_protrusion_4_visual">
+        <pose>11.0744 5.9182 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1524 1.4224 2.8702</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="bottom_left_end_full_collision">
+        <pose>0.0635 -0.1524 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1270 0.3048 2.8702</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="bottom_left_end_full_visual">
+        <pose>0.0635 -0.1524 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1270 0.3048 2.8702</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="bottom_window_1_lower_collision">
+        <pose>1.3081 -0.1524 0.3429 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 0.6858</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="bottom_window_1_lower_visual">
+        <pose>1.3081 -0.1524 0.3429 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 0.6858</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="bottom_window_1_upper_collision">
+        <pose>1.3081 -0.1524 2.2606 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 1.2192</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="bottom_window_1_upper_visual">
+        <pose>1.3081 -0.1524 2.2606 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 1.2192</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="bottom_gap_1_full_collision">
+        <pose>2.8194 -0.1524 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.6604 0.3048 2.8702</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="bottom_gap_1_full_visual">
+        <pose>2.8194 -0.1524 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.6604 0.3048 2.8702</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="bottom_window_2_lower_collision">
+        <pose>4.3307 -0.1524 0.3429 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 0.6858</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="bottom_window_2_lower_visual">
+        <pose>4.3307 -0.1524 0.3429 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 0.6858</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="bottom_window_2_upper_collision">
+        <pose>4.3307 -0.1524 2.2606 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 1.2192</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="bottom_window_2_upper_visual">
+        <pose>4.3307 -0.1524 2.2606 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 1.2192</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="bottom_gap_2_full_collision">
+        <pose>5.8420 -0.1524 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.6604 0.3048 2.8702</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="bottom_gap_2_full_visual">
+        <pose>5.8420 -0.1524 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.6604 0.3048 2.8702</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="bottom_window_3_lower_collision">
+        <pose>7.3533 -0.1524 0.3429 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 0.6858</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="bottom_window_3_lower_visual">
+        <pose>7.3533 -0.1524 0.3429 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 0.6858</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="bottom_window_3_upper_collision">
+        <pose>7.3533 -0.1524 2.2606 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 1.2192</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="bottom_window_3_upper_visual">
+        <pose>7.3533 -0.1524 2.2606 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 1.2192</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="bottom_gap_3_full_collision">
+        <pose>8.8646 -0.1524 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.6604 0.3048 2.8702</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="bottom_gap_3_full_visual">
+        <pose>8.8646 -0.1524 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.6604 0.3048 2.8702</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="bottom_window_4_lower_collision">
+        <pose>10.3759 -0.1524 0.3429 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 0.6858</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="bottom_window_4_lower_visual">
+        <pose>10.3759 -0.1524 0.3429 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 0.6858</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="bottom_window_4_upper_collision">
+        <pose>10.3759 -0.1524 2.2606 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 1.2192</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="bottom_window_4_upper_visual">
+        <pose>10.3759 -0.1524 2.2606 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 1.2192</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="bottom_gap_4_full_collision">
+        <pose>11.8872 -0.1524 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.6604 0.3048 2.8702</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="bottom_gap_4_full_visual">
+        <pose>11.8872 -0.1524 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.6604 0.3048 2.8702</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="bottom_window_5_lower_collision">
+        <pose>13.3985 -0.1524 0.3429 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 0.6858</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="bottom_window_5_lower_visual">
+        <pose>13.3985 -0.1524 0.3429 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 0.6858</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="bottom_window_5_upper_collision">
+        <pose>13.3985 -0.1524 2.2606 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 1.2192</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="bottom_window_5_upper_visual">
+        <pose>13.3985 -0.1524 2.2606 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 1.2192</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="bottom_gap_5_full_collision">
+        <pose>14.9098 -0.1524 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.6604 0.3048 2.8702</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="bottom_gap_5_full_visual">
+        <pose>14.9098 -0.1524 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.6604 0.3048 2.8702</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="bottom_window_6_lower_collision">
+        <pose>16.4211 -0.1524 0.3429 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 0.6858</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="bottom_window_6_lower_visual">
+        <pose>16.4211 -0.1524 0.3429 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 0.6858</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="bottom_window_6_upper_collision">
+        <pose>16.4211 -0.1524 2.2606 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 1.2192</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="bottom_window_6_upper_visual">
+        <pose>16.4211 -0.1524 2.2606 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 1.2192</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="bottom_gap_6_full_collision">
+        <pose>17.9324 -0.1524 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.6604 0.3048 2.8702</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="bottom_gap_6_full_visual">
+        <pose>17.9324 -0.1524 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.6604 0.3048 2.8702</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="bottom_window_7_lower_collision">
+        <pose>19.4437 -0.1524 0.3429 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 0.6858</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="bottom_window_7_lower_visual">
+        <pose>19.4437 -0.1524 0.3429 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 0.6858</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="bottom_window_7_upper_collision">
+        <pose>19.4437 -0.1524 2.2606 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 1.2192</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="bottom_window_7_upper_visual">
+        <pose>19.4437 -0.1524 2.2606 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 1.2192</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="bottom_gap_7_full_collision">
+        <pose>20.9550 -0.1524 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.6604 0.3048 2.8702</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="bottom_gap_7_full_visual">
+        <pose>20.9550 -0.1524 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.6604 0.3048 2.8702</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="bottom_window_8_lower_collision">
+        <pose>22.4663 -0.1524 0.3429 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 0.6858</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="bottom_window_8_lower_visual">
+        <pose>22.4663 -0.1524 0.3429 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 0.6858</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="bottom_window_8_upper_collision">
+        <pose>22.4663 -0.1524 2.2606 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 1.2192</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="bottom_window_8_upper_visual">
+        <pose>22.4663 -0.1524 2.2606 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>2.3622 0.3048 1.2192</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="bottom_right_end_full_collision">
+        <pose>23.7744 -0.1524 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.2540 0.3048 2.8702</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="bottom_right_end_full_visual">
+        <pose>23.7744 -0.1524 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.2540 0.3048 2.8702</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="left_solid_1_collision">
+        <pose>-0.1524 2.2098 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.3048 4.4196 2.8702</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="left_solid_1_visual">
+        <pose>-0.1524 2.2098 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.3048 4.4196 2.8702</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="left_door_1_lintel_collision">
+        <pose>-0.1524 4.8768 2.7051 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.3048 0.9144 0.3302</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="left_door_1_lintel_visual">
+        <pose>-0.1524 4.8768 2.7051 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.3048 0.9144 0.3302</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="left_solid_2_collision">
+        <pose>-0.1524 5.9817 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.3048 1.2954 2.8702</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="left_solid_2_visual">
+        <pose>-0.1524 5.9817 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.3048 1.2954 2.8702</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+
+      <collision name="right_wall_full_collision">
+        <pose>24.0538 3.3147 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.3048 6.6294 2.8702</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="right_wall_full_visual">
+        <pose>24.0538 3.3147 1.4351 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.3048 6.6294 2.8702</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

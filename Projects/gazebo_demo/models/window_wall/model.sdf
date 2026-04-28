@@ -5,7 +5,6 @@
 
     <link name="wall_link">
 
-      <!-- bottom -->
       <collision name="bottom_collision">
         <pose>0 0 0.3556 0 0 0</pose>
         <geometry>
@@ -27,7 +26,6 @@
         </material>
       </visual>
 
-      <!-- top -->
       <collision name="top_collision">
         <pose>0 0 2.5146 0 0 0</pose>
         <geometry>
@@ -49,7 +47,6 @@
         </material>
       </visual>
 
-      <!-- left side -->
       <collision name="left_collision">
         <pose>-1.6049 0 1.4351 0 0 0</pose>
         <geometry>
@@ -71,7 +68,6 @@
         </material>
       </visual>
 
-      <!-- right side -->
       <collision name="right_collision">
         <pose>1.6049 0 1.4351 0 0 0</pose>
         <geometry>

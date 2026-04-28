@@ -79,6 +79,18 @@
       <pose>0 0 0 0 0 0</pose>
     </include>
 
+    <include>
+      <uri>model://window_wall</uri>
+      <name>wall_in_course</name>
+      <pose>3 0 0 0 0 0</pose>
+    </include>
+
+  <include>
+    <uri>model://room_427</uri>
+    <name>room_427</name>
+    <pose>0 0 0 0 0 0</pose>
+  </include>
+
     <plugin filename="gz-sim-physics-system"
             name="gz::sim::systems::Physics"/>
     <plugin filename="gz-sim-scene-broadcaster-system"
