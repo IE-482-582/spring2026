@@ -1,0 +1,93 @@
+<?xml version="1.0" ?>
+<sdf version="1.10">
+  <model name="yellow_tape_lines_427">
+    <static>true</static>
+
+    <!-- Tape thickness -->
+    <!-- width = 0.05m (~2 inches), height = 0.005 -->
+
+    <!-- Helper: each segment = box -->
+
+    <!-- LEFT TOP 213" -->
+    <link name="seg_1">
+      <pose>-3.0 2.0 0.01 0 0 0</pose>
+      <visual name="v">
+        <geometry><box><size>5.41 0.05 0.005</size></box></geometry>
+        <material><diffuse>1 1 0 1</diffuse></material>
+      </visual>
+    </link>
+
+    <!-- LEFT BOTTOM 213" -->
+    <link name="seg_2">
+      <pose>-3.0 0.8 0.01 0 0 0</pose>
+      <visual name="v">
+        <geometry><box><size>5.41 0.05 0.005</size></box></geometry>
+        <material><diffuse>1 1 0 1</diffuse></material>
+      </visual>
+    </link>
+
+    <!-- CENTER LONG 320" -->
+    <link name="seg_3">
+      <pose>2.0 0.5 0.01 0 0 0</pose>
+      <visual name="v">
+        <geometry><box><size>8.13 0.05 0.005</size></box></geometry>
+        <material><diffuse>1 1 0 1</diffuse></material>
+      </visual>
+    </link>
+
+    <!-- CENTER LOWER 107" -->
+    <link name="seg_4">
+      <pose>-0.5 -0.5 0.01 0 0 0</pose>
+      <visual name="v">
+        <geometry><box><size>2.72 0.05 0.005</size></box></geometry>
+        <material><diffuse>1 1 0 1</diffuse></material>
+      </visual>
+    </link>
+
+    <!-- CENTER UPPER 107" -->
+    <link name="seg_5">
+      <pose>-0.5 1.2 0.01 0 0 0</pose>
+      <visual name="v">
+        <geometry><box><size>2.72 0.05 0.005</size></box></geometry>
+        <material><diffuse>1 1 0 1</diffuse></material>
+      </visual>
+    </link>
+
+    <!-- RIGHT BOX (166") -->
+    <link name="seg_6">
+      <pose>4.5 1.5 0.01 0 0 0</pose>
+      <visual name="v">
+        <geometry><box><size>4.22 0.05 0.005</size></box></geometry>
+        <material><diffuse>1 1 0 1</diffuse></material>
+      </visual>
+    </link>
+
+    <!-- RIGHT VERTICAL 86" -->
+    <link name="seg_7">
+      <pose>6.5 1.0 0.01 0 0 1.5708</pose>
+      <visual name="v">
+        <geometry><box><size>2.18 0.05 0.005</size></box></geometry>
+        <material><diffuse>1 1 0 1</diffuse></material>
+      </visual>
+    </link>
+
+    <!-- SMALL CONNECTORS (angled approximations) -->
+    <link name="seg_8">
+      <pose>-1.8 1.5 0.01 0 0 0.6</pose>
+      <visual name="v">
+        <geometry><box><size>1.37 0.05 0.005</size></box></geometry>
+        <material><diffuse>1 1 0 1</diffuse></material>
+      </visual>
+    </link>
+
+    <link name="seg_9">
+      <pose>-2.0 0.0 0.01 0 0 0.6</pose>
+      <visual name="v">
+        <geometry><box><size>1.37 0.05 0.005</size></box></geometry>
+        <material><diffuse>1 1 0 1</diffuse></material>
+      </visual>
+    </link>
+
+  </model>
+</sdf>
+

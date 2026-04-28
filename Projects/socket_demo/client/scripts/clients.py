@@ -38,20 +38,20 @@ import socketio
 sio_host   = socketio.Client(ssl_verify=False)  # , logger=True, engineio_logger=True)
 sio_client = socketio.Client(ssl_verify=False)  # , logger=True, engineio_logger=True)
 
-@sio_host.event
-def connect():
+@sio_host.on('connect')
+def on_connect_host():
     print('host socket connection established')
 
-@sio_host.event
-def disconnect():
+@sio_host.on('disconnect')
+def on_disconnect_host():
     print('socket disconnected from host server')
 
-@sio_client.event
-def connect():
+@sio_client.on('connect')
+def on_connect_client():
     print('client socket connection established')
 
-@sio_client.event
-def disconnect():
+@sio_client.on('disconnect')
+def on_disconnect_client():
     print('socket disconnected from client server')
     
 # ----------------------
@@ -89,11 +89,9 @@ class GracefulShutdown:
 
 
 
-import time
-
 class Main:
     def __init__(self, args):
-        # --- Store CLI configuration ---
+        # Store CLI configuration
         self.host_ip     = args.host_ip
         self.host_port   = args.host_port
         self.client_ip   = args.client_ip
@@ -101,110 +99,91 @@ class Main:
         self.cam_device  = args.cam_device
         self.cam_port    = args.cam_port
 
-        # --- State ---
-        self.robot_id = None
-        self.joint = {}      # self.joint[robotID][jointName]['angle_deg']
-        self.camera = {}
-
-        # --- Graceful shutdown ---
-        self.monitor = GracefulShutdown()
-        self.monitor.on_shutdown(self.shutdown)
-
-        # --- Socket subscriptions ---
-        self.register_socket_handlers()
-
-        # --- Connect to socket servers ---
-        self.connect_sockets()
-
-        # --- Initialize camera if specified ---
-        if self.cam_device is not None:
-            self.startCamera(
-                camID='local_cam',
-                outputPort=self.cam_port,
-                apiPref=None,
-                device=self.cam_device,
-                sslPath=LOCAL_SSL_PATH,
-                intrinsics=None
-            )
-
-    # -------------------------
-    # Run method with main loop
-    # -------------------------
-    def run(self):
-        sleepTime = 1 / STATUS_RATE  # seconds
-
-        while not self.monitor.is_shutdown:
-            try:
-                # Example: publish camera status
-                self.pubCamStatus()
-            except Exception as e:
-                self.pubNotice(f'Error in main loop: {e}')
-            
-            time.sleep(sleepTime)
-
-    # -------------------------
-    # Shutdown handler
-    # -------------------------
-    def shutdown(self):
-        """Gracefully shut things down."""
-        print('shutting down')
-        # Add cleanup logic: stop cameras, disconnect sockets, close files, etc.
-
-    # -------------------------
-    # Socket handler registration
-    # -------------------------
-    def register_socket_handlers(self):
-        # HOST socket handlers
+        # Shutdown handler
+        monitor = GracefulShutdown()
+        monitor.on_shutdown(self.shutdown)
+        
+        # Initialize smoothing variables for face tracking
+        self.face_error_history = {}  # Store recent errors for smoothing
+                        
+        # Subscribe to HOST socket topics:
         @sio_host.on('notice')
-        def on_notice(data):
+        def on_message(data):
             self.callback_notice(data)
 
         @sio_host.on('sysinfo')
-        def on_sysinfo(data):
+        def on_message(data):
             self.callback_sysinfo(data)
 
         @sio_host.on('sessionstart')
-        def on_sessionstart(data):
+        def on_message(data):
             self.callback_sessionstart(data)
 
         @sio_host.on('status')
-        def on_status(data):
+        def on_message(data):
             self.callback_status(data)
-
-        # CLIENT socket handlers
+            
         @sio_client.on('cam_control')
-        def on_cam_control(data):
+        def on_message(data):
             self.callback_cam_control(data)
-
+                                        
         @sio_client.on('userreq')
-        def on_userreq(data):
-            # Relay join/exit requests from the browser to the host server
+        def on_message(data):
+            # Relay join/exit requests from the browser to the host server.
             sio_host.emit('userreq', data)
 
-    # -------------------------
-    # Socket connections
-    # -------------------------
-    def connect_sockets(self):
+        # Connect to the socket servers
         try:
-            if self.host_ip is None or self.host_port is None:
+            if ((self.host_ip is None) or (self.host_port is None)):
                 print('Not attempting host connection: No host IP/Port specified.')
-            else:
-                sio_host.connect(
-                    f'https://{self.host_ip}:{self.host_port}?role=user',
-                    transports=['websocket']
-                )
+            else:	
+                sio_host.connect(f'https://{self.host_ip}:{self.host_port}?role=user', transports=['websocket'])
                 print('my host sid is', sio_host.get_sid())
+                
         except Exception as e:
             print(f'Could not connect to host socket: {e}')
 
         try:
-            sio_client.connect(
-                f'https://{self.client_ip}:{self.client_port}',
-                transports=['websocket']
-            )
+            sio_client.connect(f'https://{self.client_ip}:{self.client_port}', transports=['websocket'])
             print('my client sid is', sio_client.get_sid())
         except Exception as e:
             print(f'Could not connect to client socket: {e}')
+    
+    
+        self.robot_id = None
+        self.joint    = {}  # self.joint[robotID][jointName]['angle_deg']
+        
+        self.camera = {}
+        
+        if self.cam_device is not None:			
+            self.startCamera(camID='local_cam', 
+                             outputPort=self.cam_port,
+                             apiPref=None, 
+                             device=self.cam_device,
+                             sslPath=LOCAL_SSL_PATH, 
+                             intrinsics=None)
+        
+        
+        sleepTime = 1/STATUS_RATE   # [seconds]
+
+        while not monitor.is_shutdown:
+            try:
+                '''
+                ...
+                Here's where you'd put some code to run forever inside a loop
+                ...
+                self.doSomething()
+                ...
+                '''
+                self.pubCamStatus()
+            except Exception as e:
+                self.pubNotice(f'Error in while loop: {e}')
+            
+            # Keep the loop looping at a reasonable pace	
+            time.sleep(sleepTime)
+            
+        # When infinite loop is done, call the `shutdown` function	
+        self.shutdown()
         
 
     def callback_cam_control(self, msg):
@@ -226,6 +205,12 @@ class Main:
             
             if (category == "arucoStart"):	
                 camID = data['camID']
+                
+                # Check if camera exists
+                if camID not in self.camera:
+                    self.pubNotice(f"Camera '{camID}' not found. Available cameras: {list(self.camera.keys())}")
+                    return
+                
                 idName = data['tagType']
                 fps_target = data['framerate']
                 
@@ -242,7 +227,7 @@ class Main:
                         return
 
                     ids_of_interest = [int(data['trackID'])]
-                    idToTrack = int(data['trackID'])
+                    idToTrack = data['trackID']
                     postFunctionArgs={'camID': camID, 'idName': idName, 'idToTrack': idToTrack}
                 elif (data['action'] == 'id'):
                     # Just show the IDs on the video feed
@@ -269,6 +254,12 @@ class Main:
                                 
             elif (category == "arucoStop"):	
                 camID = data['camID']
+                
+                # Check if camera exists
+                if camID not in self.camera:
+                    self.pubNotice(f"Camera '{camID}' not found. Available cameras: {list(self.camera.keys())}")
+                    return
+                
                 idName = data['tagType']
 
                 # Stop running the aruco tracking
@@ -281,6 +272,12 @@ class Main:
 
             elif (category == "barcodeStart"):
                 camID = data['camID']
+                
+                # Check if camera exists
+                if camID not in self.camera:
+                    self.pubNotice(f"Camera '{camID}' not found. Available cameras: {list(self.camera.keys())}")
+                    return
+                
                 fps_target = data['framerate']
                 action = data['action']
 
@@ -301,11 +298,23 @@ class Main:
                 # Stop running the barcode reader.
                 # 'default' is the only type of barcode option.
                 camID = data['camID']
+                
+                # Check if camera exists
+                if camID not in self.camera:
+                    self.pubNotice(f"Camera '{camID}' not found. Available cameras: {list(self.camera.keys())}")
+                    return
+                
                 self.camera[camID].barcode['default'].stop()
                 self.pubNotice(f'Barcode reading stopped on camID {camID}')
                     
             elif (category == "facedetectStart"):
                 camID = data['camID']
+                
+                # Check if camera exists
+                if camID not in self.camera:
+                    self.pubNotice(f"Camera '{camID}' not found. Available cameras: {list(self.camera.keys())}")
+                    return
+                
                 fps_target = data['framerate']
                 action = data['action']
                 conf_threshold = float(data['conf_threshold'])
@@ -333,11 +342,23 @@ class Main:
                 # Stop running the face detection.
                 # 'default' is the only type of facedetect option.
                 camID = data['camID']
+                
+                # Check if camera exists
+                if camID not in self.camera:
+                    self.pubNotice(f"Camera '{camID}' not found. Available cameras: {list(self.camera.keys())}")
+                    return
+                
                 self.camera[camID].facedetect['default'].stop()
                 self.pubNotice(f'Face detection stopped on camID {camID}')
 
             elif (category == "ultraStart"):
                 camID = data['camID']
+                
+                # Check if camera exists
+                if camID not in self.camera:
+                    self.pubNotice(f"Camera '{camID}' not found. Available cameras: {list(self.camera.keys())}")
+                    return
+                
                 model_name = data['modelName']
                 fps_target = data['framerate']
                 action = data['action']
@@ -394,6 +415,11 @@ class Main:
                 camID  = data['camID']
                 idName = data['idName']
 
+                # Check if camera exists
+                if camID not in self.camera:
+                    self.pubNotice(f"Camera '{camID}' not found. Available cameras: {list(self.camera.keys())}")
+                    return
+
                 if ((camID in self.camera) and (idName in self.camera[camID].ultralytics)):
                     self.camera[camID].ultralytics[idName].stop()
                     self.pubNotice(f'Ultralytics {idName} stopped on camID {camID}')
@@ -442,6 +468,11 @@ class Main:
             elif (category == "localCameraStop"):
                 camID = data['camID']
 
+                # Check if camera exists
+                if camID not in self.camera:
+                    self.pubNotice(f"Camera '{camID}' not found. Available cameras: {list(self.camera.keys())}")
+                    return
+
                 if camID in self.camera:
                     self.stopCamera(camID)
                     self.pubNotice(f'Local camera {camID} stopped')
@@ -452,6 +483,10 @@ class Main:
                 camID = data['camID']
 
                 # Verify camera exists before attempting restart
+                if camID not in self.camera:
+                    self.pubNotice(f'Cannot restart camera {camID} - camera does not exist. Available cameras: {list(self.camera.keys())}')
+                    return
+
                 if camID not in self.camera:
                     self.pubNotice(f'Cannot restart camera {camID} - camera does not exist. Please start it first.')
                 else:
@@ -515,10 +550,21 @@ class Main:
 
         centers = self.camera[camID].aruco[idName].deque[0]['centers']
         for i in range(len(centers)):
+            error_x = self.camera[camID].res_cols/2 - centers[i][0]
+            error_y = self.camera[camID].res_rows/2 - centers[i][1]
+            dist = (error_x**2 + error_y**2) ** 0.5
+            radius = 60  # pixels (target circle size)
+
+            if dist <= radius:
+                self.circle_params['color'] = (0, 255, 0)   # green
+            else:
+                self.circle_params['color'] = (0, 0, 255)   # red
+            
+            
             # print(f"id = {self.camera[camID].aruco[idName].deque[0]['ids'][i]}, x = {centers[i][0]}, y = {centers[i][1]}")
             # Instead of simply printing the info to terminal, 
             # publish to "notices" topic so it displays on Web page (and the terminal):
-            self.pubNotice(f"id = {self.camera[camID].aruco[idName].deque[0]['ids'][i]}, x = {centers[i][0]}, y = {centers[i][1]}, error_x = ???, error_y = ???")
+            self.pubNotice(f"id = {self.camera[camID].aruco[idName].deque[0]['ids'][i]}, x = {centers[i][0]}, y = {centers[i][1]}, error_x = {error_x}, error_y = {error_y}")
                             
             '''
             TODO
@@ -531,62 +577,7 @@ class Main:
                - See sample code below.
                - See http://github.com/optimatorlab/ub_code?tab=readme-ov-file#circle-and-text-overlays for more details.
                    - How to know the radius of the target circle?
-camID     = argsDict['camID']
-    idName    = argsDict['idName']
-    idToTrack = argsDict['idToTrack']
-
-    robotID = self.robot_id
-    if robotID is None:
-        return
-
-    centers = self.camera[camID].aruco[idName].deque[0]['centers']
-    ids     = self.camera[camID].aruco[idName].deque[0]['ids']
-
-    frame_cx = self.camera[camID].res_cols / 2
-    frame_cy = self.camera[camID].res_rows / 2
-
-    for i in range(len(centers)):
-
-        if ids[i] != idToTrack:
-            continue
-
-        tag_x, tag_y = centers[i]
-
-        error_x = frame_cx - tag_x
-        error_y = tag_y - frame_cy
-
-        # deadband
-        deadband = 15
-        if abs(error_x) < deadband:
-            error_x = 0
-        if abs(error_y) < deadband:
-            error_y = 0
-
-        # proportional gain
-        Kp_pan  = 0.015
-        Kp_tilt = 0.015
-
-        current_pan  = self.joint[robotID]['arm_shoulder_pan_joint']['angle_deg']
-        current_tilt = self.joint[robotID]['arm_shoulder_lift_joint']['angle_deg']
-
-        new_pan  = current_pan  + Kp_pan  * error_x
-        new_tilt = current_tilt + Kp_tilt * error_y
-
-        pan_min  = self.joint[robotID]['arm_shoulder_pan_joint']['min_angle']
-        pan_max  = self.joint[robotID]['arm_shoulder_pan_joint']['max_angle']
-
-        tilt_min = self.joint[robotID]['arm_shoulder_lift_joint']['min_angle']
-        tilt_max = self.joint[robotID]['arm_shoulder_lift_joint']['max_angle']
-
-        new_pan  = min(max(new_pan, pan_min), pan_max)
-        new_tilt = min(max(new_tilt, tilt_min), tilt_max)
-
-        cmd = {
-            'arm_shoulder_pan_joint': new_pan,
-            'arm_shoulder_lift_joint': new_tilt
-        }
-
-        sio_host.emit('command', [robotID, [cmd]])			'''
+            '''
 
             # Incomplete logic to color the target circle based 
             # solely on x-axis location:
@@ -596,62 +587,49 @@ camID     = argsDict['camID']
                 self.circle_params['color'] = (0, 255, 0)
 
             
-def arucoMoveCamera(self, argsDict):
+    def arucoMoveCamera(self, argsDict):
+        # This function gets called each time an aruco detection is run
+        camID     = argsDict['camID']
+        idName    = argsDict['idName']
+        idToTrack = argsDict['idToTrack']
 
-    camID = argsDict['camID']
-    idName = argsDict['idName']
-    idToTrack = argsDict['idToTrack']
+        robotID = self.robot_id
+        if robotID is None:
+            return
+                    
+        centers = self.camera[camID].aruco[idName].deque[0]['centers']
+        for i in range(len(centers)):
+        # print(self.camera[camID].aruco[idName].deque[0]['ids'][i], centers[i])
 
-    robotID = self.robot_id
-    if robotID is None:
-        return
+            # Only track the ID specified by the user
+            if int(self.camera[camID].aruco[idName].deque[0]['ids'][i]) == int(idToTrack):
+            # data['joints'] = {'arm_shoulder_pan_joint': {'id': 1, 'neutral': 0, 'max_angle': 114, 'min_angle': 0, 'max_speed': 300, 'angle_deg': 88.18359375, 'OK': True, 'torque': False, 'angle_rad': 1.5390940571785934}, 'arm_shoulder_lift_joint': {'id': 2, 'neutral': 0, 'max_angle': 160, 'min_angle': 45, 'max_speed': 400, 'angle_deg': 146.48437500000003, 'OK': True, 'torque': False, 'angle_rad': 2.556634646476069}}
 
-    centers = self.camera[camID].aruco[idName].deque[0]['centers']
-    ids = self.camera[camID].aruco[idName].deque[0]['ids']
+                deadband_px = 15
+                kx = 1/15
+                ky = 1/18
 
-    frame_cx = self.camera[camID].res_cols / 2
-    frame_cy = self.camera[camID].res_rows / 2
+                cmd = {}
 
-    for i in range(len(centers)):
+                error_x = self.camera[camID].res_cols/2 - centers[i][0]   # + => rotate left
+                error_y = centers[i][1] - self.camera[camID].res_rows/2   # + => move down
 
-        if ids[i] != idToTrack:
-            continue
+                if abs(error_x) > deadband_px:
+                    new_pan = self.joint[robotID]['arm_shoulder_pan_joint']['angle_deg'] + (error_x * kx)
+                    new_pan = min(max(new_pan,
+                        self.joint[robotID]['arm_shoulder_pan_joint']['min_angle']),
+                        self.joint[robotID]['arm_shoulder_pan_joint']['max_angle'])
+                    cmd['arm_shoulder_pan_joint'] = new_pan
 
-        tag_x, tag_y = centers[i]
+                if abs(error_y) > deadband_px:
+                    new_tilt = self.joint[robotID]['arm_shoulder_lift_joint']['angle_deg'] + (error_y * ky)
+                    new_tilt = min(max(new_tilt,
+                        self.joint[robotID]['arm_shoulder_lift_joint']['min_angle']),
+                        self.joint[robotID]['arm_shoulder_lift_joint']['max_angle'])
+                    cmd['arm_shoulder_lift_joint'] = new_tilt
 
-        error_x = frame_cx - tag_x
-        error_y = tag_y - frame_cy
-
-        deadband = 15
-        if abs(error_x) < deadband:
-            error_x = 0
-        if abs(error_y) < deadband:
-            error_y = 0
-
-        Kp_pan = 0.015
-        Kp_tilt = 0.015
-
-        current_pan = self.joint[robotID]['arm_shoulder_pan_joint']['angle_deg']
-        current_tilt = self.joint[robotID]['arm_shoulder_lift_joint']['angle_deg']
-
-        new_pan = current_pan + Kp_pan * error_x
-        new_tilt = current_tilt + Kp_tilt * error_y
-
-        pan_min = self.joint[robotID]['arm_shoulder_pan_joint']['min_angle']
-        pan_max = self.joint[robotID]['arm_shoulder_pan_joint']['max_angle']
-
-        tilt_min = self.joint[robotID]['arm_shoulder_lift_joint']['min_angle']
-        tilt_max = self.joint[robotID]['arm_shoulder_lift_joint']['max_angle']
-
-        new_pan = min(max(new_pan, pan_min), pan_max)
-        new_tilt = min(max(new_tilt, tilt_min), tilt_max)
-
-        cmd = {
-            'arm_shoulder_pan_joint': new_pan,
-            'arm_shoulder_lift_joint': new_tilt
-        }
-
-        sio_host.emit('command', [robotID, [cmd]])
+                if cmd:
+                    sio_host.emit('command', [robotID, [cmd]])
 
 
     def barcodePostFunction(self, argsDict):
@@ -671,14 +649,86 @@ def arucoMoveCamera(self, argsDict):
             
     def facedetectPostFunction(self, argsDict):
         # This function gets called each time a face detection is run
+        # It automatically tracks faces by keeping them centered in the frame
         camID  = argsDict['camID']
         idName = argsDict['idName']   # Will always be 'default'
 
         # print(self.camera[camID].facedetect['default'].deque[0])
         fd = self.camera[camID].facedetect['default'].deque[0]  # alias the long name
-        for i in range(len(fd['confidence'])): 
-            myString = f"{i} - confidence: {fd['confidence'][i]}, corners: {fd['corners'][i]}"
-            self.pubNotice(myString)
+        
+        for i in range(len(fd['confidence'])):
+            corners = fd['corners'][i]
+            confidence = fd['confidence'][i]
+            
+            # Skip low-confidence detections to reduce jitter
+            MIN_CONFIDENCE = 0.75
+            if confidence < MIN_CONFIDENCE:
+                continue
+            
+            # Calculate face center from corners: [(x1,y1), (x2,y2), ...]
+            if len(corners) >= 2:
+                # Corners are given as [top-left, bottom-right]
+                x1, y1 = corners[0]
+                x2, y2 = corners[1]
+                face_center_x = (x1 + x2) / 2
+                face_center_y = (y1 + y2) / 2
+                
+                # Calculate image center
+                img_center_x = self.camera[camID].res_cols / 2
+                img_center_y = self.camera[camID].res_rows / 2
+                
+                # Calculate error (how far face is from center)
+                error_x = img_center_x - face_center_x   # + => rotate left
+                error_y = face_center_y - img_center_y   # + => move down
+                
+                # Apply exponential moving average smoothing to reduce jitter
+                # This prevents sudden jumps in tracking commands
+                if camID not in self.face_error_history:
+                    self.face_error_history[camID] = {'error_x': error_x, 'error_y': error_y}
+                
+                alpha = 0.3  # Smoothing factor (0.0-1.0): lower = more smoothing
+                smoothed_error_x = (alpha * error_x + 
+                                   (1 - alpha) * self.face_error_history[camID]['error_x'])
+                smoothed_error_y = (alpha * error_y + 
+                                   (1 - alpha) * self.face_error_history[camID]['error_y'])
+                
+                # Store smoothed errors for next iteration
+                self.face_error_history[camID]['error_x'] = smoothed_error_x
+                self.face_error_history[camID]['error_y'] = smoothed_error_y
+                
+                # Display face detection info with position
+                myString = f"Face {i} - Confidence: {confidence:.2f}, Center: ({face_center_x:.0f}, {face_center_y:.0f}), Error: ({smoothed_error_x:.1f}, {smoothed_error_y:.1f})"
+                self.pubNotice(myString)
+                
+                # If this is a robot camera, send movement commands to track the face
+                robotID = self.robot_id
+                if robotID is not None and robotID in self.joint:
+                    # Use larger deadband for smoother movements
+                    deadband_px = 30
+                    kx = 1/30  # Gain for pan movement (slightly reduced for smoother response)
+                    ky = 1/35  # Gain for tilt movement
+                    
+                    cmd = {}
+                    
+                    # Pan control (horizontal) - rotate to track face left/right
+                    if abs(smoothed_error_x) > deadband_px:
+                        new_pan = self.joint[robotID]['arm_shoulder_pan_joint']['angle_deg'] + (smoothed_error_x * kx)
+                        new_pan = min(max(new_pan,
+                            self.joint[robotID]['arm_shoulder_pan_joint']['min_angle']),
+                            self.joint[robotID]['arm_shoulder_pan_joint']['max_angle'])
+                        cmd['arm_shoulder_pan_joint'] = new_pan
+                    
+                    # Tilt control (vertical) - move to track face up/down
+                    if abs(smoothed_error_y) > deadband_px:
+                        new_tilt = self.joint[robotID]['arm_shoulder_lift_joint']['angle_deg'] + (smoothed_error_y * ky)
+                        new_tilt = min(max(new_tilt,
+                            self.joint[robotID]['arm_shoulder_lift_joint']['min_angle']),
+                            self.joint[robotID]['arm_shoulder_lift_joint']['max_angle'])
+                        cmd['arm_shoulder_lift_joint'] = new_tilt
+                    
+                    # Send movement command to robot if needed
+                    if cmd:
+                        sio_host.emit('command', [robotID, [cmd]])
             '''
             Will look like
             '''
@@ -778,6 +828,19 @@ def arucoMoveCamera(self, argsDict):
             if (intrinsics is not None):
                 self.camera[camID].intrinsics = intrinsics
                 self.camera[camID].intrinsics = self.camera[camID]._getIntrinsics()
+
+            # Automatically start face detection on new camera
+            try:
+                self.camera[camID].addFaceDetect(fps_target=15,
+                                                 postFunction=self.facedetectPostFunction, 
+                                                 postFunctionArgs={'camID': camID},
+                                                 conf_threshold=0.5, 
+                                                 dnn='caffe',      # 'caffe' (fp16) or 'pb' (8bit)
+                                                 device='cpu',     # can be 'gpu'
+                                                 modelPath=FACE_MODEL_PATH)
+                self.pubNotice(f'Face detection automatically started on camera {camID}')
+            except Exception as e:
+                self.pubNotice(f'Warning: Could not auto-start face detection on {camID}: {e}')
 
             # FIXME -- Need to let webpage know of this camera stream
 

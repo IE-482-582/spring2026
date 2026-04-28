@@ -43,4 +43,3 @@ RUN python3 -m pip install --break-system-packages --ignore-installed --retries 
 COPY docker/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
-

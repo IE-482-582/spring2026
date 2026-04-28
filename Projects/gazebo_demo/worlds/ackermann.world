@@ -18,7 +18,6 @@
       <!-- Viewport background color, used as a fallback if the
            procedural sky below is not supported by the renderer. -->
       <background>0.4 0.6 0.9 1</background>
-
       <!-- Procedural sky (Ogre2 / gz-sim Harmonic+).
            Add child elements to customize, e.g.:
              <time>10</time>        solar time of day (hours, 0-24)

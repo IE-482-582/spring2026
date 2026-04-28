@@ -89,11 +89,9 @@ class GracefulShutdown:
 
 
 
-import time
-
 class Main:
     def __init__(self, args):
-        # --- Store CLI configuration ---
+        # Store CLI configuration
         self.host_ip     = args.host_ip
         self.host_port   = args.host_port
         self.client_ip   = args.client_ip
@@ -101,110 +99,88 @@ class Main:
         self.cam_device  = args.cam_device
         self.cam_port    = args.cam_port
 
-        # --- State ---
-        self.robot_id = None
-        self.joint = {}      # self.joint[robotID][jointName]['angle_deg']
-        self.camera = {}
-
-        # --- Graceful shutdown ---
-        self.monitor = GracefulShutdown()
-        self.monitor.on_shutdown(self.shutdown)
-
-        # --- Socket subscriptions ---
-        self.register_socket_handlers()
-
-        # --- Connect to socket servers ---
-        self.connect_sockets()
-
-        # --- Initialize camera if specified ---
-        if self.cam_device is not None:
-            self.startCamera(
-                camID='local_cam',
-                outputPort=self.cam_port,
-                apiPref=None,
-                device=self.cam_device,
-                sslPath=LOCAL_SSL_PATH,
-                intrinsics=None
-            )
-
-    # -------------------------
-    # Run method with main loop
-    # -------------------------
-    def run(self):
-        sleepTime = 1 / STATUS_RATE  # seconds
-
-        while not self.monitor.is_shutdown:
-            try:
-                # Example: publish camera status
-                self.pubCamStatus()
-            except Exception as e:
-                self.pubNotice(f'Error in main loop: {e}')
-            
-            time.sleep(sleepTime)
-
-    # -------------------------
-    # Shutdown handler
-    # -------------------------
-    def shutdown(self):
-        """Gracefully shut things down."""
-        print('shutting down')
-        # Add cleanup logic: stop cameras, disconnect sockets, close files, etc.
-
-    # -------------------------
-    # Socket handler registration
-    # -------------------------
-    def register_socket_handlers(self):
-        # HOST socket handlers
+        # Shutdown handler
+        monitor = GracefulShutdown()
+        monitor.on_shutdown(self.shutdown)
+                        
+        # Subscribe to HOST socket topics:
         @sio_host.on('notice')
-        def on_notice(data):
+        def on_message(data):
             self.callback_notice(data)
 
         @sio_host.on('sysinfo')
-        def on_sysinfo(data):
+        def on_message(data):
             self.callback_sysinfo(data)
 
         @sio_host.on('sessionstart')
-        def on_sessionstart(data):
+        def on_message(data):
             self.callback_sessionstart(data)
 
         @sio_host.on('status')
-        def on_status(data):
+        def on_message(data):
             self.callback_status(data)
-
-        # CLIENT socket handlers
+            
         @sio_client.on('cam_control')
-        def on_cam_control(data):
+        def on_message(data):
             self.callback_cam_control(data)
-
+                                        
         @sio_client.on('userreq')
-        def on_userreq(data):
-            # Relay join/exit requests from the browser to the host server
+        def on_message(data):
+            # Relay join/exit requests from the browser to the host server.
             sio_host.emit('userreq', data)
 
-    # -------------------------
-    # Socket connections
-    # -------------------------
-    def connect_sockets(self):
+        # Connect to the socket servers
         try:
-            if self.host_ip is None or self.host_port is None:
+            if ((self.host_ip is None) or (self.host_port is None)):
                 print('Not attempting host connection: No host IP/Port specified.')
-            else:
-                sio_host.connect(
-                    f'https://{self.host_ip}:{self.host_port}?role=user',
-                    transports=['websocket']
-                )
+            else:	
+                sio_host.connect(f'https://{self.host_ip}:{self.host_port}?role=user', transports=['websocket'])
                 print('my host sid is', sio_host.get_sid())
+                
         except Exception as e:
             print(f'Could not connect to host socket: {e}')
 
         try:
-            sio_client.connect(
-                f'https://{self.client_ip}:{self.client_port}',
-                transports=['websocket']
-            )
+            sio_client.connect(f'https://{self.client_ip}:{self.client_port}', transports=['websocket'])
             print('my client sid is', sio_client.get_sid())
         except Exception as e:
             print(f'Could not connect to client socket: {e}')
+    
+    
+        self.robot_id = None
+        self.joint    = {}  # self.joint[robotID][jointName]['angle_deg']
+        
+        self.camera = {}
+        
+        if self.cam_device is not None:			
+            self.startCamera(camID='local_cam', 
+                             outputPort=self.cam_port,
+                             apiPref=None, 
+                             device=self.cam_device,
+                             sslPath=LOCAL_SSL_PATH, 
+                             intrinsics=None)
+        
+        
+        sleepTime = 1/STATUS_RATE   # [seconds]
+
+        while not monitor.is_shutdown:
+            try:
+                '''
+                ...
+                Here's where you'd put some code to run forever inside a loop
+                ...
+                self.doSomething()
+                ...
+                '''
+                self.pubCamStatus()
+            except Exception as e:
+                self.pubNotice(f'Error in while loop: {e}')
+            
+            # Keep the loop looping at a reasonable pace	
+            time.sleep(sleepTime)
+            
+        # When infinite loop is done, call the `shutdown` function	
+        self.shutdown()
         
 
     def callback_cam_control(self, msg):
@@ -242,7 +218,7 @@ class Main:
                         return
 
                     ids_of_interest = [int(data['trackID'])]
-                    idToTrack = int(data['trackID'])
+                    idToTrack = data['trackID']
                     postFunctionArgs={'camID': camID, 'idName': idName, 'idToTrack': idToTrack}
                 elif (data['action'] == 'id'):
                     # Just show the IDs on the video feed
@@ -515,10 +491,21 @@ class Main:
 
         centers = self.camera[camID].aruco[idName].deque[0]['centers']
         for i in range(len(centers)):
+            error_x = self.camera[camID].res_cols/2 - centers[i][0]
+            error_y = self.camera[camID].res_rows/2 - centers[i][1]
+            dist = (error_x**2 + error_y**2) ** 0.5
+            radius = 60  # pixels (target circle size)
+
+            if dist <= radius:
+                self.circle_params['color'] = (0, 255, 0)   # green
+            else:
+                self.circle_params['color'] = (0, 0, 255)   # red
+            
+            
             # print(f"id = {self.camera[camID].aruco[idName].deque[0]['ids'][i]}, x = {centers[i][0]}, y = {centers[i][1]}")
             # Instead of simply printing the info to terminal, 
             # publish to "notices" topic so it displays on Web page (and the terminal):
-            self.pubNotice(f"id = {self.camera[camID].aruco[idName].deque[0]['ids'][i]}, x = {centers[i][0]}, y = {centers[i][1]}, error_x = ???, error_y = ???")
+            self.pubNotice(f"id = {self.camera[camID].aruco[idName].deque[0]['ids'][i]}, x = {centers[i][0]}, y = {centers[i][1]}, error_x = {error_x}, error_y = {error_y}")
                             
             '''
             TODO
@@ -531,62 +518,7 @@ class Main:
                - See sample code below.
                - See http://github.com/optimatorlab/ub_code?tab=readme-ov-file#circle-and-text-overlays for more details.
                    - How to know the radius of the target circle?
-camID     = argsDict['camID']
-    idName    = argsDict['idName']
-    idToTrack = argsDict['idToTrack']
-
-    robotID = self.robot_id
-    if robotID is None:
-        return
-
-    centers = self.camera[camID].aruco[idName].deque[0]['centers']
-    ids     = self.camera[camID].aruco[idName].deque[0]['ids']
-
-    frame_cx = self.camera[camID].res_cols / 2
-    frame_cy = self.camera[camID].res_rows / 2
-
-    for i in range(len(centers)):
-
-        if ids[i] != idToTrack:
-            continue
-
-        tag_x, tag_y = centers[i]
-
-        error_x = frame_cx - tag_x
-        error_y = tag_y - frame_cy
-
-        # deadband
-        deadband = 15
-        if abs(error_x) < deadband:
-            error_x = 0
-        if abs(error_y) < deadband:
-            error_y = 0
-
-        # proportional gain
-        Kp_pan  = 0.015
-        Kp_tilt = 0.015
-
-        current_pan  = self.joint[robotID]['arm_shoulder_pan_joint']['angle_deg']
-        current_tilt = self.joint[robotID]['arm_shoulder_lift_joint']['angle_deg']
-
-        new_pan  = current_pan  + Kp_pan  * error_x
-        new_tilt = current_tilt + Kp_tilt * error_y
-
-        pan_min  = self.joint[robotID]['arm_shoulder_pan_joint']['min_angle']
-        pan_max  = self.joint[robotID]['arm_shoulder_pan_joint']['max_angle']
-
-        tilt_min = self.joint[robotID]['arm_shoulder_lift_joint']['min_angle']
-        tilt_max = self.joint[robotID]['arm_shoulder_lift_joint']['max_angle']
-
-        new_pan  = min(max(new_pan, pan_min), pan_max)
-        new_tilt = min(max(new_tilt, tilt_min), tilt_max)
-
-        cmd = {
-            'arm_shoulder_pan_joint': new_pan,
-            'arm_shoulder_lift_joint': new_tilt
-        }
-
-        sio_host.emit('command', [robotID, [cmd]])			'''
+            '''
 
             # Incomplete logic to color the target circle based 
             # solely on x-axis location:
@@ -596,62 +528,48 @@ camID     = argsDict['camID']
                 self.circle_params['color'] = (0, 255, 0)
 
             
-def arucoMoveCamera(self, argsDict):
+    def arucoMoveCamera(self, argsDict):
+        # This function gets called each time an aruco detection is run
+        camID     = argsDict['camID']
+        idName    = argsDict['idName']
+        idToTrack = argsDict['idToTrack']
 
-    camID = argsDict['camID']
-    idName = argsDict['idName']
-    idToTrack = argsDict['idToTrack']
+        robotID = self.robot_id
+        if robotID is None:
+            return
+                    
+        centers = self.camera[camID].aruco[idName].deque[0]['centers']
+        for i in range(len(centers)):
+            # print(self.camera[camID].aruco[idName].deque[0]['ids'][i], centers[i])
 
-    robotID = self.robot_id
-    if robotID is None:
-        return
+            # Only track the ID specified by the user
+            if (self.camera[camID].aruco[idName].deque[0]['ids'][i] == idToTrack):
+                # data['joints'] = {'arm_shoulder_pan_joint': {'id': 1, 'neutral': 0, 'max_angle': 114, 'min_angle': 0, 'max_speed': 300, 'angle_deg': 88.18359375, 'OK': True, 'torque': False, 'angle_rad': 1.5390940571785934}, 'arm_shoulder_lift_joint': {'id': 2, 'neutral': 0, 'max_angle': 160, 'min_angle': 45, 'max_speed': 400, 'angle_deg': 146.48437500000003, 'OK': True, 'torque': False, 'angle_rad': 2.556634646476069}}
+                deadband_px = 10
+                kx = 1/25
+                ky = 1/30
 
-    centers = self.camera[camID].aruco[idName].deque[0]['centers']
-    ids = self.camera[camID].aruco[idName].deque[0]['ids']
+                cmd = {}
 
-    frame_cx = self.camera[camID].res_cols / 2
-    frame_cy = self.camera[camID].res_rows / 2
+                error_x = self.camera[camID].res_cols/2 - centers[i][0]   # + => rotate left
+                error_y = centers[i][1] - self.camera[camID].res_rows/2   # + => move down
 
-    for i in range(len(centers)):
+                if abs(error_x) > deadband_px:
+                    new_pan = self.joint[robotID]['arm_shoulder_pan_joint']['angle_deg'] + (error_x * kx)
+                    new_pan = min(max(new_pan,
+                      self.joint[robotID]['arm_shoulder_pan_joint']['min_angle']),
+                  self.joint[robotID]['arm_shoulder_pan_joint']['max_angle'])
+                    cmd['arm_shoulder_pan_joint'] = new_pan
 
-        if ids[i] != idToTrack:
-            continue
+                if abs(error_y) > deadband_px:
+                    new_tilt = self.joint[robotID]['arm_shoulder_lift_joint']['angle_deg'] + (error_y * ky)
+                    new_tilt = min(max(new_tilt,
+                       self.joint[robotID]['arm_shoulder_lift_joint']['min_angle']),
+                   self.joint[robotID]['arm_shoulder_lift_joint']['max_angle'])
+                    cmd['arm_shoulder_lift_joint'] = new_tilt
 
-        tag_x, tag_y = centers[i]
-
-        error_x = frame_cx - tag_x
-        error_y = tag_y - frame_cy
-
-        deadband = 15
-        if abs(error_x) < deadband:
-            error_x = 0
-        if abs(error_y) < deadband:
-            error_y = 0
-
-        Kp_pan = 0.015
-        Kp_tilt = 0.015
-
-        current_pan = self.joint[robotID]['arm_shoulder_pan_joint']['angle_deg']
-        current_tilt = self.joint[robotID]['arm_shoulder_lift_joint']['angle_deg']
-
-        new_pan = current_pan + Kp_pan * error_x
-        new_tilt = current_tilt + Kp_tilt * error_y
-
-        pan_min = self.joint[robotID]['arm_shoulder_pan_joint']['min_angle']
-        pan_max = self.joint[robotID]['arm_shoulder_pan_joint']['max_angle']
-
-        tilt_min = self.joint[robotID]['arm_shoulder_lift_joint']['min_angle']
-        tilt_max = self.joint[robotID]['arm_shoulder_lift_joint']['max_angle']
-
-        new_pan = min(max(new_pan, pan_min), pan_max)
-        new_tilt = min(max(new_tilt, tilt_min), tilt_max)
-
-        cmd = {
-            'arm_shoulder_pan_joint': new_pan,
-            'arm_shoulder_lift_joint': new_tilt
-        }
-
-        sio_host.emit('command', [robotID, [cmd]])
+                if cmd:
+                    sio_host.emit('command', [robotID, [cmd]])
 
 
     def barcodePostFunction(self, argsDict):

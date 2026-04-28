@@ -1,0 +1,230 @@
+<?xml version="1.0"?>
+<sdf version="1.10">
+  <world name="warehouse_world">
+
+    <!-- Lighting -->
+    <light name="sun" type="directional">
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <!-- Warehouse floor -->
+    <model name="warehouse_floor">
+      <static>true</static>
+      <link name="floor_link">
+        <collision name="floor_collision">
+          <geometry>
+            <box>
+              <size>16 10 0.05</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="floor_visual">
+          <geometry>
+            <box>
+              <size>16 10 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.65 0.65 0.65 1</ambient>
+            <diffuse>0.65 0.65 0.65 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Back wall -->
+    <model name="back_wall">
+      <static>true</static>
+      <pose>0 5 1 0 0 0</pose>
+      <link name="wall_link">
+        <collision name="wall_collision">
+          <geometry>
+            <box>
+              <size>16 0.15 2</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="wall_visual">
+          <geometry>
+            <box>
+              <size>16 0.15 2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Left wall -->
+    <model name="left_wall">
+      <static>true</static>
+      <pose>-8 0 1 0 0 0</pose>
+      <link name="wall_link">
+        <collision name="wall_collision">
+          <geometry>
+            <box>
+              <size>0.15 10 2</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="wall_visual">
+          <geometry>
+            <box>
+              <size>0.15 10 2</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Right wall -->
+    <model name="right_wall">
+      <static>true</static>
+      <pose>8 0 1 0 0 0</pose>
+      <link name="wall_link">
+        <collision name="wall_collision">
+          <geometry>
+            <box>
+              <size>0.15 10 2</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="wall_visual">
+          <geometry>
+            <box>
+              <size>0.15 10 2</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Long warehouse rack row 1 -->
+<model name="long_rack_left">
+  <static>true</static>
+  <pose>-3 0 0 0 0 0</pose>
+
+  <link name="rack_link">
+
+    <!-- Vertical posts along length -->
+    <visual name="post_1_front"><pose>-2 -4 1.75 0 0 0</pose><geometry><box><size>0.12 0.12 3.5</size></box></geometry></visual>
+    <visual name="post_2_front"><pose>-2 -2 1.75 0 0 0</pose><geometry><box><size>0.12 0.12 3.5</size></box></geometry></visual>
+    <visual name="post_3_front"><pose>-2 0 1.75 0 0 0</pose><geometry><box><size>0.12 0.12 3.5</size></box></geometry></visual>
+    <visual name="post_4_front"><pose>-2 2 1.75 0 0 0</pose><geometry><box><size>0.12 0.12 3.5</size></box></geometry></visual>
+    <visual name="post_5_front"><pose>-2 4 1.75 0 0 0</pose><geometry><box><size>0.12 0.12 3.5</size></box></geometry></visual>
+
+    <visual name="post_1_back"><pose>2 -4 1.75 0 0 0</pose><geometry><box><size>0.12 0.12 3.5</size></box></geometry></visual>
+    <visual name="post_2_back"><pose>2 -2 1.75 0 0 0</pose><geometry><box><size>0.12 0.12 3.5</size></box></geometry></visual>
+    <visual name="post_3_back"><pose>2 0 1.75 0 0 0</pose><geometry><box><size>0.12 0.12 3.5</size></box></geometry></visual>
+    <visual name="post_4_back"><pose>2 2 1.75 0 0 0</pose><geometry><box><size>0.12 0.12 3.5</size></box></geometry></visual>
+    <visual name="post_5_back"><pose>2 4 1.75 0 0 0</pose><geometry><box><size>0.12 0.12 3.5</size></box></geometry></visual>
+
+    <!-- Horizontal beams along rack length -->
+    <visual name="left_beam_low"><pose>-2 0 0.8 0 0 0</pose><geometry><box><size>0.12 8.2 0.12</size></box></geometry></visual>
+    <visual name="left_beam_mid"><pose>-2 0 1.8 0 0 0</pose><geometry><box><size>0.12 8.2 0.12</size></box></geometry></visual>
+    <visual name="left_beam_top"><pose>-2 0 3.0 0 0 0</pose><geometry><box><size>0.12 8.2 0.12</size></box></geometry></visual>
+
+    <visual name="right_beam_low"><pose>2 0 0.8 0 0 0</pose><geometry><box><size>0.12 8.2 0.12</size></box></geometry></visual>
+    <visual name="right_beam_mid"><pose>2 0 1.8 0 0 0</pose><geometry><box><size>0.12 8.2 0.12</size></box></geometry></visual>
+    <visual name="right_beam_top"><pose>2 0 3.0 0 0 0</pose><geometry><box><size>0.12 8.2 0.12</size></box></geometry></visual>
+
+    <!-- Cross beams across rack width -->
+    <visual name="cross_low_1"><pose>0 -4 0.8 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+    <visual name="cross_low_2"><pose>0 -2 0.8 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+    <visual name="cross_low_3"><pose>0 0 0.8 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+    <visual name="cross_low_4"><pose>0 2 0.8 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+    <visual name="cross_low_5"><pose>0 4 0.8 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+
+    <visual name="cross_mid_1"><pose>0 -4 1.8 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+    <visual name="cross_mid_2"><pose>0 -2 1.8 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+    <visual name="cross_mid_3"><pose>0 0 1.8 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+    <visual name="cross_mid_4"><pose>0 2 1.8 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+    <visual name="cross_mid_5"><pose>0 4 1.8 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+
+    <visual name="cross_top_1"><pose>0 -4 3.0 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+    <visual name="cross_top_2"><pose>0 -2 3.0 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+    <visual name="cross_top_3"><pose>0 0 3.0 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+    <visual name="cross_top_4"><pose>0 2 3.0 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+    <visual name="cross_top_5"><pose>0 4 3.0 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+
+    <collision name="rack_collision">
+      <pose>0 0 1.75 0 0 0</pose>
+      <geometry>
+        <box>
+          <size>4.3 8.4 3.5</size>
+        </box>
+      </geometry>
+    </collision>
+
+  </link>
+</model>
+
+
+<!-- Long warehouse rack row 2: identical parallel rack -->
+<model name="long_rack_right">
+  <static>true</static>
+  <pose>3 0 0 0 0 0</pose>
+
+  <link name="rack_link">
+
+    <!-- Vertical posts along length -->
+    <visual name="post_1_front"><pose>-2 -4 1.75 0 0 0</pose><geometry><box><size>0.12 0.12 3.5</size></box></geometry></visual>
+    <visual name="post_2_front"><pose>-2 -2 1.75 0 0 0</pose><geometry><box><size>0.12 0.12 3.5</size></box></geometry></visual>
+    <visual name="post_3_front"><pose>-2 0 1.75 0 0 0</pose><geometry><box><size>0.12 0.12 3.5</size></box></geometry></visual>
+    <visual name="post_4_front"><pose>-2 2 1.75 0 0 0</pose><geometry><box><size>0.12 0.12 3.5</size></box></geometry></visual>
+    <visual name="post_5_front"><pose>-2 4 1.75 0 0 0</pose><geometry><box><size>0.12 0.12 3.5</size></box></geometry></visual>
+
+    <visual name="post_1_back"><pose>2 -4 1.75 0 0 0</pose><geometry><box><size>0.12 0.12 3.5</size></box></geometry></visual>
+    <visual name="post_2_back"><pose>2 -2 1.75 0 0 0</pose><geometry><box><size>0.12 0.12 3.5</size></box></geometry></visual>
+    <visual name="post_3_back"><pose>2 0 1.75 0 0 0</pose><geometry><box><size>0.12 0.12 3.5</size></box></geometry></visual>
+    <visual name="post_4_back"><pose>2 2 1.75 0 0 0</pose><geometry><box><size>0.12 0.12 3.5</size></box></geometry></visual>
+    <visual name="post_5_back"><pose>2 4 1.75 0 0 0</pose><geometry><box><size>0.12 0.12 3.5</size></box></geometry></visual>
+
+    <!-- Horizontal beams along rack length -->
+    <visual name="left_beam_low"><pose>-2 0 0.8 0 0 0</pose><geometry><box><size>0.12 8.2 0.12</size></box></geometry></visual>
+    <visual name="left_beam_mid"><pose>-2 0 1.8 0 0 0</pose><geometry><box><size>0.12 8.2 0.12</size></box></geometry></visual>
+    <visual name="left_beam_top"><pose>-2 0 3.0 0 0 0</pose><geometry><box><size>0.12 8.2 0.12</size></box></geometry></visual>
+
+    <visual name="right_beam_low"><pose>2 0 0.8 0 0 0</pose><geometry><box><size>0.12 8.2 0.12</size></box></geometry></visual>
+    <visual name="right_beam_mid"><pose>2 0 1.8 0 0 0</pose><geometry><box><size>0.12 8.2 0.12</size></box></geometry></visual>
+    <visual name="right_beam_top"><pose>2 0 3.0 0 0 0</pose><geometry><box><size>0.12 8.2 0.12</size></box></geometry></visual>
+
+    <!-- Cross beams across rack width -->
+    <visual name="cross_low_1"><pose>0 -4 0.8 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+    <visual name="cross_low_2"><pose>0 -2 0.8 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+    <visual name="cross_low_3"><pose>0 0 0.8 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+    <visual name="cross_low_4"><pose>0 2 0.8 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+    <visual name="cross_low_5"><pose>0 4 0.8 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+
+    <visual name="cross_mid_1"><pose>0 -4 1.8 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+    <visual name="cross_mid_2"><pose>0 -2 1.8 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+    <visual name="cross_mid_3"><pose>0 0 1.8 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+    <visual name="cross_mid_4"><pose>0 2 1.8 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+    <visual name="cross_mid_5"><pose>0 4 1.8 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+
+    <visual name="cross_top_1"><pose>0 -4 3.0 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+    <visual name="cross_top_2"><pose>0 -2 3.0 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+    <visual name="cross_top_3"><pose>0 0 3.0 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+    <visual name="cross_top_4"><pose>0 2 3.0 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+    <visual name="cross_top_5"><pose>0 4 3.0 0 0 0</pose><geometry><box><size>4.1 0.10 0.10</size></box></geometry></visual>
+
+    <collision name="rack_collision">
+      <pose>0 0 1.75 0 0 0</pose>
+      <geometry>
+        <box>
+          <size>4.3 8.4 3.5</size>
+        </box>
+      </geometry>
+    </collision>
+
+  </link>
+</model>
+
+  </world>
+</sdf>

@@ -141,7 +141,7 @@ def my_pipeline(frame):
 		cv2.circle(frame, (cx, cy), 20, (0,0,255), -1)
 
 		# Calculate left/right error
-		error = cx - (w/2)   # [px].  - --> need to turn left; + --> need to turn right
+		error = (w/2) - cx   # [px].  - --> need to turn left; + --> need to turn right
 		
 		if (abs(error) <= _params['deadZonePixels']):
 			error = 0
