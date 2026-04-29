@@ -45,6 +45,22 @@ bottom_window_sill_in = 27
 bottom_window_gap_in = 26
 bottom_window_count = 8
 
+# Exact bottom-window wall geometry supplied separately, in meters.
+# This replaces the inferred lower/upper/gap segmentation above.
+bottom_wall_total_len_m = 24.2062
+bottom_wall_thickness_m = 0.2
+bottom_strip_h_m = 1.1176
+top_strip_h_m = 0.3048
+top_strip_z_m = 2.5908
+section_z_m = 1.778
+section_h_m = 1.3208
+section_end_w_m = 0.254
+section_inner_w_m = 0.6785429
+window_w_m = 2.36855
+window_h_m = 1.3208
+window_y_offset_m = 0.11
+glass_color = "0.3 0.6 0.9 0.35"
+
 # ----------------------------
 # Convert to meters
 # ----------------------------
@@ -75,10 +91,22 @@ def add_box(name, sx, sy, sz, px, py, pz, color="0.82 0.82 0.82 1"):
         "sx": sx, "sy": sy, "sz": sz,
         "px": px, "py": py, "pz": pz,
         "color": color,
+        "collision": True,
+    })
+
+def add_visual_box(name, sx, sy, sz, px, py, pz, color):
+    pieces.append({
+        "name": name,
+        "sx": sx, "sy": sy, "sz": sz,
+        "px": px, "py": py, "pz": pz,
+        "color": color,
+        "collision": False,
     })
 
 def box_xml(p):
-    return f"""      <collision name="{p['name']}_collision">
+    collision_xml = ""
+    if p["collision"]:
+        collision_xml = f"""      <collision name="{p['name']}_collision">
         <pose>{p['px']:.4f} {p['py']:.4f} {p['pz']:.4f} 0 0 0</pose>
         <geometry>
           <box>
@@ -86,7 +114,8 @@ def box_xml(p):
           </box>
         </geometry>
       </collision>
-      <visual name="{p['name']}_visual">
+"""
+    return collision_xml + f"""      <visual name="{p['name']}_visual">
         <pose>{p['px']:.4f} {p['py']:.4f} {p['pz']:.4f} 0 0 0</pose>
         <geometry>
           <box>
@@ -144,45 +173,70 @@ for i, start_in in enumerate(protrusion_starts_in):
     )
 
 # Bottom wall
-y_bot = -wall_t / 2.0
-cursor = 0.0
+# Room origin is the inside bottom-left corner; map the supplied wall model so
+# its inner face stays at y = 0 and its full outer length spans the room width.
+bottom_wall_center_x = room_len / 2.0
+bottom_wall_center_y = -bottom_wall_thickness_m / 2.0
 
 add_box(
-    name="bottom_left_end_full",
-    sx=m(bottom_left_end_in), sy=wall_t, sz=wall_h,
-    px=m(bottom_left_end_in / 2.0), py=y_bot, pz=full_z,
+    name="bottom_strip",
+    sx=bottom_wall_total_len_m, sy=bottom_wall_thickness_m, sz=bottom_strip_h_m,
+    px=bottom_wall_center_x, py=bottom_wall_center_y, pz=bottom_strip_h_m / 2.0,
+    color="0.85 0.85 0.85 1",
 )
-cursor += bottom_left_end_in
-
-for i in range(bottom_window_count):
-    cx = m(cursor + bottom_window_w_in / 2.0)
-
-    add_box(
-        name=f"bottom_window_{i+1}_lower",
-        sx=m(bottom_window_w_in), sy=wall_t, sz=bottom_lower_h,
-        px=cx, py=y_bot, pz=bottom_lower_z,
-    )
-    add_box(
-        name=f"bottom_window_{i+1}_upper",
-        sx=m(bottom_window_w_in), sy=wall_t, sz=bottom_upper_h,
-        px=cx, py=y_bot, pz=bottom_upper_z,
-    )
-    cursor += bottom_window_w_in
-
-    if i < bottom_window_count - 1:
-        add_box(
-            name=f"bottom_gap_{i+1}_full",
-            sx=m(bottom_window_gap_in), sy=wall_t, sz=wall_h,
-            px=m(cursor + bottom_window_gap_in / 2.0), py=y_bot, pz=full_z,
-        )
-        cursor += bottom_window_gap_in
-
 add_box(
-    name="bottom_right_end_full",
-    sx=m(bottom_right_end_in), sy=wall_t, sz=wall_h,
-    px=m(cursor + bottom_right_end_in / 2.0), py=y_bot, pz=full_z,
+    name="top_strip",
+    sx=bottom_wall_total_len_m, sy=bottom_wall_thickness_m, sz=top_strip_h_m,
+    px=bottom_wall_center_x, py=bottom_wall_center_y, pz=top_strip_z_m,
+    color="0.85 0.85 0.85 1",
 )
-cursor += bottom_right_end_in
+
+section_centers_x = [
+    -11.9761,
+    -9.1412786,
+    -6.0941857,
+    -3.0470929,
+    0.0,
+    3.0470929,
+    6.0941857,
+    9.1412786,
+    11.9761,
+]
+
+for i, local_x in enumerate(section_centers_x, start=1):
+    add_box(
+        name=f"bottom_section_{i}",
+        sx=section_end_w_m if i in (1, 9) else section_inner_w_m,
+        sy=bottom_wall_thickness_m,
+        sz=section_h_m,
+        px=bottom_wall_center_x + local_x,
+        py=bottom_wall_center_y,
+        pz=section_z_m,
+        color="0.85 0.85 0.85 1",
+    )
+
+window_centers_x = [
+    -10.664825,
+    -7.6177321,
+    -4.5706393,
+    -1.5235464,
+    1.5235464,
+    4.5706393,
+    7.6177321,
+    10.664825,
+]
+
+for i, local_x in enumerate(window_centers_x, start=1):
+    add_visual_box(
+        name=f"bottom_window_{i}_glass",
+        sx=window_w_m,
+        sy=0.02,
+        sz=window_h_m,
+        px=bottom_wall_center_x + local_x,
+        py=bottom_wall_center_y + window_y_offset_m,
+        pz=section_z_m,
+        color=glass_color,
+    )
 
 # Left wall
 x_left = -wall_t / 2.0
@@ -221,7 +275,7 @@ add_box(
 
 model_config = """<?xml version="1.0" ?>
 <model>
-  <name>room_427</name>
+  <name>room_427_walls</name>
   <version>1.0</version>
   <sdf version="1.9">model.sdf</sdf>
   <author>
@@ -236,7 +290,7 @@ model_config = """<?xml version="1.0" ?>
 
 model_sdf = """<?xml version="1.0" ?>
 <sdf version="1.9">
-  <model name="room_427">
+  <model name="room_427_walls">
     <static>true</static>
     <link name="walls">
 """ + "\n\n".join(box_xml(p) for p in pieces) + """
@@ -245,7 +299,7 @@ model_sdf = """<?xml version="1.0" ?>
 </sdf>
 """
 
-out_dir = Path("models/room_427")
+out_dir = Path("models/room_427_walls")
 out_dir.mkdir(parents=True, exist_ok=True)
 (out_dir / "model.config").write_text(model_config, encoding="utf-8")
 (out_dir / "model.sdf").write_text(model_sdf, encoding="utf-8")
@@ -256,6 +310,6 @@ print(out_dir / "model.sdf")
 print(f"Pieces: {len(pieces)}")
 print(f"Room inside size: {room_len:.4f} m x {room_dep:.4f} m")
 print("Bottom wall used:")
-print("5 in solid + 8 windows x 93 in + 7 gaps x 26 in + 10 in solid")
+print("Integrated exact 8-window wall geometry with bottom strip, top strip, 9 sections, and 8 glass panels")
 print("Top protrusions used:")
 print("4 protrusions, each 6 in wide x 56 in deep, starts at 258, 316, 376, 433 in")

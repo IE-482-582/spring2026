@@ -66,7 +66,7 @@
                  XML and will cause a parse error if used here. -->
             <pbr>
               <metal>
-                <albedo_map>file:///workspace/Projects/gazebo_demo/worlds/course.png</albedo_map>
+                <albedo_map>course.png</albedo_map>
               </metal>
             </pbr>
           </material>
@@ -80,16 +80,10 @@
     </include>
 
     <include>
-      <uri>model://window_wall</uri>
-      <name>wall_in_course</name>
-      <pose>3 0 0 0 0 0</pose>
+      <uri>model://room_427_walls</uri>
+      <name>room_427_walls</name>
+      <pose>0 0 0 0 0 0</pose>
     </include>
-
-  <include>
-    <uri>model://room_427</uri>
-    <name>room_427</name>
-    <pose>0 0 0 0 0 0</pose>
-  </include>
 
     <plugin filename="gz-sim-physics-system"
             name="gz::sim::systems::Physics"/>
