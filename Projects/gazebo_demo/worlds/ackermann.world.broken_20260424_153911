@@ -1,0 +1,1005 @@
+<?xml version="1.0" ?>
+<sdf version="1.10">
+  <world name="default">
+    <gravity>0 0 -9.8</gravity>
+
+    <scene>
+<!-- Restaurant Set 2 -->
+<!-- Restaurant Set 3 -->
+<!-- Restaurant Set 4 -->
+<!-- Restaurant Set 5 -->
+<!-- Restaurant Set 6 -->
+<!-- Restaurant Set 7 -->
+<!-- Restaurant Set 8 -->
+
+    <!-- Rectangular Restaurant Table Set 1 -->
+    <model name="restaurant_set_1">
+      <static>true</static>
+      <pose>-3.0  3.1 0 0 0  0.75</pose>
+
+      <link name="furniture_link">
+
+        <!-- Long rectangular table top -->
+        <visual name="table_top_visual">
+          <pose>0 0 0.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.80 0.75 0.08</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.50 0.36 0.22 1</ambient>
+            <diffuse>0.68 0.50 0.30 1</diffuse>
+          </material>
+        </visual>
+
+        <collision name="table_top_collision">
+          <pose>0 0 0.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.80 0.75 0.08</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <!-- Table center leg -->
+        <visual name="table_leg_visual">
+          <pose>0 0 0.375 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.75</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.25 0.25 0.25 1</ambient>
+            <diffuse>0.35 0.35 0.35 1</diffuse>
+          </material>
+        </visual>
+
+        <collision name="table_leg_collision">
+          <pose>0 0 0.375 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.75</length>
+            </cylinder>
+          </geometry>
+        </collision>
+
+        <!-- Chairs: two on one long side -->
+        <visual name="chair_n_left_seat">
+          <pose>-0.50 1.00 0.45 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.38 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.46 0.30 0.18 1</ambient>
+            <diffuse>0.60 0.40 0.24 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_n_left_back">
+          <pose>-0.50 1.20 0.72 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.06 0.50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.40 0.26 0.16 1</ambient>
+            <diffuse>0.54 0.36 0.22 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_n_right_seat">
+          <pose>0.50 1.00 0.45 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.38 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.46 0.30 0.18 1</ambient>
+            <diffuse>0.60 0.40 0.24 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_n_right_back">
+          <pose>0.50 1.20 0.72 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.06 0.50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.40 0.26 0.16 1</ambient>
+            <diffuse>0.54 0.36 0.22 1</diffuse>
+          </material>
+        </visual>
+
+        <!-- Chairs: two on the other long side -->
+        <visual name="chair_s_left_seat">
+          <pose>-0.50 -1.00 0.45 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.38 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.46 0.30 0.18 1</ambient>
+            <diffuse>0.60 0.40 0.24 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_s_left_back">
+          <pose>-0.50 -1.20 0.72 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.06 0.50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.40 0.26 0.16 1</ambient>
+            <diffuse>0.54 0.36 0.22 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_s_right_seat">
+          <pose>0.50 -1.00 0.45 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.38 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.46 0.30 0.18 1</ambient>
+            <diffuse>0.60 0.40 0.24 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_s_right_back">
+          <pose>0.50 -1.20 0.72 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.06 0.50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.40 0.26 0.16 1</ambient>
+            <diffuse>0.54 0.36 0.22 1</diffuse>
+          </material>
+        </visual>
+
+      </link>
+    </model>
+
+
+    <!-- Rectangular Restaurant Table Set 2 -->
+    <model name="restaurant_set_2">
+      <static>true</static>
+      <pose> 1.1  4.7 0 0 0  0.10</pose>
+
+      <link name="furniture_link">
+
+        <!-- Long rectangular table top -->
+        <visual name="table_top_visual">
+          <pose>0 0 0.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.80 0.75 0.08</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.50 0.36 0.22 1</ambient>
+            <diffuse>0.68 0.50 0.30 1</diffuse>
+          </material>
+        </visual>
+
+        <collision name="table_top_collision">
+          <pose>0 0 0.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.80 0.75 0.08</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <!-- Table center leg -->
+        <visual name="table_leg_visual">
+          <pose>0 0 0.375 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.75</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.25 0.25 0.25 1</ambient>
+            <diffuse>0.35 0.35 0.35 1</diffuse>
+          </material>
+        </visual>
+
+        <collision name="table_leg_collision">
+          <pose>0 0 0.375 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.75</length>
+            </cylinder>
+          </geometry>
+        </collision>
+
+        <!-- Chairs: two on one long side -->
+        <visual name="chair_n_left_seat">
+          <pose>-0.50 1.00 0.45 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.38 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.46 0.30 0.18 1</ambient>
+            <diffuse>0.60 0.40 0.24 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_n_left_back">
+          <pose>-0.50 1.20 0.72 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.06 0.50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.40 0.26 0.16 1</ambient>
+            <diffuse>0.54 0.36 0.22 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_n_right_seat">
+          <pose>0.50 1.00 0.45 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.38 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.46 0.30 0.18 1</ambient>
+            <diffuse>0.60 0.40 0.24 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_n_right_back">
+          <pose>0.50 1.20 0.72 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.06 0.50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.40 0.26 0.16 1</ambient>
+            <diffuse>0.54 0.36 0.22 1</diffuse>
+          </material>
+        </visual>
+
+        <!-- Chairs: two on the other long side -->
+        <visual name="chair_s_left_seat">
+          <pose>-0.50 -1.00 0.45 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.38 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.46 0.30 0.18 1</ambient>
+            <diffuse>0.60 0.40 0.24 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_s_left_back">
+          <pose>-0.50 -1.20 0.72 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.06 0.50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.40 0.26 0.16 1</ambient>
+            <diffuse>0.54 0.36 0.22 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_s_right_seat">
+          <pose>0.50 -1.00 0.45 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.38 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.46 0.30 0.18 1</ambient>
+            <diffuse>0.60 0.40 0.24 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_s_right_back">
+          <pose>0.50 -1.20 0.72 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.06 0.50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.40 0.26 0.16 1</ambient>
+            <diffuse>0.54 0.36 0.22 1</diffuse>
+          </material>
+        </visual>
+
+      </link>
+    </model>
+
+
+    <!-- Rectangular Restaurant Table Set 3 -->
+    <model name="restaurant_set_3">
+      <static>true</static>
+      <pose> 5.7  3.0 0 0 0 -0.55</pose>
+
+      <link name="furniture_link">
+
+        <!-- Long rectangular table top -->
+        <visual name="table_top_visual">
+          <pose>0 0 0.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.80 0.75 0.08</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.50 0.36 0.22 1</ambient>
+            <diffuse>0.68 0.50 0.30 1</diffuse>
+          </material>
+        </visual>
+
+        <collision name="table_top_collision">
+          <pose>0 0 0.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.80 0.75 0.08</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <!-- Table center leg -->
+        <visual name="table_leg_visual">
+          <pose>0 0 0.375 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.75</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.25 0.25 0.25 1</ambient>
+            <diffuse>0.35 0.35 0.35 1</diffuse>
+          </material>
+        </visual>
+
+        <collision name="table_leg_collision">
+          <pose>0 0 0.375 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.75</length>
+            </cylinder>
+          </geometry>
+        </collision>
+
+        <!-- Chairs: two on one long side -->
+        <visual name="chair_n_left_seat">
+          <pose>-0.50 1.00 0.45 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.38 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.46 0.30 0.18 1</ambient>
+            <diffuse>0.60 0.40 0.24 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_n_left_back">
+          <pose>-0.50 1.20 0.72 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.06 0.50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.40 0.26 0.16 1</ambient>
+            <diffuse>0.54 0.36 0.22 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_n_right_seat">
+          <pose>0.50 1.00 0.45 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.38 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.46 0.30 0.18 1</ambient>
+            <diffuse>0.60 0.40 0.24 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_n_right_back">
+          <pose>0.50 1.20 0.72 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.06 0.50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.40 0.26 0.16 1</ambient>
+            <diffuse>0.54 0.36 0.22 1</diffuse>
+          </material>
+        </visual>
+
+        <!-- Chairs: two on the other long side -->
+        <visual name="chair_s_left_seat">
+          <pose>-0.50 -1.00 0.45 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.38 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.46 0.30 0.18 1</ambient>
+            <diffuse>0.60 0.40 0.24 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_s_left_back">
+          <pose>-0.50 -1.20 0.72 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.06 0.50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.40 0.26 0.16 1</ambient>
+            <diffuse>0.54 0.36 0.22 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_s_right_seat">
+          <pose>0.50 -1.00 0.45 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.38 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.46 0.30 0.18 1</ambient>
+            <diffuse>0.60 0.40 0.24 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_s_right_back">
+          <pose>0.50 -1.20 0.72 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.06 0.50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.40 0.26 0.16 1</ambient>
+            <diffuse>0.54 0.36 0.22 1</diffuse>
+          </material>
+        </visual>
+
+      </link>
+    </model>
+
+
+    <!-- Rectangular Restaurant Table Set 4 -->
+    <model name="restaurant_set_4">
+      <static>true</static>
+      <pose> 7.0 -0.7 0 0 0 -1.25</pose>
+
+      <link name="furniture_link">
+
+        <!-- Long rectangular table top -->
+        <visual name="table_top_visual">
+          <pose>0 0 0.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.80 0.75 0.08</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.50 0.36 0.22 1</ambient>
+            <diffuse>0.68 0.50 0.30 1</diffuse>
+          </material>
+        </visual>
+
+        <collision name="table_top_collision">
+          <pose>0 0 0.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.80 0.75 0.08</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <!-- Table center leg -->
+        <visual name="table_leg_visual">
+          <pose>0 0 0.375 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.75</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.25 0.25 0.25 1</ambient>
+            <diffuse>0.35 0.35 0.35 1</diffuse>
+          </material>
+        </visual>
+
+        <collision name="table_leg_collision">
+          <pose>0 0 0.375 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.75</length>
+            </cylinder>
+          </geometry>
+        </collision>
+
+        <!-- Chairs: two on one long side -->
+        <visual name="chair_n_left_seat">
+          <pose>-0.50 1.00 0.45 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.38 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.46 0.30 0.18 1</ambient>
+            <diffuse>0.60 0.40 0.24 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_n_left_back">
+          <pose>-0.50 1.20 0.72 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.06 0.50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.40 0.26 0.16 1</ambient>
+            <diffuse>0.54 0.36 0.22 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_n_right_seat">
+          <pose>0.50 1.00 0.45 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.38 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.46 0.30 0.18 1</ambient>
+            <diffuse>0.60 0.40 0.24 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_n_right_back">
+          <pose>0.50 1.20 0.72 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.06 0.50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.40 0.26 0.16 1</ambient>
+            <diffuse>0.54 0.36 0.22 1</diffuse>
+          </material>
+        </visual>
+
+        <!-- Chairs: two on the other long side -->
+        <visual name="chair_s_left_seat">
+          <pose>-0.50 -1.00 0.45 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.38 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.46 0.30 0.18 1</ambient>
+            <diffuse>0.60 0.40 0.24 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_s_left_back">
+          <pose>-0.50 -1.20 0.72 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.06 0.50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.40 0.26 0.16 1</ambient>
+            <diffuse>0.54 0.36 0.22 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_s_right_seat">
+          <pose>0.50 -1.00 0.45 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.38 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.46 0.30 0.18 1</ambient>
+            <diffuse>0.60 0.40 0.24 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_s_right_back">
+          <pose>0.50 -1.20 0.72 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.06 0.50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.40 0.26 0.16 1</ambient>
+            <diffuse>0.54 0.36 0.22 1</diffuse>
+          </material>
+        </visual>
+
+      </link>
+    </model>
+
+
+    <!-- Rectangular Restaurant Table Set 5 -->
+    <model name="restaurant_set_5">
+      <static>true</static>
+      <pose> 3.2 -6.4 0 0 0  3.05</pose>
+
+      <link name="furniture_link">
+
+        <!-- Long rectangular table top -->
+        <visual name="table_top_visual">
+          <pose>0 0 0.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.80 0.75 0.08</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.50 0.36 0.22 1</ambient>
+            <diffuse>0.68 0.50 0.30 1</diffuse>
+          </material>
+        </visual>
+
+        <collision name="table_top_collision">
+          <pose>0 0 0.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.80 0.75 0.08</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <!-- Table center leg -->
+        <visual name="table_leg_visual">
+          <pose>0 0 0.375 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.75</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.25 0.25 0.25 1</ambient>
+            <diffuse>0.35 0.35 0.35 1</diffuse>
+          </material>
+        </visual>
+
+        <collision name="table_leg_collision">
+          <pose>0 0 0.375 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.75</length>
+            </cylinder>
+          </geometry>
+        </collision>
+
+        <!-- Chairs: two on one long side -->
+        <visual name="chair_n_left_seat">
+          <pose>-0.50 1.00 0.45 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.38 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.46 0.30 0.18 1</ambient>
+            <diffuse>0.60 0.40 0.24 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_n_left_back">
+          <pose>-0.50 1.20 0.72 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.06 0.50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.40 0.26 0.16 1</ambient>
+            <diffuse>0.54 0.36 0.22 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_n_right_seat">
+          <pose>0.50 1.00 0.45 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.38 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.46 0.30 0.18 1</ambient>
+            <diffuse>0.60 0.40 0.24 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_n_right_back">
+          <pose>0.50 1.20 0.72 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.06 0.50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.40 0.26 0.16 1</ambient>
+            <diffuse>0.54 0.36 0.22 1</diffuse>
+          </material>
+        </visual>
+
+        <!-- Chairs: two on the other long side -->
+        <visual name="chair_s_left_seat">
+          <pose>-0.50 -1.00 0.45 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.38 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.46 0.30 0.18 1</ambient>
+            <diffuse>0.60 0.40 0.24 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_s_left_back">
+          <pose>-0.50 -1.20 0.72 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.06 0.50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.40 0.26 0.16 1</ambient>
+            <diffuse>0.54 0.36 0.22 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_s_right_seat">
+          <pose>0.50 -1.00 0.45 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.38 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.46 0.30 0.18 1</ambient>
+            <diffuse>0.60 0.40 0.24 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_s_right_back">
+          <pose>0.50 -1.20 0.72 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.06 0.50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.40 0.26 0.16 1</ambient>
+            <diffuse>0.54 0.36 0.22 1</diffuse>
+          </material>
+        </visual>
+
+      </link>
+    </model>
+
+
+    <!-- Rectangular Restaurant Table Set 6 -->
+    <model name="restaurant_set_6">
+      <static>true</static>
+      <pose>-3.0 -2.8 0 0 0  2.15</pose>
+
+      <link name="furniture_link">
+
+        <!-- Long rectangular table top -->
+        <visual name="table_top_visual">
+          <pose>0 0 0.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.80 0.75 0.08</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.50 0.36 0.22 1</ambient>
+            <diffuse>0.68 0.50 0.30 1</diffuse>
+          </material>
+        </visual>
+
+        <collision name="table_top_collision">
+          <pose>0 0 0.75 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1.80 0.75 0.08</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <!-- Table center leg -->
+        <visual name="table_leg_visual">
+          <pose>0 0 0.375 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.75</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.25 0.25 0.25 1</ambient>
+            <diffuse>0.35 0.35 0.35 1</diffuse>
+          </material>
+        </visual>
+
+        <collision name="table_leg_collision">
+          <pose>0 0 0.375 0 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.75</length>
+            </cylinder>
+          </geometry>
+        </collision>
+
+        <!-- Chairs: two on one long side -->
+        <visual name="chair_n_left_seat">
+          <pose>-0.50 1.00 0.45 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.38 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.46 0.30 0.18 1</ambient>
+            <diffuse>0.60 0.40 0.24 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_n_left_back">
+          <pose>-0.50 1.20 0.72 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.06 0.50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.40 0.26 0.16 1</ambient>
+            <diffuse>0.54 0.36 0.22 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_n_right_seat">
+          <pose>0.50 1.00 0.45 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.38 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.46 0.30 0.18 1</ambient>
+            <diffuse>0.60 0.40 0.24 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_n_right_back">
+          <pose>0.50 1.20 0.72 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.06 0.50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.40 0.26 0.16 1</ambient>
+            <diffuse>0.54 0.36 0.22 1</diffuse>
+          </material>
+        </visual>
+
+        <!-- Chairs: two on the other long side -->
+        <visual name="chair_s_left_seat">
+          <pose>-0.50 -1.00 0.45 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.38 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.46 0.30 0.18 1</ambient>
+            <diffuse>0.60 0.40 0.24 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_s_left_back">
+          <pose>-0.50 -1.20 0.72 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.06 0.50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.40 0.26 0.16 1</ambient>
+            <diffuse>0.54 0.36 0.22 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_s_right_seat">
+          <pose>0.50 -1.00 0.45 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.38 0.07</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.46 0.30 0.18 1</ambient>
+            <diffuse>0.60 0.40 0.24 1</diffuse>
+          </material>
+        </visual>
+
+        <visual name="chair_s_right_back">
+          <pose>0.50 -1.20 0.72 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.38 0.06 0.50</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.40 0.26 0.16 1</ambient>
+            <diffuse>0.54 0.36 0.22 1</diffuse>
+          </material>
+        </visual>
+
+      </link>
+    </model>
+
+</world>
+</sdf>
