@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<sdf version="1.10">
+  <model name="room_427_floor">
+    <static>true</static>
+    <link name="link">
+
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>24.206 6.579 0.01</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>24.206 6.579 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.02 0.02 0.02 1</ambient>
+          <diffuse>0.05 0.05 0.05 1</diffuse>
+          <specular>0.8 0.8 0.8 1</specular>
+          <pbr>
+            <metal>
+              <albedo>0.04 0.04 0.04 1</albedo>
+              <roughness_value>0.05</roughness_value>
+              <metalness_value>0.0</metalness_value>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+    </link>
+  </model>
+</sdf>
