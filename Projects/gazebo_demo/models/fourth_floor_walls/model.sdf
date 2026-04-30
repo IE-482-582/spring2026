@@ -1,0 +1,4634 @@
+<?xml version="1.0"?>
+<sdf version="1.10">
+  <model name="fourth_floor_walls">
+    <static>true</static>
+
+    <link name="exteriors_001_solid">
+      <pose>-0.1270 0.0000 1.3750 0 0 3.141593</pose>
+
+      <collision name="exteriors_001_solid_collision">
+        <geometry>
+          <box>
+            <size>0.2540 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_001_solid_visual">
+        <geometry>
+          <box>
+            <size>0.2540 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_002_windows_block_lower_strip">
+      <pose>-9.0583 0.0000 0.5461 0 0 3.141593</pose>
+
+      <collision name="exteriors_002_windows_block_lower_strip_collision">
+        <geometry>
+          <box>
+            <size>17.6086 0.1199 1.0922</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_002_windows_block_lower_strip_visual">
+        <geometry>
+          <box>
+            <size>17.6086 0.1199 1.0922</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_002_windows_block_upper_strip">
+      <pose>-9.0583 0.0000 2.5942 0 0 3.141593</pose>
+
+      <collision name="exteriors_002_windows_block_upper_strip_collision">
+        <geometry>
+          <box>
+            <size>17.6086 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_002_windows_block_upper_strip_visual">
+        <geometry>
+          <box>
+            <size>17.6086 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_002_windows_block_post_1">
+      <pose>-2.9623 0.0000 1.3750 0 0 3.141593</pose>
+
+      <collision name="exteriors_002_windows_block_post_1_collision">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_002_windows_block_post_1_visual">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_002_windows_block_post_2">
+      <pose>-6.0103 0.0000 1.3750 0 0 3.141593</pose>
+
+      <collision name="exteriors_002_windows_block_post_2_collision">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_002_windows_block_post_2_visual">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_002_windows_block_post_3">
+      <pose>-9.0583 0.0000 1.3750 0 0 3.141593</pose>
+
+      <collision name="exteriors_002_windows_block_post_3_collision">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_002_windows_block_post_3_visual">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_002_windows_block_post_4">
+      <pose>-12.1063 0.0000 1.3750 0 0 3.141593</pose>
+
+      <collision name="exteriors_002_windows_block_post_4_collision">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_002_windows_block_post_4_visual">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_002_windows_block_post_5">
+      <pose>-15.1543 0.0000 1.3750 0 0 3.141593</pose>
+
+      <collision name="exteriors_002_windows_block_post_5_collision">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_002_windows_block_post_5_visual">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_003_solid">
+      <pose>-17.9895 0.0000 1.3750 0 0 3.141593</pose>
+
+      <collision name="exteriors_003_solid_collision">
+        <geometry>
+          <box>
+            <size>0.2540 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_003_solid_visual">
+        <geometry>
+          <box>
+            <size>0.2540 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_005_solid">
+      <pose>-18.1166 3.1623 1.3750 0 0 1.570796</pose>
+
+      <collision name="exteriors_005_solid_collision">
+        <geometry>
+          <box>
+            <size>6.3246 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_005_solid_visual">
+        <geometry>
+          <box>
+            <size>6.3246 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_007_solid">
+      <pose>-18.2690 6.3246 1.3750 0 0 3.141593</pose>
+
+      <collision name="exteriors_007_solid_collision">
+        <geometry>
+          <box>
+            <size>0.3048 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_007_solid_visual">
+        <geometry>
+          <box>
+            <size>0.3048 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_009_solid">
+      <pose>-18.4214 6.4516 1.3750 0 0 1.570796</pose>
+
+      <collision name="exteriors_009_solid_collision">
+        <geometry>
+          <box>
+            <size>0.2540 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_009_solid_visual">
+        <geometry>
+          <box>
+            <size>0.2540 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_010_windows_block_lower_strip">
+      <pose>-18.4214 15.3829 0.5461 0 0 1.570796</pose>
+
+      <collision name="exteriors_010_windows_block_lower_strip_collision">
+        <geometry>
+          <box>
+            <size>17.6086 0.1199 1.0922</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_010_windows_block_lower_strip_visual">
+        <geometry>
+          <box>
+            <size>17.6086 0.1199 1.0922</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_010_windows_block_upper_strip">
+      <pose>-18.4214 15.3829 2.5942 0 0 1.570796</pose>
+
+      <collision name="exteriors_010_windows_block_upper_strip_collision">
+        <geometry>
+          <box>
+            <size>17.6086 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_010_windows_block_upper_strip_visual">
+        <geometry>
+          <box>
+            <size>17.6086 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_010_windows_block_post_1">
+      <pose>-18.4214 9.2869 1.3750 0 0 1.570796</pose>
+
+      <collision name="exteriors_010_windows_block_post_1_collision">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_010_windows_block_post_1_visual">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_010_windows_block_post_2">
+      <pose>-18.4214 12.3349 1.3750 0 0 1.570796</pose>
+
+      <collision name="exteriors_010_windows_block_post_2_collision">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_010_windows_block_post_2_visual">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_010_windows_block_post_3">
+      <pose>-18.4214 15.3829 1.3750 0 0 1.570796</pose>
+
+      <collision name="exteriors_010_windows_block_post_3_collision">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_010_windows_block_post_3_visual">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_010_windows_block_post_4">
+      <pose>-18.4214 18.4309 1.3750 0 0 1.570796</pose>
+
+      <collision name="exteriors_010_windows_block_post_4_collision">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_010_windows_block_post_4_visual">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_010_windows_block_post_5">
+      <pose>-18.4214 21.4789 1.3750 0 0 1.570796</pose>
+
+      <collision name="exteriors_010_windows_block_post_5_collision">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_010_windows_block_post_5_visual">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_011_solid">
+      <pose>-18.4214 24.3142 1.3750 0 0 1.570796</pose>
+
+      <collision name="exteriors_011_solid_collision">
+        <geometry>
+          <box>
+            <size>0.2540 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_011_solid_visual">
+        <geometry>
+          <box>
+            <size>0.2540 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_013_solid">
+      <pose>-18.2690 24.4412 1.3750 0 0 0.000000</pose>
+
+      <collision name="exteriors_013_solid_collision">
+        <geometry>
+          <box>
+            <size>0.3048 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_013_solid_visual">
+        <geometry>
+          <box>
+            <size>0.3048 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_015_solid">
+      <pose>-18.1166 27.7431 1.3750 0 0 1.570796</pose>
+
+      <collision name="exteriors_015_solid_collision">
+        <geometry>
+          <box>
+            <size>6.6040 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_015_solid_visual">
+        <geometry>
+          <box>
+            <size>6.6040 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_017_solid">
+      <pose>-17.8625 31.0451 1.3750 0 0 0.000000</pose>
+
+      <collision name="exteriors_017_solid_collision">
+        <geometry>
+          <box>
+            <size>0.5080 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_017_solid_visual">
+        <geometry>
+          <box>
+            <size>0.5080 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_018_windows_block_lower_strip">
+      <pose>3.3877 31.0451 0.5461 0 0 0.000000</pose>
+
+      <collision name="exteriors_018_windows_block_lower_strip_collision">
+        <geometry>
+          <box>
+            <size>41.9926 0.1199 1.0922</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_018_windows_block_lower_strip_visual">
+        <geometry>
+          <box>
+            <size>41.9926 0.1199 1.0922</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_018_windows_block_upper_strip">
+      <pose>3.3877 31.0451 2.5942 0 0 0.000000</pose>
+
+      <collision name="exteriors_018_windows_block_upper_strip_collision">
+        <geometry>
+          <box>
+            <size>41.9926 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_018_windows_block_upper_strip_visual">
+        <geometry>
+          <box>
+            <size>41.9926 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_018_windows_block_post_1">
+      <pose>-14.9003 31.0451 1.3750 0 0 0.000000</pose>
+
+      <collision name="exteriors_018_windows_block_post_1_collision">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_018_windows_block_post_1_visual">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_018_windows_block_post_2">
+      <pose>-11.8523 31.0451 1.3750 0 0 0.000000</pose>
+
+      <collision name="exteriors_018_windows_block_post_2_collision">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_018_windows_block_post_2_visual">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_018_windows_block_post_3">
+      <pose>-8.8043 31.0451 1.3750 0 0 0.000000</pose>
+
+      <collision name="exteriors_018_windows_block_post_3_collision">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_018_windows_block_post_3_visual">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_018_windows_block_post_4">
+      <pose>-5.7563 31.0451 1.3750 0 0 0.000000</pose>
+
+      <collision name="exteriors_018_windows_block_post_4_collision">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_018_windows_block_post_4_visual">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_018_windows_block_post_5">
+      <pose>-2.7083 31.0451 1.3750 0 0 0.000000</pose>
+
+      <collision name="exteriors_018_windows_block_post_5_collision">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_018_windows_block_post_5_visual">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_018_windows_block_post_6">
+      <pose>0.3397 31.0451 1.3750 0 0 0.000000</pose>
+
+      <collision name="exteriors_018_windows_block_post_6_collision">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_018_windows_block_post_6_visual">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_018_windows_block_post_7">
+      <pose>3.3877 31.0451 1.3750 0 0 0.000000</pose>
+
+      <collision name="exteriors_018_windows_block_post_7_collision">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_018_windows_block_post_7_visual">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_018_windows_block_post_8">
+      <pose>6.4357 31.0451 1.3750 0 0 0.000000</pose>
+
+      <collision name="exteriors_018_windows_block_post_8_collision">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_018_windows_block_post_8_visual">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_018_windows_block_post_9">
+      <pose>9.4837 31.0451 1.3750 0 0 0.000000</pose>
+
+      <collision name="exteriors_018_windows_block_post_9_collision">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_018_windows_block_post_9_visual">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_018_windows_block_post_10">
+      <pose>12.5317 31.0451 1.3750 0 0 0.000000</pose>
+
+      <collision name="exteriors_018_windows_block_post_10_collision">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_018_windows_block_post_10_visual">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_018_windows_block_post_11">
+      <pose>15.5797 31.0451 1.3750 0 0 0.000000</pose>
+
+      <collision name="exteriors_018_windows_block_post_11_collision">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_018_windows_block_post_11_visual">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_018_windows_block_post_12">
+      <pose>18.6277 31.0451 1.3750 0 0 0.000000</pose>
+
+      <collision name="exteriors_018_windows_block_post_12_collision">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_018_windows_block_post_12_visual">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_018_windows_block_post_13">
+      <pose>21.6757 31.0451 1.3750 0 0 0.000000</pose>
+
+      <collision name="exteriors_018_windows_block_post_13_collision">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_018_windows_block_post_13_visual">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_019_solid">
+      <pose>24.6380 31.0451 1.3750 0 0 0.000000</pose>
+
+      <collision name="exteriors_019_solid_collision">
+        <geometry>
+          <box>
+            <size>0.5080 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_019_solid_visual">
+        <geometry>
+          <box>
+            <size>0.5080 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_021_solid">
+      <pose>24.8920 27.7431 1.3750 0 0 4.712389</pose>
+
+      <collision name="exteriors_021_solid_collision">
+        <geometry>
+          <box>
+            <size>6.6040 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_021_solid_visual">
+        <geometry>
+          <box>
+            <size>6.6040 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_023_windows_block_lower_strip">
+      <pose>25.6540 24.4412 0.2540 0 0 0.000000</pose>
+
+      <collision name="exteriors_023_windows_block_lower_strip_collision">
+        <geometry>
+          <box>
+            <size>1.5240 0.1199 0.5080</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_023_windows_block_lower_strip_visual">
+        <geometry>
+          <box>
+            <size>1.5240 0.1199 0.5080</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_023_windows_block_upper_strip">
+      <pose>25.6540 24.4412 2.6450 0 0 0.000000</pose>
+
+      <collision name="exteriors_023_windows_block_upper_strip_collision">
+        <geometry>
+          <box>
+            <size>1.5240 0.1199 0.2101</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_023_windows_block_upper_strip_visual">
+        <geometry>
+          <box>
+            <size>1.5240 0.1199 0.2101</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_025_solid">
+      <pose>26.4160 25.5206 1.3750 0 0 1.570796</pose>
+
+      <collision name="exteriors_025_solid_collision">
+        <geometry>
+          <box>
+            <size>2.1590 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_025_solid_visual">
+        <geometry>
+          <box>
+            <size>2.1590 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_027_solid">
+      <pose>27.9781 26.6001 1.3750 0 0 0.000000</pose>
+
+      <collision name="exteriors_027_solid_collision">
+        <geometry>
+          <box>
+            <size>3.1242 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_027_solid_visual">
+        <geometry>
+          <box>
+            <size>3.1242 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_029_solid">
+      <pose>29.5402 25.5206 1.3750 0 0 4.712389</pose>
+
+      <collision name="exteriors_029_solid_collision">
+        <geometry>
+          <box>
+            <size>2.1590 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_029_solid_visual">
+        <geometry>
+          <box>
+            <size>2.1590 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_031_solid">
+      <pose>31.9649 22.0165 1.3750 0 0 5.497787</pose>
+
+      <collision name="exteriors_031_solid_collision">
+        <geometry>
+          <box>
+            <size>6.8580 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_031_solid_visual">
+        <geometry>
+          <box>
+            <size>6.8580 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_033_solid">
+      <pose>33.4915 18.6938 1.3750 0 0 3.926991</pose>
+
+      <collision name="exteriors_033_solid_collision">
+        <geometry>
+          <box>
+            <size>2.5400 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_033_solid_visual">
+        <geometry>
+          <box>
+            <size>2.5400 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_035_solid">
+      <pose>30.6717 19.7175 1.3750 0 0 2.356194</pose>
+
+      <collision name="exteriors_035_solid_collision">
+        <geometry>
+          <box>
+            <size>5.4356 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_035_solid_visual">
+        <geometry>
+          <box>
+            <size>5.4356 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_037_solid">
+      <pose>27.6069 21.6393 1.3750 0 0 3.141593</pose>
+
+      <collision name="exteriors_037_solid_collision">
+        <geometry>
+          <box>
+            <size>2.2860 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_037_solid_visual">
+        <geometry>
+          <box>
+            <size>2.2860 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_038_windows_block_lower_strip">
+      <pose>25.7019 21.6393 0.2540 0 0 3.141593</pose>
+
+      <collision name="exteriors_038_windows_block_lower_strip_collision">
+        <geometry>
+          <box>
+            <size>1.5240 0.1199 0.5080</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_038_windows_block_lower_strip_visual">
+        <geometry>
+          <box>
+            <size>1.5240 0.1199 0.5080</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_038_windows_block_upper_strip">
+      <pose>25.7019 21.6393 2.6450 0 0 3.141593</pose>
+
+      <collision name="exteriors_038_windows_block_upper_strip_collision">
+        <geometry>
+          <box>
+            <size>1.5240 0.1199 0.2101</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_038_windows_block_upper_strip_visual">
+        <geometry>
+          <box>
+            <size>1.5240 0.1199 0.2101</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_040_solid">
+      <pose>24.9399 19.5565 1.3750 0 0 4.712389</pose>
+
+      <collision name="exteriors_040_solid_collision">
+        <geometry>
+          <box>
+            <size>4.1656 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_040_solid_visual">
+        <geometry>
+          <box>
+            <size>4.1656 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_042_solid">
+      <pose>27.4185 14.9952 1.3750 0 0 5.497787</pose>
+
+      <collision name="exteriors_042_solid_collision">
+        <geometry>
+          <box>
+            <size>7.0104 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_042_solid_visual">
+        <geometry>
+          <box>
+            <size>7.0104 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_044_solid">
+      <pose>30.4304 12.5166 1.3750 0 0 0.000000</pose>
+
+      <collision name="exteriors_044_solid_collision">
+        <geometry>
+          <box>
+            <size>1.0668 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_044_solid_visual">
+        <geometry>
+          <box>
+            <size>1.0668 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_046_solid">
+      <pose>30.9638 12.3515 1.3750 0 0 4.712389</pose>
+
+      <collision name="exteriors_046_solid_collision">
+        <geometry>
+          <box>
+            <size>0.3302 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_046_solid_visual">
+        <geometry>
+          <box>
+            <size>0.3302 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_047_windows_block_lower_strip">
+      <pose>30.9638 9.4781 0.5461 0 0 4.712389</pose>
+
+      <collision name="exteriors_047_windows_block_lower_strip_collision">
+        <geometry>
+          <box>
+            <size>5.4165 0.1199 1.0922</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_047_windows_block_lower_strip_visual">
+        <geometry>
+          <box>
+            <size>5.4165 0.1199 1.0922</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_047_windows_block_upper_strip">
+      <pose>30.9638 9.4781 2.5942 0 0 4.712389</pose>
+
+      <collision name="exteriors_047_windows_block_upper_strip_collision">
+        <geometry>
+          <box>
+            <size>5.4165 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_047_windows_block_upper_strip_visual">
+        <geometry>
+          <box>
+            <size>5.4165 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_047_windows_block_post_1">
+      <pose>30.9638 9.4781 1.3750 0 0 4.712389</pose>
+
+      <collision name="exteriors_047_windows_block_post_1_collision">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_047_windows_block_post_1_visual">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_048_solid">
+      <pose>30.9638 6.6048 1.3750 0 0 4.712389</pose>
+
+      <collision name="exteriors_048_solid_collision">
+        <geometry>
+          <box>
+            <size>0.3302 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_048_solid_visual">
+        <geometry>
+          <box>
+            <size>0.3302 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_050_solid">
+      <pose>30.5447 6.4397 1.3750 0 0 3.141593</pose>
+
+      <collision name="exteriors_050_solid_collision">
+        <geometry>
+          <box>
+            <size>0.8382 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_050_solid_visual">
+        <geometry>
+          <box>
+            <size>0.8382 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_052_solid">
+      <pose>30.1256 3.2139 1.3750 0 0 4.712389</pose>
+
+      <collision name="exteriors_052_solid_collision">
+        <geometry>
+          <box>
+            <size>6.4516 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_052_solid_visual">
+        <geometry>
+          <box>
+            <size>6.4516 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_054_solid">
+      <pose>29.9986 -0.0119 1.3750 0 0 3.141593</pose>
+
+      <collision name="exteriors_054_solid_collision">
+        <geometry>
+          <box>
+            <size>0.2540 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_054_solid_visual">
+        <geometry>
+          <box>
+            <size>0.2540 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_055_windows_block_lower_strip">
+      <pose>27.1634 -0.0119 0.5461 0 0 3.141593</pose>
+
+      <collision name="exteriors_055_windows_block_lower_strip_collision">
+        <geometry>
+          <box>
+            <size>5.4165 0.1199 1.0922</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_055_windows_block_lower_strip_visual">
+        <geometry>
+          <box>
+            <size>5.4165 0.1199 1.0922</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_055_windows_block_upper_strip">
+      <pose>27.1634 -0.0119 2.5942 0 0 3.141593</pose>
+
+      <collision name="exteriors_055_windows_block_upper_strip_collision">
+        <geometry>
+          <box>
+            <size>5.4165 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_055_windows_block_upper_strip_visual">
+        <geometry>
+          <box>
+            <size>5.4165 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_055_windows_block_post_1">
+      <pose>27.1634 -0.0119 1.3750 0 0 3.141593</pose>
+
+      <collision name="exteriors_055_windows_block_post_1_collision">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_055_windows_block_post_1_visual">
+        <geometry>
+          <box>
+            <size>0.6794 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="exteriors_056_solid">
+      <pose>24.3281 -0.0119 1.3750 0 0 3.141593</pose>
+
+      <collision name="exteriors_056_solid_collision">
+        <geometry>
+          <box>
+            <size>0.2540 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="exteriors_056_solid_visual">
+        <geometry>
+          <box>
+            <size>0.2540 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_001_solid">
+      <pose>-1.0541 3.5814 1.3750 0 0 3.141593</pose>
+
+      <collision name="hallways_001_solid_collision">
+        <geometry>
+          <box>
+            <size>2.1082 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_001_solid_visual">
+        <geometry>
+          <box>
+            <size>2.1082 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_002_door_lintel">
+      <pose>-2.5654 3.5814 2.5942 0 0 3.141593</pose>
+
+      <collision name="hallways_002_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_002_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_003_solid">
+      <pose>-3.3147 3.5814 1.3750 0 0 3.141593</pose>
+
+      <collision name="hallways_003_solid_collision">
+        <geometry>
+          <box>
+            <size>0.5842 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_003_solid_visual">
+        <geometry>
+          <box>
+            <size>0.5842 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_004_door_lintel">
+      <pose>-4.0640 3.5814 2.5942 0 0 3.141593</pose>
+
+      <collision name="hallways_004_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_004_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_005_solid">
+      <pose>-6.2103 3.5814 1.3750 0 0 3.141593</pose>
+
+      <collision name="hallways_005_solid_collision">
+        <geometry>
+          <box>
+            <size>3.3782 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_005_solid_visual">
+        <geometry>
+          <box>
+            <size>3.3782 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_006_door_lintel">
+      <pose>-8.3566 3.5814 2.5942 0 0 3.141593</pose>
+
+      <collision name="hallways_006_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_006_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_007_solid">
+      <pose>-9.1059 3.5814 1.3750 0 0 3.141593</pose>
+
+      <collision name="hallways_007_solid_collision">
+        <geometry>
+          <box>
+            <size>0.5842 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_007_solid_visual">
+        <geometry>
+          <box>
+            <size>0.5842 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_008_door_lintel">
+      <pose>-9.8552 3.5814 2.5942 0 0 3.141593</pose>
+
+      <collision name="hallways_008_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_008_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_009_solid">
+      <pose>-11.3982 3.5814 1.3750 0 0 3.141593</pose>
+
+      <collision name="hallways_009_solid_collision">
+        <geometry>
+          <box>
+            <size>2.1717 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_009_solid_visual">
+        <geometry>
+          <box>
+            <size>2.1717 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_010_door_lintel">
+      <pose>-12.9413 3.5814 2.5942 0 0 3.141593</pose>
+
+      <collision name="hallways_010_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_010_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_011_solid">
+      <pose>-14.1986 3.5814 1.3750 0 0 3.141593</pose>
+
+      <collision name="hallways_011_solid_collision">
+        <geometry>
+          <box>
+            <size>1.6002 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_011_solid_visual">
+        <geometry>
+          <box>
+            <size>1.6002 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_013_solid">
+      <pose>-14.9987 3.6068 1.3750 0 0 1.570796</pose>
+
+      <collision name="hallways_013_solid_collision">
+        <geometry>
+          <box>
+            <size>0.0508 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_013_solid_visual">
+        <geometry>
+          <box>
+            <size>0.0508 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_014_door_lintel">
+      <pose>-14.9987 4.0894 2.5942 0 0 1.570796</pose>
+
+      <collision name="hallways_014_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_014_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_015_solid">
+      <pose>-14.9987 5.5753 1.3750 0 0 1.570796</pose>
+
+      <collision name="hallways_015_solid_collision">
+        <geometry>
+          <box>
+            <size>2.0574 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_015_solid_visual">
+        <geometry>
+          <box>
+            <size>2.0574 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_016_door_lintel">
+      <pose>-14.9987 7.0612 2.5942 0 0 1.570796</pose>
+
+      <collision name="hallways_016_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_016_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_017_solid">
+      <pose>-14.9987 9.3218 1.3750 0 0 1.570796</pose>
+
+      <collision name="hallways_017_solid_collision">
+        <geometry>
+          <box>
+            <size>3.6068 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_017_solid_visual">
+        <geometry>
+          <box>
+            <size>3.6068 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_018_door_lintel">
+      <pose>-14.9987 11.5824 2.5942 0 0 1.570796</pose>
+
+      <collision name="hallways_018_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_018_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_019_solid">
+      <pose>-14.9987 13.1470 1.3750 0 0 1.570796</pose>
+
+      <collision name="hallways_019_solid_collision">
+        <geometry>
+          <box>
+            <size>2.2149 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_019_solid_visual">
+        <geometry>
+          <box>
+            <size>2.2149 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_020_door_lintel">
+      <pose>-14.9987 14.7117 2.5942 0 0 1.570796</pose>
+
+      <collision name="hallways_020_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_020_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_021_solid">
+      <pose>-14.9987 15.4991 1.3750 0 0 1.570796</pose>
+
+      <collision name="hallways_021_solid_collision">
+        <geometry>
+          <box>
+            <size>0.6604 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_021_solid_visual">
+        <geometry>
+          <box>
+            <size>0.6604 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_022_door_lintel">
+      <pose>-14.9987 16.2865 2.5942 0 0 1.570796</pose>
+
+      <collision name="hallways_022_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_022_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_023_solid">
+      <pose>-14.9987 18.5471 1.3750 0 0 1.570796</pose>
+
+      <collision name="hallways_023_solid_collision">
+        <geometry>
+          <box>
+            <size>3.6068 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_023_solid_visual">
+        <geometry>
+          <box>
+            <size>3.6068 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_024_door_lintel">
+      <pose>-14.9987 20.8077 2.5942 0 0 1.570796</pose>
+
+      <collision name="hallways_024_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_024_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_025_solid">
+      <pose>-14.9987 21.5951 1.3750 0 0 1.570796</pose>
+
+      <collision name="hallways_025_solid_collision">
+        <geometry>
+          <box>
+            <size>0.6604 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_025_solid_visual">
+        <geometry>
+          <box>
+            <size>0.6604 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_026_door_lintel">
+      <pose>-14.9987 22.3825 2.5942 0 0 1.570796</pose>
+
+      <collision name="hallways_026_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_026_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_027_solid">
+      <pose>-14.9987 23.6398 1.3750 0 0 1.570796</pose>
+
+      <collision name="hallways_027_solid_collision">
+        <geometry>
+          <box>
+            <size>1.6002 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_027_solid_visual">
+        <geometry>
+          <box>
+            <size>1.6002 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_029_solid">
+      <pose>-11.5443 24.4399 1.3750 0 0 0.000000</pose>
+
+      <collision name="hallways_029_solid_collision">
+        <geometry>
+          <box>
+            <size>6.9088 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_029_solid_visual">
+        <geometry>
+          <box>
+            <size>6.9088 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_030_door_lintel">
+      <pose>-7.1755 24.4399 2.5942 0 0 0.000000</pose>
+
+      <collision name="hallways_030_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>1.8288 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_030_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>1.8288 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_031_solid">
+      <pose>-3.6195 24.4399 1.3750 0 0 0.000000</pose>
+
+      <collision name="hallways_031_solid_collision">
+        <geometry>
+          <box>
+            <size>5.2832 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_031_solid_visual">
+        <geometry>
+          <box>
+            <size>5.2832 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_032_door_lintel">
+      <pose>-0.5207 24.4399 2.5942 0 0 0.000000</pose>
+
+      <collision name="hallways_032_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_032_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_033_solid">
+      <pose>2.5019 24.4399 1.3750 0 0 0.000000</pose>
+
+      <collision name="hallways_033_solid_collision">
+        <geometry>
+          <box>
+            <size>5.1308 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_033_solid_visual">
+        <geometry>
+          <box>
+            <size>5.1308 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_034_door_lintel">
+      <pose>5.5245 24.4399 2.5942 0 0 0.000000</pose>
+
+      <collision name="hallways_034_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_034_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_035_solid">
+      <pose>6.2992 24.4399 1.3750 0 0 0.000000</pose>
+
+      <collision name="hallways_035_solid_collision">
+        <geometry>
+          <box>
+            <size>0.6350 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_035_solid_visual">
+        <geometry>
+          <box>
+            <size>0.6350 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_036_door_lintel">
+      <pose>7.5311 24.4399 2.5942 0 0 0.000000</pose>
+
+      <collision name="hallways_036_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>1.8288 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_036_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>1.8288 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_037_solid">
+      <pose>12.4079 24.4399 1.3750 0 0 0.000000</pose>
+
+      <collision name="hallways_037_solid_collision">
+        <geometry>
+          <box>
+            <size>7.9248 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_037_solid_visual">
+        <geometry>
+          <box>
+            <size>7.9248 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_038_door_lintel">
+      <pose>17.2847 24.4399 2.5942 0 0 0.000000</pose>
+
+      <collision name="hallways_038_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>1.8288 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_038_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>1.8288 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_039_solid">
+      <pose>18.5039 24.4399 1.3750 0 0 0.000000</pose>
+
+      <collision name="hallways_039_solid_collision">
+        <geometry>
+          <box>
+            <size>0.6096 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_039_solid_visual">
+        <geometry>
+          <box>
+            <size>0.6096 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_040_door_lintel">
+      <pose>19.7231 24.4399 2.5942 0 0 0.000000</pose>
+
+      <collision name="hallways_040_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>1.8288 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_040_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>1.8288 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_041_solid">
+      <pose>21.2471 24.4399 1.3750 0 0 0.000000</pose>
+
+      <collision name="hallways_041_solid_collision">
+        <geometry>
+          <box>
+            <size>1.2192 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_041_solid_visual">
+        <geometry>
+          <box>
+            <size>1.2192 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_042_door_lintel">
+      <pose>22.7711 24.4399 2.5942 0 0 0.000000</pose>
+
+      <collision name="hallways_042_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>1.8288 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_042_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>1.8288 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_043_solid">
+      <pose>24.2951 24.4399 1.3750 0 0 0.000000</pose>
+
+      <collision name="hallways_043_solid_collision">
+        <geometry>
+          <box>
+            <size>1.2192 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_043_solid_visual">
+        <geometry>
+          <box>
+            <size>1.2192 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_044_windows_block_lower_strip">
+      <pose>25.6667 24.4399 0.2540 0 0 0.000000</pose>
+
+      <collision name="hallways_044_windows_block_lower_strip_collision">
+        <geometry>
+          <box>
+            <size>1.5240 0.1199 0.5080</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_044_windows_block_lower_strip_visual">
+        <geometry>
+          <box>
+            <size>1.5240 0.1199 0.5080</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_044_windows_block_upper_strip">
+      <pose>25.6667 24.4399 2.6450 0 0 0.000000</pose>
+
+      <collision name="hallways_044_windows_block_upper_strip_collision">
+        <geometry>
+          <box>
+            <size>1.5240 0.1199 0.2101</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_044_windows_block_upper_strip_visual">
+        <geometry>
+          <box>
+            <size>1.5240 0.1199 0.2101</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_045_solid">
+      <pose>27.4193 24.4399 1.3750 0 0 0.000000</pose>
+
+      <collision name="hallways_045_solid_collision">
+        <geometry>
+          <box>
+            <size>1.9812 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_045_solid_visual">
+        <geometry>
+          <box>
+            <size>1.9812 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_046_door_lintel">
+      <pose>28.8671 24.4399 2.5942 0 0 0.000000</pose>
+
+      <collision name="hallways_046_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_046_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_047_solid">
+      <pose>29.4259 24.4399 1.3750 0 0 0.000000</pose>
+
+      <collision name="hallways_047_solid_collision">
+        <geometry>
+          <box>
+            <size>0.2032 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_047_solid_visual">
+        <geometry>
+          <box>
+            <size>0.2032 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_049_solid">
+      <pose>30.0304 23.9370 1.3750 0 0 5.497787</pose>
+
+      <collision name="hallways_049_solid_collision">
+        <geometry>
+          <box>
+            <size>1.4224 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_049_solid_visual">
+        <geometry>
+          <box>
+            <size>1.4224 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_051_door_lintel">
+      <pose>30.2100 23.1108 2.5942 0 0 3.926991</pose>
+
+      <collision name="hallways_051_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_051_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_052_solid">
+      <pose>29.3120 22.2128 1.3750 0 0 3.926991</pose>
+
+      <collision name="hallways_052_solid_collision">
+        <geometry>
+          <box>
+            <size>1.6256 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_052_solid_visual">
+        <geometry>
+          <box>
+            <size>1.6256 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_054_solid">
+      <pose>27.5942 21.6380 1.3750 0 0 3.141593</pose>
+
+      <collision name="hallways_054_solid_collision">
+        <geometry>
+          <box>
+            <size>2.2860 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_054_solid_visual">
+        <geometry>
+          <box>
+            <size>2.2860 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_055_windows_block_lower_strip">
+      <pose>25.6892 21.6380 0.2540 0 0 3.141593</pose>
+
+      <collision name="hallways_055_windows_block_lower_strip_collision">
+        <geometry>
+          <box>
+            <size>1.5240 0.1199 0.5080</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_055_windows_block_lower_strip_visual">
+        <geometry>
+          <box>
+            <size>1.5240 0.1199 0.5080</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_055_windows_block_upper_strip">
+      <pose>25.6892 21.6380 2.6450 0 0 3.141593</pose>
+
+      <collision name="hallways_055_windows_block_upper_strip_collision">
+        <geometry>
+          <box>
+            <size>1.5240 0.1199 0.2101</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_055_windows_block_upper_strip_visual">
+        <geometry>
+          <box>
+            <size>1.5240 0.1199 0.2101</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_056_solid">
+      <pose>24.1779 21.6380 1.3750 0 0 3.141593</pose>
+
+      <collision name="hallways_056_solid_collision">
+        <geometry>
+          <box>
+            <size>1.4986 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_056_solid_visual">
+        <geometry>
+          <box>
+            <size>1.4986 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_057_windows_block_lower_strip">
+      <pose>22.8698 21.6380 0.2540 0 0 3.141593</pose>
+
+      <collision name="hallways_057_windows_block_lower_strip_collision">
+        <geometry>
+          <box>
+            <size>1.1176 0.1199 0.5080</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_057_windows_block_lower_strip_visual">
+        <geometry>
+          <box>
+            <size>1.1176 0.1199 0.5080</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_057_windows_block_upper_strip">
+      <pose>22.8698 21.6380 2.6450 0 0 3.141593</pose>
+
+      <collision name="hallways_057_windows_block_upper_strip_collision">
+        <geometry>
+          <box>
+            <size>1.1176 0.1199 0.2101</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_057_windows_block_upper_strip_visual">
+        <geometry>
+          <box>
+            <size>1.1176 0.1199 0.2101</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_058_solid">
+      <pose>21.5236 21.6380 1.3750 0 0 3.141593</pose>
+
+      <collision name="hallways_058_solid_collision">
+        <geometry>
+          <box>
+            <size>1.5748 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_058_solid_visual">
+        <geometry>
+          <box>
+            <size>1.5748 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_060_solid">
+      <pose>20.7362 18.1201 1.3750 0 0 4.712389</pose>
+
+      <collision name="hallways_060_solid_collision">
+        <geometry>
+          <box>
+            <size>7.0358 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_060_solid_visual">
+        <geometry>
+          <box>
+            <size>7.0358 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_061_door_lintel">
+      <pose>20.7362 13.6878 2.5942 0 0 4.712389</pose>
+
+      <collision name="hallways_061_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>1.8288 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_061_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>1.8288 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_062_solid">
+      <pose>20.7362 10.6398 1.3750 0 0 4.712389</pose>
+
+      <collision name="hallways_062_solid_collision">
+        <geometry>
+          <box>
+            <size>4.2672 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_062_solid_visual">
+        <geometry>
+          <box>
+            <size>4.2672 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_063_door_lintel">
+      <pose>20.7362 8.0490 2.5942 0 0 4.712389</pose>
+
+      <collision name="hallways_063_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_063_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="hallways_064_solid">
+      <pose>20.7362 7.0330 1.3750 0 0 4.712389</pose>
+
+      <collision name="hallways_064_solid_collision">
+        <geometry>
+          <box>
+            <size>1.1176 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="hallways_064_solid_visual">
+        <geometry>
+          <box>
+            <size>1.1176 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_1_001_solid">
+      <pose>1.0636 8.5090 1.3750 0 0 0.000000</pose>
+
+      <collision name="inner_walls_1_001_solid_collision">
+        <geometry>
+          <box>
+            <size>2.1273 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_1_001_solid_visual">
+        <geometry>
+          <box>
+            <size>2.1273 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_1_002_door_lintel">
+      <pose>2.5844 8.5090 2.5942 0 0 0.000000</pose>
+
+      <collision name="inner_walls_1_002_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_1_002_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_1_003_solid">
+      <pose>3.3211 8.5090 1.3750 0 0 0.000000</pose>
+
+      <collision name="inner_walls_1_003_solid_collision">
+        <geometry>
+          <box>
+            <size>0.5588 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_1_003_solid_visual">
+        <geometry>
+          <box>
+            <size>0.5588 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_1_004_door_lintel">
+      <pose>4.0576 8.5090 2.5942 0 0 0.000000</pose>
+
+      <collision name="inner_walls_1_004_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_1_004_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_1_005_solid">
+      <pose>5.6261 8.5090 1.3750 0 0 0.000000</pose>
+
+      <collision name="inner_walls_1_005_solid_collision">
+        <geometry>
+          <box>
+            <size>2.2225 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_1_005_solid_visual">
+        <geometry>
+          <box>
+            <size>2.2225 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_1_006_door_lintel">
+      <pose>7.1945 8.5090 2.5942 0 0 0.000000</pose>
+
+      <collision name="inner_walls_1_006_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_1_006_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_1_007_solid">
+      <pose>10.2298 8.5090 1.3750 0 0 0.000000</pose>
+
+      <collision name="inner_walls_1_007_solid_collision">
+        <geometry>
+          <box>
+            <size>5.1562 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_1_007_solid_visual">
+        <geometry>
+          <box>
+            <size>5.1562 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_1_008_door_lintel">
+      <pose>13.7223 8.5090 2.5942 0 0 0.000000</pose>
+
+      <collision name="inner_walls_1_008_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>1.8288 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_1_008_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>1.8288 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_1_009_solid">
+      <pose>16.6814 8.5090 1.3750 0 0 0.000000</pose>
+
+      <collision name="inner_walls_1_009_solid_collision">
+        <geometry>
+          <box>
+            <size>4.0894 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_1_009_solid_visual">
+        <geometry>
+          <box>
+            <size>4.0894 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_1_011_solid">
+      <pose>18.7262 14.1224 1.3750 0 0 1.570796</pose>
+
+      <collision name="inner_walls_1_011_solid_collision">
+        <geometry>
+          <box>
+            <size>11.2268 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_1_011_solid_visual">
+        <geometry>
+          <box>
+            <size>11.2268 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_1_012_door_lintel">
+      <pose>18.7262 20.1930 2.5942 0 0 1.570796</pose>
+
+      <collision name="inner_walls_1_012_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_1_012_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_1_013_solid">
+      <pose>18.7262 21.1709 1.3750 0 0 1.570796</pose>
+
+      <collision name="inner_walls_1_013_solid_collision">
+        <geometry>
+          <box>
+            <size>1.0414 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_1_013_solid_visual">
+        <geometry>
+          <box>
+            <size>1.0414 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_1_015_solid">
+      <pose>16.1227 21.6916 1.3750 0 0 3.141593</pose>
+
+      <collision name="inner_walls_1_015_solid_collision">
+        <geometry>
+          <box>
+            <size>5.2070 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_1_015_solid_visual">
+        <geometry>
+          <box>
+            <size>5.2070 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_1_016_door_lintel">
+      <pose>13.0619 21.6916 2.5942 0 0 3.141593</pose>
+
+      <collision name="inner_walls_1_016_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_1_016_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_1_017_solid">
+      <pose>10.4839 21.6916 1.3750 0 0 3.141593</pose>
+
+      <collision name="inner_walls_1_017_solid_collision">
+        <geometry>
+          <box>
+            <size>4.2418 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_1_017_solid_visual">
+        <geometry>
+          <box>
+            <size>4.2418 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_1_018_door_lintel">
+      <pose>7.4486 21.6916 2.5942 0 0 3.141593</pose>
+
+      <collision name="inner_walls_1_018_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>1.8288 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_1_018_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>1.8288 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_1_019_solid">
+      <pose>6.2675 21.6916 1.3750 0 0 3.141593</pose>
+
+      <collision name="inner_walls_1_019_solid_collision">
+        <geometry>
+          <box>
+            <size>0.5334 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_1_019_solid_visual">
+        <geometry>
+          <box>
+            <size>0.5334 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_1_020_door_lintel">
+      <pose>5.5435 21.6916 2.5942 0 0 3.141593</pose>
+
+      <collision name="inner_walls_1_020_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_1_020_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_1_021_solid">
+      <pose>2.5463 21.6916 1.3750 0 0 3.141593</pose>
+
+      <collision name="inner_walls_1_021_solid_collision">
+        <geometry>
+          <box>
+            <size>5.0800 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_1_021_solid_visual">
+        <geometry>
+          <box>
+            <size>5.0800 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_1_023_solid">
+      <pose>0.0063 21.0820 1.3750 0 0 4.712389</pose>
+
+      <collision name="inner_walls_1_023_solid_collision">
+        <geometry>
+          <box>
+            <size>1.2192 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_1_023_solid_visual">
+        <geometry>
+          <box>
+            <size>1.2192 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_1_024_door_lintel">
+      <pose>0.0063 20.0152 2.5942 0 0 4.712389</pose>
+
+      <collision name="inner_walls_1_024_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_1_024_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_1_025_solid">
+      <pose>0.0063 16.9418 1.3750 0 0 4.712389</pose>
+
+      <collision name="inner_walls_1_025_solid_collision">
+        <geometry>
+          <box>
+            <size>5.2324 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_1_025_solid_visual">
+        <geometry>
+          <box>
+            <size>5.2324 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_1_026_door_lintel">
+      <pose>0.0063 13.8684 2.5942 0 0 4.712389</pose>
+
+      <collision name="inner_walls_1_026_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_1_026_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_1_027_solid">
+      <pose>0.0063 10.9601 1.3750 0 0 4.712389</pose>
+
+      <collision name="inner_walls_1_027_solid_collision">
+        <geometry>
+          <box>
+            <size>4.9022 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_1_027_solid_visual">
+        <geometry>
+          <box>
+            <size>4.9022 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_001_solid">
+      <pose>-7.1450 6.0198 1.3750 0 0 3.141593</pose>
+
+      <collision name="inner_walls_2_001_solid_collision">
+        <geometry>
+          <box>
+            <size>10.3632 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_001_solid_visual">
+        <geometry>
+          <box>
+            <size>10.3632 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_003_solid">
+      <pose>-12.3266 6.7437 1.3750 0 0 1.570796</pose>
+
+      <collision name="inner_walls_2_003_solid_collision">
+        <geometry>
+          <box>
+            <size>1.4478 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_003_solid_visual">
+        <geometry>
+          <box>
+            <size>1.4478 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_004_door_lintel">
+      <pose>-12.3266 7.9248 2.5942 0 0 1.570796</pose>
+
+      <collision name="inner_walls_2_004_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_004_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_005_solid">
+      <pose>-12.3266 9.7917 1.3750 0 0 1.570796</pose>
+
+      <collision name="inner_walls_2_005_solid_collision">
+        <geometry>
+          <box>
+            <size>2.8194 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_005_solid_visual">
+        <geometry>
+          <box>
+            <size>2.8194 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_006_door_lintel">
+      <pose>-12.3266 11.6586 2.5942 0 0 1.570796</pose>
+
+      <collision name="inner_walls_2_006_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_006_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_007_solid">
+      <pose>-12.3266 12.6111 1.3750 0 0 1.570796</pose>
+
+      <collision name="inner_walls_2_007_solid_collision">
+        <geometry>
+          <box>
+            <size>0.9906 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_007_solid_visual">
+        <geometry>
+          <box>
+            <size>0.9906 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_008_door_lintel">
+      <pose>-12.3266 13.5636 2.5942 0 0 1.570796</pose>
+
+      <collision name="inner_walls_2_008_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_008_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_009_solid">
+      <pose>-12.3266 15.2400 1.3750 0 0 1.570796</pose>
+
+      <collision name="inner_walls_2_009_solid_collision">
+        <geometry>
+          <box>
+            <size>2.4384 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_009_solid_visual">
+        <geometry>
+          <box>
+            <size>2.4384 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_010_door_lintel">
+      <pose>-12.3266 16.9164 2.5942 0 0 1.570796</pose>
+
+      <collision name="inner_walls_2_010_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_010_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_011_solid">
+      <pose>-12.3266 18.0340 1.3750 0 0 1.570796</pose>
+
+      <collision name="inner_walls_2_011_solid_collision">
+        <geometry>
+          <box>
+            <size>1.3208 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_011_solid_visual">
+        <geometry>
+          <box>
+            <size>1.3208 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_013_solid">
+      <pose>-12.0980 18.6944 1.3750 0 0 0.000000</pose>
+
+      <collision name="inner_walls_2_013_solid_collision">
+        <geometry>
+          <box>
+            <size>0.4572 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_013_solid_visual">
+        <geometry>
+          <box>
+            <size>0.4572 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_015_door_lintel">
+      <pose>-11.8694 19.3548 2.5942 0 0 1.570796</pose>
+
+      <collision name="inner_walls_2_015_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>1.3208 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_015_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>1.3208 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_016_solid">
+      <pose>-11.8694 20.7899 1.3750 0 0 1.570796</pose>
+
+      <collision name="inner_walls_2_016_solid_collision">
+        <geometry>
+          <box>
+            <size>1.5494 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_016_solid_visual">
+        <geometry>
+          <box>
+            <size>1.5494 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_018_solid">
+      <pose>-9.5580 21.5646 1.3750 0 0 0.000000</pose>
+
+      <collision name="inner_walls_2_018_solid_collision">
+        <geometry>
+          <box>
+            <size>4.6228 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_018_solid_visual">
+        <geometry>
+          <box>
+            <size>4.6228 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_019_door_lintel">
+      <pose>-6.7894 21.5646 2.5942 0 0 0.000000</pose>
+
+      <collision name="inner_walls_2_019_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_019_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_020_solid">
+      <pose>-4.1478 21.5646 1.3750 0 0 0.000000</pose>
+
+      <collision name="inner_walls_2_020_solid_collision">
+        <geometry>
+          <box>
+            <size>4.3688 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_020_solid_visual">
+        <geometry>
+          <box>
+            <size>4.3688 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_022_solid">
+      <pose>-1.9634 20.5994 1.3750 0 0 4.712389</pose>
+
+      <collision name="inner_walls_2_022_solid_collision">
+        <geometry>
+          <box>
+            <size>1.9304 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_022_solid_visual">
+        <geometry>
+          <box>
+            <size>1.9304 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_023_door_lintel">
+      <pose>-1.9634 19.1770 2.5942 0 0 4.712389</pose>
+
+      <collision name="inner_walls_2_023_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_023_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_024_solid">
+      <pose>-1.9634 18.4785 1.3750 0 0 4.712389</pose>
+
+      <collision name="inner_walls_2_024_solid_collision">
+        <geometry>
+          <box>
+            <size>0.4826 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_024_solid_visual">
+        <geometry>
+          <box>
+            <size>0.4826 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_025_door_lintel">
+      <pose>-1.9634 17.7800 2.5942 0 0 4.712389</pose>
+
+      <collision name="inner_walls_2_025_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_025_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_026_solid">
+      <pose>-1.9634 15.4559 1.3750 0 0 4.712389</pose>
+
+      <collision name="inner_walls_2_026_solid_collision">
+        <geometry>
+          <box>
+            <size>3.7338 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_026_solid_visual">
+        <geometry>
+          <box>
+            <size>3.7338 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_027_door_lintel">
+      <pose>-1.9634 13.1318 2.5942 0 0 4.712389</pose>
+
+      <collision name="inner_walls_2_027_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_027_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_028_solid">
+      <pose>-1.9634 11.5697 1.3750 0 0 4.712389</pose>
+
+      <collision name="inner_walls_2_028_solid_collision">
+        <geometry>
+          <box>
+            <size>2.2098 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_028_solid_visual">
+        <geometry>
+          <box>
+            <size>2.2098 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_029_door_lintel">
+      <pose>-1.9634 10.0076 2.5942 0 0 4.712389</pose>
+
+      <collision name="inner_walls_2_029_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_029_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_030_solid">
+      <pose>-1.9634 8.6995 1.3750 0 0 4.712389</pose>
+
+      <collision name="inner_walls_2_030_solid_collision">
+        <geometry>
+          <box>
+            <size>1.7018 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_030_solid_visual">
+        <geometry>
+          <box>
+            <size>1.7018 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_031_door_lintel">
+      <pose>-1.9634 7.3914 2.5942 0 0 4.712389</pose>
+
+      <collision name="inner_walls_2_031_door_lintel_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_031_door_lintel_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 0.3117</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+
+    <link name="inner_walls_2_032_solid">
+      <pose>-1.9634 6.4770 1.3750 0 0 4.712389</pose>
+
+      <collision name="inner_walls_2_032_solid_collision">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 2.7501</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="inner_walls_2_032_solid_visual">
+        <geometry>
+          <box>
+            <size>0.9144 0.1199 2.7501</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.82 0.82 0.82 1</ambient>
+          <diffuse>0.82 0.82 0.82 1</diffuse>
+
+        </material>
+      </visual>
+    </link>
+
+  </model>
+</sdf>
