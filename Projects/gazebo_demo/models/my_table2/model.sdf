@@ -1,0 +1,276 @@
+<?xml version="1.0" ?>
+<sdf version="1.9">
+  <model name="Table_2">
+    <static>true</static>
+
+    <!-- Dimensions used
+         length = 1.52 m
+         width  = 0.61 m
+         height = 0.76 m
+    -->
+
+    <!-- ========================= -->
+    <!-- TABLETOP                  -->
+    <!-- ========================= -->
+    <link name="tabletop">
+      <!-- tabletop thickness assumed = 0.03 m -->
+      <pose>0 0 0.745 0 0 0</pose>
+
+      <collision name="tabletop_collision">
+        <geometry>
+          <box>
+            <size>1.52 0.61 0.03</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="tabletop_visual">
+        <geometry>
+          <box>
+            <size>1.52 0.61 0.03</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.35 0.35 0.38 1</ambient>
+          <diffuse>0.35 0.35 0.38 1</diffuse>
+        </material>
+      </visual>
+
+      <inertial>
+        <mass>18.0</mass>
+        <inertia>
+          <ixx>1.0</ixx>
+          <iyy>1.0</iyy>
+          <izz>1.0</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- ========================= -->
+    <!-- LEFT LEG COLUMN           -->
+    <!-- ========================= -->
+    <link name="left_leg">
+      <pose>-0.48 0 0.3525 0 0 0</pose>
+
+      <collision name="left_leg_collision">
+        <geometry>
+          <box>
+            <size>0.08 0.08 0.645</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="left_leg_visual">
+        <geometry>
+          <box>
+            <size>0.08 0.08 0.645</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.15 0.15 0.15 1</ambient>
+          <diffuse>0.15 0.15 0.15 1</diffuse>
+        </material>
+      </visual>
+
+      <inertial>
+        <mass>6.0</mass>
+        <inertia>
+          <ixx>0.05</ixx>
+          <iyy>0.05</iyy>
+          <izz>0.05</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- ========================= -->
+    <!-- RIGHT LEG COLUMN          -->
+    <!-- ========================= -->
+    <link name="right_leg">
+      <pose>0.48 0 0.3525 0 0 0</pose>
+
+      <collision name="right_leg_collision">
+        <geometry>
+          <box>
+            <size>0.08 0.08 0.645</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="right_leg_visual">
+        <geometry>
+          <box>
+            <size>0.08 0.08 0.645</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.15 0.15 0.15 1</ambient>
+          <diffuse>0.15 0.15 0.15 1</diffuse>
+        </material>
+      </visual>
+
+      <inertial>
+        <mass>6.0</mass>
+        <inertia>
+          <ixx>0.05</ixx>
+          <iyy>0.05</iyy>
+          <izz>0.05</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- ========================= -->
+    <!-- LEFT FOOT                 -->
+    <!-- parallel to table width   -->
+    <!-- ========================= -->
+    <link name="left_foot">
+      <pose>-0.48 0 0.03 0 0 0</pose>
+
+      <collision name="left_foot_collision">
+        <geometry>
+          <box>
+            <size>0.03 0.52 0.03</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="left_foot_visual">
+        <geometry>
+          <box>
+            <size>0.03 0.52 0.03</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.08 0.08 0.08 1</ambient>
+          <diffuse>0.08 0.08 0.08 1</diffuse>
+        </material>
+      </visual>
+
+      <inertial>
+        <mass>4.0</mass>
+        <inertia>
+          <ixx>0.02</ixx>
+          <iyy>0.02</iyy>
+          <izz>0.02</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- ========================= -->
+    <!-- RIGHT FOOT                -->
+    <!-- parallel to table width   -->
+    <!-- ========================= -->
+    <link name="right_foot">
+      <pose>0.48 0 0.03 0 0 0</pose>
+
+      <collision name="right_foot_collision">
+        <geometry>
+          <box>
+            <size>0.03 0.52 0.03</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="right_foot_visual">
+        <geometry>
+          <box>
+            <size>0.03 0.52 0.03</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.08 0.08 0.08 1</ambient>
+          <diffuse>0.08 0.08 0.08 1</diffuse>
+        </material>
+      </visual>
+
+      <inertial>
+        <mass>4.0</mass>
+        <inertia>
+          <ixx>0.02</ixx>
+          <iyy>0.02</iyy>
+          <izz>0.02</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- Optional small control box under tabletop -->
+    <link name="control_box">
+      <pose>0.15 -0.24 0.70 0 0 0</pose>
+
+      <collision name="control_box_collision">
+        <geometry>
+          <box>
+            <size>0.12 0.04 0.02</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="control_box_visual">
+        <geometry>
+          <box>
+            <size>0.12 0.04 0.02</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.05 0.05 0.05 1</ambient>
+          <diffuse>0.05 0.05 0.05 1</diffuse>
+        </material>
+      </visual>
+
+      <inertial>
+        <mass>0.2</mass>
+        <inertia>
+          <ixx>0.0001</ixx>
+          <iyy>0.0001</iyy>
+          <izz>0.0001</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- ========================= -->
+    <!-- FIXED JOINTS              -->
+    <!-- ========================= -->
+    <joint name="tabletop_to_left_leg" type="fixed">
+      <parent>tabletop</parent>
+      <child>left_leg</child>
+    </joint>
+
+    <joint name="tabletop_to_right_leg" type="fixed">
+      <parent>tabletop</parent>
+      <child>right_leg</child>
+    </joint>
+
+    <joint name="left_leg_to_left_foot" type="fixed">
+      <parent>left_leg</parent>
+      <child>left_foot</child>
+    </joint>
+
+    <joint name="right_leg_to_right_foot" type="fixed">
+      <parent>right_leg</parent>
+      <child>right_foot</child>
+    </joint>
+
+    <joint name="tabletop_to_control_box" type="fixed">
+      <parent>tabletop</parent>
+      <child>control_box</child>
+    </joint>
+
+  </model>
+</sdf>

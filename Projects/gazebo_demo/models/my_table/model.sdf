@@ -1,0 +1,407 @@
+<?xml version="1.0" ?>
+<sdf version="1.9">
+  <model name="my_table">
+    <static>true</static>
+
+    <!--
+    Dimensions used (meters)
+    ------------------------
+    Tabletop length      = 1.2192
+    Tabletop width       = 0.60325
+    Tabletop thickness   = 0.0381
+
+    Leg cross section    = 0.0508 x 0.0508
+    Leg length           = 0.8128
+
+    Wheel diameter       = 0.1016
+    Wheel radius         = 0.0508
+    Wheel width          = 0.0508
+
+    Total height         = 0.9525
+
+    Estimated layout
+    ----------------
+    Legs are 42 in apart on the long side = 1.0668 m center-to-center.
+    So leg x centers are at +/- 0.5334.
+
+    For the short side, a reasonable estimate is to inset each leg slightly
+    from the tabletop edge while keeping the leg under the corners.
+    Table width / 2 = 0.301625
+    Leg half width  = 0.0254
+
+    Estimated leg y centers used here: +/- 0.226425
+    This corresponds to about a 2 inch inset from each table edge.
+    You can edit this later if needed.
+    -->
+
+    <!-- ========================= -->
+    <!-- TABLETOP                  -->
+    <!-- ========================= -->
+    <link name="tabletop">
+      <!-- top surface at total height = 0.9525 -->
+      <!-- tabletop center z = 0.9525 - 0.0381/2 = 0.93345 -->
+      <pose>0 0 0.93345 0 0 0</pose>
+
+      <collision name="tabletop_collision">
+        <geometry>
+          <box>
+            <size>1.2192 0.60325 0.0381</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="tabletop_visual">
+        <geometry>
+          <box>
+            <size>1.2192 0.60325 0.0381</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.65 0.45 0.25 1</ambient>
+          <diffuse>0.65 0.45 0.25 1</diffuse>
+        </material>
+      </visual>
+
+      <inertial>
+        <mass>18.0</mass>
+        <inertia>
+          <ixx>1.0</ixx>
+          <iyy>1.0</iyy>
+          <izz>1.0</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- ========================= -->
+    <!-- LEGS                      -->
+    <!-- leg center z = wheel diameter + leg length/2 -->
+    <!--              = 0.1016 + 0.8128/2 = 0.5080 -->
+    <!-- ========================= -->
+
+    <link name="leg_fl">
+      <pose>0.5334 0.226425 0.5080 0 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>0.0508 0.0508 0.8128</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>0.0508 0.0508 0.8128</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.35 0.35 0.35 1</ambient>
+          <diffuse>0.35 0.35 0.35 1</diffuse>
+        </material>
+      </visual>
+      <inertial>
+        <mass>2.5</mass>
+        <inertia>
+          <ixx>0.02</ixx>
+          <iyy>0.02</iyy>
+          <izz>0.02</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <link name="leg_fr">
+      <pose>0.5334 -0.226425 0.5080 0 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>0.0508 0.0508 0.8128</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>0.0508 0.0508 0.8128</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.35 0.35 0.35 1</ambient>
+          <diffuse>0.35 0.35 0.35 1</diffuse>
+        </material>
+      </visual>
+      <inertial>
+        <mass>2.5</mass>
+        <inertia>
+          <ixx>0.02</ixx>
+          <iyy>0.02</iyy>
+          <izz>0.02</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <link name="leg_rl">
+      <pose>-0.5334 0.226425 0.5080 0 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>0.0508 0.0508 0.8128</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>0.0508 0.0508 0.8128</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.35 0.35 0.35 1</ambient>
+          <diffuse>0.35 0.35 0.35 1</diffuse>
+        </material>
+      </visual>
+      <inertial>
+        <mass>2.5</mass>
+        <inertia>
+          <ixx>0.02</ixx>
+          <iyy>0.02</iyy>
+          <izz>0.02</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <link name="leg_rr">
+      <pose>-0.5334 -0.226425 0.5080 0 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>0.0508 0.0508 0.8128</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>0.0508 0.0508 0.8128</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.35 0.35 0.35 1</ambient>
+          <diffuse>0.35 0.35 0.35 1</diffuse>
+        </material>
+      </visual>
+      <inertial>
+        <mass>2.5</mass>
+        <inertia>
+          <ixx>0.02</ixx>
+          <iyy>0.02</iyy>
+          <izz>0.02</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- ========================= -->
+    <!-- WHEELS                    -->
+    <!-- wheel center z = radius = 0.0508 -->
+    <!-- rotated so cylinder axis is horizontal -->
+    <!-- ========================= -->
+
+    <link name="wheel_fl">
+      <pose>0.5334 0.226425 0.0508 1.5708 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>0.0508</radius>
+            <length>0.0508</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <radius>0.0508</radius>
+            <length>0.0508</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.08 0.08 0.08 1</ambient>
+          <diffuse>0.08 0.08 0.08 1</diffuse>
+        </material>
+      </visual>
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <iyy>0.001</iyy>
+          <izz>0.001</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <link name="wheel_fr">
+      <pose>0.5334 -0.226425 0.0508 1.5708 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>0.0508</radius>
+            <length>0.0508</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <radius>0.0508</radius>
+            <length>0.0508</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.08 0.08 0.08 1</ambient>
+          <diffuse>0.08 0.08 0.08 1</diffuse>
+        </material>
+      </visual>
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <iyy>0.001</iyy>
+          <izz>0.001</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <link name="wheel_rl">
+      <pose>-0.5334 0.226425 0.0508 1.5708 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>0.0508</radius>
+            <length>0.0508</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <radius>0.0508</radius>
+            <length>0.0508</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.08 0.08 0.08 1</ambient>
+          <diffuse>0.08 0.08 0.08 1</diffuse>
+        </material>
+      </visual>
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <iyy>0.001</iyy>
+          <izz>0.001</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <link name="wheel_rr">
+      <pose>-0.5334 -0.226425 0.0508 1.5708 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>0.0508</radius>
+            <length>0.0508</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <radius>0.0508</radius>
+            <length>0.0508</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.08 0.08 0.08 1</ambient>
+          <diffuse>0.08 0.08 0.08 1</diffuse>
+        </material>
+      </visual>
+      <inertial>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <iyy>0.001</iyy>
+          <izz>0.001</izz>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- ========================= -->
+    <!-- FIXED JOINTS              -->
+    <!-- ========================= -->
+
+    <joint name="joint_table_leg_fl" type="fixed">
+      <parent>tabletop</parent>
+      <child>leg_fl</child>
+    </joint>
+
+    <joint name="joint_table_leg_fr" type="fixed">
+      <parent>tabletop</parent>
+      <child>leg_fr</child>
+    </joint>
+
+    <joint name="joint_table_leg_rl" type="fixed">
+      <parent>tabletop</parent>
+      <child>leg_rl</child>
+    </joint>
+
+    <joint name="joint_table_leg_rr" type="fixed">
+      <parent>tabletop</parent>
+      <child>leg_rr</child>
+    </joint>
+
+    <joint name="joint_leg_fl_wheel" type="fixed">
+      <parent>leg_fl</parent>
+      <child>wheel_fl</child>
+    </joint>
+
+    <joint name="joint_leg_fr_wheel" type="fixed">
+      <parent>leg_fr</parent>
+      <child>wheel_fr</child>
+    </joint>
+
+    <joint name="joint_leg_rl_wheel" type="fixed">
+      <parent>leg_rl</parent>
+      <child>wheel_rl</child>
+    </joint>
+
+    <joint name="joint_leg_rr_wheel" type="fixed">
+      <parent>leg_rr</parent>
+      <child>wheel_rr</child>
+    </joint>
+
+  </model>
+</sdf>

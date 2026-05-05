@@ -1,0 +1,371 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.10">
+  <world name="room_427_integrated">
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics" />
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands" />
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster" />
+    <gravity>0 0 -9.8</gravity>
+    <scene>
+      <ambient>0.45 0.45 0.45 1</ambient>
+      <background>0.75 0.78 0.82 1</background>
+      <shadows>true</shadows>
+      <grid>false</grid>
+    </scene>
+    <light name="main_light" type="directional">
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.6 0.6 0.6 1</diffuse>
+      <specular>0.4 0.4 0.4 1</specular>
+      <direction>-0.5 0.5 -1</direction>
+    </light>
+    <gui fullscreen="0">
+      <camera name="user_camera">
+        <pose>12 -10 8 0.7 0 1.15</pose>
+      </camera>
+    </gui>
+    <include>
+      <name>room_427_shell</name>
+      <uri>model://room_427_shell</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z1_r1_c1</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>1.80 0.75 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z1_r1_c2</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>1.80 2.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z1_r1_c3</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>1.80 4.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z1_r1_c4</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>1.80 5.55 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z1_r2_c1</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>3.00 0.75 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z1_r2_c2</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>3.00 2.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z1_r2_c3</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>3.00 4.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z1_r2_c4</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>3.00 5.55 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z1_r3_c1</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>4.20 0.75 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z1_r3_c2</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>4.20 2.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z1_r3_c3</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>4.20 4.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z1_r3_c4</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>4.20 5.55 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z1_r4_c1</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>5.40 0.75 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z1_r4_c2</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>5.40 2.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z1_r4_c3</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>5.40 4.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z1_r4_c4</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>5.40 5.55 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z2_r1_c1</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>8.00 0.75 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z2_r1_c2</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>8.00 2.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z2_r1_c3</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>8.00 4.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z2_r2_c1</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>9.40 0.75 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z2_r2_c2</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>9.40 2.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z2_r2_c3</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>9.40 4.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z2_r3_c1</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>10.80 0.75 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z2_r3_c2</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>10.80 2.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z2_r3_c3</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>10.80 4.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z2_r4_c1</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>12.20 0.75 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z2_r4_c2</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>12.20 2.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z2_r4_c3</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>12.20 4.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r1_c1</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>14.20 0.75 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r1_c2</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>14.20 2.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r1_c3</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>14.20 4.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r1_c4</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>14.20 5.55 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r2_c1</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>15.40 0.75 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r2_c2</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>15.40 2.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r2_c3</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>15.40 4.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r2_c4</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>15.40 5.55 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r3_c1</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>16.60 0.75 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r3_c2</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>16.60 2.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r3_c3</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>16.60 4.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r3_c4</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>16.60 5.55 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r4_c1</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>17.80 0.75 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r4_c2</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>17.80 2.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r4_c3</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>17.80 4.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r4_c4</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>17.80 5.55 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r5_c1</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>19.00 0.75 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r5_c2</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>19.00 2.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r5_c3</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>19.00 4.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r5_c4</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>19.00 5.55 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r6_c1</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>20.20 0.75 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r6_c2</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>20.20 2.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r6_c3</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>20.20 4.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r6_c4</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>20.20 5.55 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r7_c1</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>21.40 0.75 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r7_c2</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>21.40 2.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r7_c3</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>21.40 4.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r7_c4</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>21.40 5.55 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r8_c1</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>22.60 0.75 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r8_c2</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>22.60 2.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r8_c3</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>22.60 4.15 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>light_z3_r8_c4</name>
+      <uri>model://fluorescent_light</uri>
+      <pose>22.60 5.55 2.70 0 0 0</pose>
+    </include>
+    <include>
+      <name>door_model_1_left</name>
+      <uri>model://door</uri>
+      <pose>21.2700 6.4700 0 0 0 0.0000</pose>
+    </include>
+    <include>
+      <name>door_model_1_right</name>
+      <uri>model://door</uri>
+      <pose>22.1300 6.4700 0 0 0 0.0000</pose>
+    </include>
+    <include>
+      <name>door_model_2_left</name>
+      <uri>model://door</uri>
+      <pose>13.5425 6.4700 0 0 0 0.0000</pose>
+    </include>
+    <include>
+      <name>door_model_2_right</name>
+      <uri>model://door</uri>
+      <pose>14.4575 6.4700 0 0 0 0.0000</pose>
+    </include>
+    <include>
+      <name>door_model_3</name>
+      <uri>model://door</uri>
+      <pose>0.0650 4.8382 0 0 0 1.5708</pose>
+    </include>
+    <include>
+      <name>table_model_1</name>
+      <uri>model://my_table</uri>
+      <pose>4.0 2.2 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>table_model_2</name>
+      <uri>model://my_table2</uri>
+      <pose>6.0 2.2 0 0 0 0</pose>
+    </include>
+    <include>
+      <name>aruco_tag_1</name>
+      <uri>model://aruco_tag_whiteboard</uri>
+      <pose>18.0 6.20 1.5 0 0 3.1416</pose>
+    </include>
+  </world>
+</sdf>
