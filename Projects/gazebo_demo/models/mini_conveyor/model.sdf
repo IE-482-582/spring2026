@@ -1,0 +1,138 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="mini_mover_conveyor">
+    <static>true</static>
+
+    <link name="base">
+
+      <!-- Main conveyor body -->
+      <visual name="frame">
+        <pose>0 0 0.06 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.9906 0.2032 0.12</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.72 0.72 0.72 1</ambient>
+          <diffuse>0.72 0.72 0.72 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- Conveyor belt surface -->
+      <visual name="belt">
+        <pose>-0.0381 0 0.125 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.9144 0.2032 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.95 0.95 0.92 1</ambient>
+          <diffuse>0.95 0.95 0.92 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- Front metal extension plate -->
+      <visual name="front_extension">
+        <pose>0.4572 0 0.125 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.0762 0.2032 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.30 0.30 0.30 1</ambient>
+          <diffuse>0.30 0.30 0.30 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- Side-mounted motor box -->
+      <visual name="motor_box">
+        <pose>-0.40 -0.17 0.16 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.14 0.10 0.12</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.45 0.45 0.45 1</ambient>
+          <diffuse>0.45 0.45 0.45 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- Motor cylinder connecting to conveyor side -->
+      <visual name="motor_coupler">
+        <pose>-0.33 -0.125 0.16 0 1.5708 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>0.09</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.50 0.50 0.50 1</ambient>
+          <diffuse>0.50 0.50 0.50 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- Four corner feet -->
+      <visual name="foot_front_left">
+        <pose>0.42 0.08 -0.02 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0254</radius>
+            <length>0.02</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.7 0.7 0.7 1</ambient>
+          <diffuse>0.7 0.7 0.7 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="foot_front_right">
+        <pose>0.42 -0.08 -0.02 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0254</radius>
+            <length>0.02</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.7 0.7 0.7 1</ambient>
+          <diffuse>0.7 0.7 0.7 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="foot_back_left">
+        <pose>-0.42 0.08 -0.02 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0254</radius>
+            <length>0.02</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.7 0.7 0.7 1</ambient>
+          <diffuse>0.7 0.7 0.7 1</diffuse>
+        </material>
+      </visual>
+
+      <visual name="foot_back_right">
+        <pose>-0.42 -0.08 -0.02 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0254</radius>
+            <length>0.02</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.7 0.7 0.7 1</ambient>
+          <diffuse>0.7 0.7 0.7 1</diffuse>
+        </material>
+      </visual>
+
+    </link>
+  </model>
+</sdf>
